@@ -1,0 +1,15 @@
+=================================
+Chartcube App v1.3 ...
+Running Test Suite v1.0 ...
+=================================
+------------------
+./101_LaunchApp
+------------------
+The max width/height supported by codec is 1280x720
+Test Case: Launch Application
+Test Case: Refresh List
+------------------
+./10_ChartTypeSortShare
+------------------
+The max width/height supported by codec is 1280x720
+Test Case: Chart Type - Bar Chart
