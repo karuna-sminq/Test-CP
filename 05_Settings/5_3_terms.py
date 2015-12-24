@@ -66,11 +66,20 @@ class CulebraTests(CulebraTestCase):
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
+        if (self.vc.findViewWithTextOrRaise(u'Terms of Use')):
+            print "Passed..."
+        else:
+            print "Failed..."
+        self.vc.sleep(_s)
+        self.vc.dump(window=-1)
+
         self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewBackButton").touch()
         self.vc.sleep(_s)
+        self.vc.dump(window=-1)
 
         print "Back to Home"
         self.vc.device.press('KEYCODE_BACK')
+        self.vc.dump(window=-1)
 
 if __name__ == '__main__':
     CulebraTests.main()

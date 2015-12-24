@@ -56,31 +56,25 @@ class CulebraTests(CulebraTestCase):
 
         self.vc.dump(window=-1)
 
-        print "Test Case: Deleting a Comment"
-        self.vc.findViewWithTextOrRaise(u'Sales Data - Departmental Stores_karuna_copy').touch()
-        self.vc.sleep(_s)
-        self.vc.dump(window=-1)
-
-        print "Deleting a Comment"
-        self.device.dragDip((301.0, 522.0), (120.0, 523.0), 1000, 20, 0)
+        print "MenuList- Rename"
+        self.device.dragDip((186.0, 609.0), (157.0, 82.0), 1000, 20, 0)
         self.vc.sleep(1)
         self.vc.dump(window=-1)
 
-        self.vc.findViewWithTextOrRaise(u' Remove ').touch()
+        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewMenuList").touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        print "Deleted"
-        self.vc.findViewWithTextOrRaise(u'Delete').touch()
+        self.vc.findViewWithTextOrRaise(u'Rename').touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        self.device.press('KEYCODE_BACK')
+        self.vc.findViewWithTextOrRaise(u'Cancel').touch()
+        print "Selected Cancel"
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        print "Back to Home"
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewBackButton").touch()
+        android___id_list.uiScrollable.flingtoBeginning()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 

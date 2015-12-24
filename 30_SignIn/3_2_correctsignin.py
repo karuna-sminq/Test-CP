@@ -56,42 +56,37 @@ class CulebraTests(CulebraTestCase):
 
         self.vc.dump(window=-1)
 
-        print "Test Case: Sign Up - Existing User"
+        print "Test Case: Sign In - Correct Credentials"
         self.vc.findViewWithTextOrRaise(u'V 1.3', root=self.vc.findViewByIdOrRaise('id/no_id/10')).touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        self.vc.findViewWithTextOrRaise(u'Create Account').touch()
+        self.vc.findViewWithTextOrRaise(u'Sign In').touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        print "Typing ..."
-        self.vc.findViewWithTextOrRaise(u'Create Account').touch()
+        print "Typing..."
+        self.vc.findViewWithTextOrRaise(u'Email').setText("karuna.lingham@codepandora.com")
+        self.vc.sleep(3)
+        self.vc.dump(window=-1)
+
+        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/sign_in_password_edit").touch()
+        self.vc.sleep(3)
+        self.vc.dump(window=-1)
+
+        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/sign_in_password_edit").setText("karuna@cp2015")
+        self.vc.sleep(3)
+        self.vc.dump(window=-1)
+
+        print "Clicked Sign In Button"
+        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/sign_in_sign_in_button").touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        self.vc.findViewWithTextOrRaise(u'Email').setText("test@123.com")
-        self.vc.sleep(_s)
-        self.vc.dump(window=-1)
-
-        self.vc.findViewWithTextOrRaise(u'Full Name').setText("test")
-        self.vc.sleep(_s)
-        self.vc.dump(window=-1)
-
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/create_account_password_edit").setText("test")
-        self.vc.sleep(_s)
-        self.vc.dump(window=-1)
-
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/create_account_confirm_edit").setText("test")
-        self.vc.sleep(_s)
-        self.vc.dump(window=-1)
-
-        print "Clicked Create Account Button"
-        self.vc.findViewWithTextOrRaise(u'Create Account').touch()
-        self.vc.sleep(_s)
-        self.vc.dump(window=-1)
-
-        print "Back to Home"
+        if (self.vc.findViewWithTextOrRaise('All Chartcubes')):
+            print "Sign In successful!"
+        else:
+            print "Sign In failed..."
 
 if __name__ == '__main__':
     CulebraTests.main()

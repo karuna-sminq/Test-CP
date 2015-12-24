@@ -56,22 +56,64 @@ class CulebraTests(CulebraTestCase):
 
         self.vc.dump(window=-1)
 
-        print "Test Case: MenuList- Share"
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewMenuList").touch()
+        print "Test Case: Choosing Aggregation and Format from List"
+        self.vc.findViewWithTextOrRaise(u'Sales Data - Departmental Stores_karuna_copy').touch()
+        self.vc.sleep(8)
+        self.vc.dump(window=-1)
+
+        self.vc.device.press('KEYCODE_BACK')
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        self.vc.findViewWithTextOrRaise(u'Share').touch()
+        self.vc.device.press('KEYCODE_BACK')
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        self.vc.findViewWithTextOrRaise(u'Send').touch()
-        self.vc.sleep(_s)
+        print "List: "
+        self.device.longTouch(520.0, 202.0, 2000, 0)
+        self.vc.sleep(3)
         self.vc.dump(window=-1)
 
+        print "Metric - Actual"
+        self.device.longTouch(62.0, 506.0, 2000, 0)
+        self.vc.sleep(3)
+        self.vc.dump(window=-1)
+
+        print "Aggregation List: "
+        self.device.longTouch(456.0, 376.0, 2000, 0)
+        self.vc.sleep(3)
+        self.vc.dump(window=-1)
+
+        if (self.vc.findViewWithTextOrRaise(u'Chart Value Options')):
+            print "Aggregation selected..."
+        else:
+            print "Failed..."
+        self.vc.dump(window=-1)
+
+        print "Aggregation - Average"
+        self.device.longTouch(92.0, 380.0, 2000, 0)
+        self.vc.sleep(3)
+        self.vc.dump(window=-1)
+
+        print "Aggregation List: "
+        self.device.longTouch(456.0, 376.0, 2000, 0)
+        self.vc.sleep(3)
+        self.vc.dump(window=-1)
+
+        if (self.vc.findViewWithTextOrRaise(u'Chart Value Options')):
+            print "Format selected..."
+        else:
+            print "Failed..."
+        self.vc.dump(window=-1)
+
+        print "Format - Currency"
+        self.device.longTouch(106.0, 750.0, 2000, 0)
+        self.vc.sleep(3)
+        self.vc.dump(window=-1)
+
+        print "Back to Home"
         self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewBackButton").touch()
         self.vc.sleep(_s)
-        self.vc.dump(window=-1)
 
 if __name__ == '__main__':
     CulebraTests.main()

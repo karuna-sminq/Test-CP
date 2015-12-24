@@ -56,17 +56,34 @@ class CulebraTests(CulebraTestCase):
 
         self.vc.dump(window=-1)
 
-        print "Test Case: Swiping Left"
+        print "Test Case: Deleting a Comment"
         self.vc.findViewWithTextOrRaise(u'Sales Data - Departmental Stores_karuna_copy').touch()
-        self.vc.sleep(8)
-        self.vc.dump(window=-1)
-
-        self.vc.device.press('KEYCODE_BACK')
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        self.device.dragDip((54.0, 380.0), (338.0, 371.0), 1000, 20, 0)
+        print "Deleting a Comment"
+        self.device.dragDip((301.0, 522.0), (120.0, 523.0), 1000, 20, 0)
         self.vc.sleep(1)
+        self.vc.dump(window=-1)
+
+        self.vc.findViewWithTextOrRaise(u' Remove ').touch()
+        self.vc.sleep(_s)
+        self.vc.dump(window=-1)
+
+        print "Deleted"
+        self.vc.findViewWithTextOrRaise(u'Delete').touch()
+        self.vc.sleep(_s)
+        self.vc.dump(window=-1)
+
+        if (self.vc.findViewWithTextOrRaise(u'2 Comments')):
+            print "1 comment lesser: Passed..."
+        else:
+            print "No change: Failed..."
+        self.vc.sleep(_s)
+        self.vc.dump(window=-1)
+
+        self.device.press('KEYCODE_BACK')
+        self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
         print "Back to Home"

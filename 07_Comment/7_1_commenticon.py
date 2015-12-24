@@ -56,35 +56,40 @@ class CulebraTests(CulebraTestCase):
 
         self.vc.dump(window=-1)
 
-        print "Test Case: Adding a Drilldown"
-        self.vc.findViewWithTextOrRaise(u'Sales Data - Departmental Stores_karuna_copy').touch()
+        print "Test Case: Bookmark List of Cube"
+        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewCommentCount").touch()
         self.vc.sleep(8)
+        self.vc.dump(window=-1)
 
-        self.vc.device.press('KEYCODE_BACK')
+        if (self.vc.findViewWithTextOrRaise(u'No Headline')):
+            print "Passed..."
+        else:
+            print "Failed..."
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        self.device.dragDip((54.0, 380.0), (338.0, 371.0), 1000, 20, 0)
-        self.vc.sleep(1)
+        self.vc.findViewWithTextOrRaise(u'No Headline').touch()
+        self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        print "Add Drilldown filter"
-        # self.device.longTouch(622.0, 944.0, 2000, 0)
-        # self.device.longTouch(622.0, 944.0, 2000, 0)
-        # self.device.longTouch(622.0, 944.0, 2000, 0)
-        # self.device.touchDip(134.0, 504.0, 0)
-        # self.device.touchDip(134.0, 504.0, 0)
-        # self.device.touchDip(134.0, 504.0, 0)
-        # self.device.touchDip(134.0, 504.0, 0)
-        #self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/listViewDrillDown").touch()
-        #self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/layoutDrillDownScroller").touch()
-        self.vc.device.press('KEYCODE_MENU', 'DOWN_AND_UP')
+        print "Next bookmark"
+        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/iv_bookmark_next").touch()
+        self.vc.sleep(_s)
+        self.vc.dump(window=-1)
+
+        print "Previous bookmark"
+        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/iv_bookmark_prev").touch()
+        self.vc.sleep(_s)
+        self.vc.dump(window=-1)
+
+        self.vc.device.press('KEYCODE_BACK')
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
         print "Back to Home"
         self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewBackButton").touch()
         self.vc.sleep(_s)
+        self.vc.dump(window=-1)
 
 if __name__ == '__main__':
     CulebraTests.main()

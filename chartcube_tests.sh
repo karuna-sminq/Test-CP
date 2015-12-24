@@ -1,4 +1,11 @@
 #!/usr/bin/env/ sh
+
+d="$(date +'%d-%m-%Y')"
+t="$(date +%r)"
+now=$d-$t
+#Begin console log
+exec 1>>logs/test_logs_$now.txt
+exec 2>>logs/test_logs_$now.txt
 '''
 Copyright (C) 2015  CODE PANDORA
 Created on 2015-12-11
@@ -10,9 +17,9 @@ Created on 2015-12-11
 
 @author: Karuna Lingham
 '''
-
-#Begin console log
-exec 1>logs/test_logs.txt
+# exec 3>&1 1>>logs/test_logs_$now.txt 2>&1
+# exec 1| tee log.txt
+# exec 2| tee log.txt
 
 echo "================================="
 echo "Chartcube App v1.3 ..."

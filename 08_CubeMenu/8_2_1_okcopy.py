@@ -56,23 +56,24 @@ class CulebraTests(CulebraTestCase):
 
         self.vc.dump(window=-1)
 
-        print "MenuList- Delete/Remove"
-        android___id_list = self.vc.findViewByIdOrRaise("android:id/list")
-
-        android___id_list.uiScrollable.flingBackward()
-        self.vc.sleep(_s)
-        self.vc.dump(window=-1)
-
+        print "MenuList- Copy"
         self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewMenuList").touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        self.vc.findViewWithTextOrRaise(u'Delete').touch()
+        self.vc.findViewWithTextOrRaise(u'Copy').touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        self.vc.findViewWithTextOrRaise(u'Cancel').touch()
-        print "Selected Cancel"
+        self.vc.findViewWithTextOrRaise(u'OK').touch()
+        print "Selected OK"
+        self.vc.sleep(_s)
+        self.vc.dump(window=-1)
+
+        if (self.vc.findViewWithTextOrRaise(u'Sales Data - Departmental Stores_karuna_copy copy')):
+            print "Copy success..."
+        else:
+            print "Failed..."
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 

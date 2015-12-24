@@ -56,7 +56,7 @@ class CulebraTests(CulebraTestCase):
 
         self.vc.dump(window=-1)
 
-        print "Test Case: Swiping Right"
+        print "Test Case: Scrolling Up"
         self.vc.findViewWithTextOrRaise(u'Sales Data - Departmental Stores_karuna_copy').touch()
         self.vc.sleep(8)
         self.vc.dump(window=-1)
@@ -67,6 +67,28 @@ class CulebraTests(CulebraTestCase):
 
         self.device.dragDip((340.0, 366.0), (48.0, 364.0), 1000, 20, 0)
         self.vc.sleep(1)
+        self.vc.dump(window=-1)
+
+        if (self.vc.findViewWithTextOrRaise(u'Pipeline')):
+            print "Before scrolling up: Note metric name"
+        else:
+            print "Failed..."
+        self.vc.sleep(_s)
+        self.vc.dump(window=-1)
+
+        print "Scroll Up"
+        self.device.press('KEYCODE_DPAD_CENTER')
+        self.device.press('KEYCODE_DPAD_DOWN')
+        self.device.press('KEYCODE_DPAD_RIGHT')
+        self.vc.sleep(_s)
+        self.vc.dump(window=-1)
+
+        if (self.vc.findViewWithTextOrRaise(u'Pipeline')):
+            print "After scrolling up: Metric unchanged!"
+            print "Passed..."
+        else:
+            print "Failed..."
+        self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
         print "Back to Home"

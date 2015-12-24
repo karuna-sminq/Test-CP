@@ -1,0 +1,253 @@
+chartcube_tests.sh: 17: chartcube_tests.sh: 
+Copyright (C) 2015  CODE PANDORA
+Created on 2015-12-11
+   __________  ____  ______   ____  ___    _   ______  ____  ____  ___
+  / ____/ __ \/ __ \/ ____/  / __ \/   |  / | / / __ \/ __ \/ __ \/   |
+ / /   / / / / / / / __/    / /_/ / /| | /  |/ / / / / / / / /_/ / /| |
+/ /___/ /_/ / /_/ / /___   / ____/ ___ |/ /|  / /_/ / /_/ / _, _/ ___ |
+\____/\____/_____/_____/  /_/   /_/  |_/_/ |_/_____/\____/_/ |_/_/  |_|
+
+@author: Karuna Lingham
+: not found
+=================================
+Chartcube App v1.3 ...
+Running Test Suite v1.0 ...
+=================================
+------------------
+./01_LaunchApp
+------------------
+The max width/height supported by codec is 1280x720
+.
+----------------------------------------------------------------------
+Ran 1 test in 46.544s
+
+OK
+Test Case: Launch Application
+Continue...
+Screenshot captured!
+.
+----------------------------------------------------------------------
+Ran 1 test in 25.764s
+
+OK
+Test Case: Refresh List
+------------------
+./04_FilterCubes
+------------------
+The max width/height supported by codec is 1280x720
+.
+----------------------------------------------------------------------
+Ran 1 test in 20.712s
+
+OK
+Test Case: CubeFilter- All Chartcubes
+CubeFilter- My Chartcubes
+.
+----------------------------------------------------------------------
+Ran 1 test in 28.711s
+
+OK
+Test Case: CubeFilter- My Chartcubes
+Check for My Chartcubes: Passed...
+CubeFilter- Shared Chartcubes
+.
+----------------------------------------------------------------------
+Ran 1 test in 28.624s
+
+OK
+Test Case: CubeFilter- Shared Chartcubes
+Check for Shared Chartcubes: Passed...
+CubeFilter- Back to All Chartcubes
+------------------
+./05_Settings
+------------------
+The max width/height supported by codec is 1280x720
+.
+----------------------------------------------------------------------
+Ran 1 test in 46.484s
+
+OK
+Test Case: Settings
+Sign Out
+Selected No
+Passed...
+Back to Home
+.
+----------------------------------------------------------------------
+Ran 1 test in 35.324s
+
+OK
+Test Case: Settings
+Privacy Policy
+Passed...
+Back to Home
+.
+----------------------------------------------------------------------
+Ran 1 test in 41.612s
+
+OK
+Test Case: Settings
+Terms of Use
+Passed...
+Back to Home
+------------------
+./06_Notifications
+------------------
+The max width/height supported by codec is 1280x720
+.
+----------------------------------------------------------------------
+Ran 1 test in 26.900s
+
+OK
+Test Case: Notifications
+Passed...
+------------------
+./07_Comment
+------------------
+The max width/height supported by codec is 1280x720
+.
+----------------------------------------------------------------------
+Ran 1 test in 68.002s
+
+OK
+Test Case: Bookmark List of Cube
+Passed...
+Next bookmark
+Previous bookmark
+Back to Home
+.
+----------------------------------------------------------------------
+Ran 1 test in 117.438s
+
+OK
+Test Case: Adding a Comment
+Typing a Comment
+Posting a Comment
+1 comment added: Passed...
+Back to Home
+.
+----------------------------------------------------------------------
+Ran 1 test in 62.410s
+
+OK
+Test Case: Deleting a Comment
+Deleting a Comment
+Deleted
+1 comment lesser: Passed...
+Back to Home
+------------------
+./08_CubeMenu
+------------------
+The max width/height supported by codec is 1280x720
+.
+----------------------------------------------------------------------
+Ran 1 test in 113.764s
+
+OK
+Test Case: MenuList- Share
+Passed...
+Recipient's email
+Back to Home
+.
+----------------------------------------------------------------------
+Ran 1 test in 37.425s
+
+OK
+MenuList- Copy
+Selected OK
+Copy success...
+.
+----------------------------------------------------------------------
+Ran 1 test in 37.369s
+
+OK
+MenuList- Copy
+Selected Cancel
+Copy cancelled...
+.
+----------------------------------------------------------------------
+Ran 1 test in 35.130s
+
+OK
+MenuList- Rename
+Selected OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 35.263s
+
+OK
+MenuList- Rename
+Selected Cancel
+.
+----------------------------------------------------------------------
+Ran 1 test in 46.621s
+
+OK
+MenuList- Delete/Remove
+Selected Ok
+Delete success...
+E
+======================================================================
+ERROR: testSomething (__main__.CulebraTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "./08_CubeMenu/8_4_2_candelete.py", line 70, in testSomething
+    self.vc.findViewWithTextOrRaise(u'Delete').touch()
+  File "/usr/local/lib/python2.7/dist-packages/androidviewclient-11.0.1-py2.7.egg/com/dtmilano/android/viewclient.py", line 3564, in findViewWithTextOrRaise
+    raise ViewNotFoundException("text", text, root)
+ViewNotFoundException: Couldn't find View with text='Delete' in tree with root=ROOT
+
+----------------------------------------------------------------------
+Ran 1 test in 21.423s
+
+FAILED (errors=1)
+MenuList- Delete/Remove
+------------------
+./09_Cube
+------------------
+The max width/height supported by codec is 1280x720
+E
+======================================================================
+ERROR: testSomething (__main__.CulebraTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "./09_Cube/9_1_metdim.py", line 60, in testSomething
+    self.vc.findViewWithTextOrRaise(u'Sales Data - Departmental Stores_karuna_copy').touch()
+  File "/usr/local/lib/python2.7/dist-packages/androidviewclient-11.0.1-py2.7.egg/com/dtmilano/android/viewclient.py", line 3564, in findViewWithTextOrRaise
+    raise ViewNotFoundException("text", text, root)
+ViewNotFoundException: Couldn't find View with text='Sales Data - Departmental Stores_karuna_copy' in tree with root=ROOT
+
+----------------------------------------------------------------------
+Ran 1 test in 3.082s
+
+FAILED (errors=1)
+Test Case: Choosing Metric and Dimension from List
+Test Case: Choosing Aggregation and Format from List
+Traceback (most recent call last):
+  File "./09_Cube/9_2_aggreformat.py", line 119, in <module>
+    CulebraTests.main()
+  File "/usr/local/lib/python2.7/dist-packages/androidviewclient-11.0.1-py2.7.egg/com/dtmilano/android/viewclient.py", line 4319, in main
+    unittest.main()
+  File "/usr/lib/python2.7/unittest/main.py", line 95, in __init__
+    self.runTests()
+  File "/usr/lib/python2.7/unittest/main.py", line 232, in runTests
+    self.result = testRunner.run(self.test)
+  File "/usr/lib/python2.7/unittest/runner.py", line 151, in run
+    test(result)
+  File "/usr/lib/python2.7/unittest/suite.py", line 70, in __call__
+    return self.run(*args, **kwds)
+  File "/usr/lib/python2.7/unittest/suite.py", line 108, in run
+    test(result)
+  File "/usr/lib/python2.7/unittest/suite.py", line 70, in __call__
+    return self.run(*args, **kwds)
+  File "/usr/lib/python2.7/unittest/suite.py", line 108, in run
+    test(result)
+  File "/usr/lib/python2.7/unittest/case.py", line 395, in __call__
+    return self.run(*args, **kwds)
+  File "/usr/lib/python2.7/unittest/case.py", line 331, in run
+    testMethod()
+  File "./09_Cube/9_2_aggreformat.py", line 69, in testSomething
+    self.vc.sleep(_s)
+  File "/usr/local/lib/python2.7/dist-packages/androidviewclient-11.0.1-py2.7.egg/com/dtmilano/android/viewclient.py", line 2783, in sleep
+    time.sleep(secs)
+KeyboardInterrupt

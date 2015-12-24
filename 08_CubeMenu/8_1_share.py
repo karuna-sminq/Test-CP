@@ -33,7 +33,7 @@ class CulebraTests(CulebraTestCase):
     def setUpClass(cls):
         cls.kwargs1 = {'ignoreversioncheck': False, 'verbose': False, 'ignoresecuredevice': False}
         cls.kwargs2 = {'forceviewserveruse': False, 'useuiautomatorhelper': False, 'ignoreuiautomatorkilled': True, 'autodump': False, 'startviewserver': True, 'compresseddump': True}
-        cls.options = {'start-activity': None, 'concertina': False, 'device-art': None, 'use-jar': False, 'multi-device': False, 'unit-test-class': True, 'save-screenshot': None, 'use-dictionary': False, 'glare': False, 'dictionary-keys-from': 'id', 'scale': 0.5, 'find-views-with-content-description': False, 'window': -1, 'orientation-locked': None, 'save-view-screenshots': None, 'find-views-by-id': True, 'log-actions': False, 'use-regexps': False, 'null-back-end': False, 'auto-regexps': None, 'do-not-verify-screen-dump': False, 'verbose-comments': False, 'gui': True, 'find-views-with-text': True, 'prepend-to-sys-path': False, 'drop-shadow': False, 'output': 'chartsignin1.py', 'unit-test-method': None, 'interactive': False}
+        cls.options = {'start-activity': None, 'concertina': False, 'device-art': None, 'use-jar': False, 'multi-device': False, 'unit-test-class': True, 'save-screenshot': None, 'use-dictionary': False, 'glare': False, 'dictionary-keys-from': 'id', 'scale': 0.5, 'find-views-with-content-description': False, 'window': -1, 'orientation-locked': None, 'save-view-screenshots': None, 'find-views-by-id': True, 'log-actions': False, 'use-regexps': False, 'null-back-end': False, 'auto-regexps': None, 'do-not-verify-screen-dump': False, 'verbose-comments': False, 'gui': True, 'find-views-with-text': True, 'prepend-to-sys-path': False, 'drop-shadow': False, 'output': 'testnotif.py', 'unit-test-method': None, 'interactive': False}
         cls.sleep = 5
 
     def setUp(self):
@@ -56,38 +56,51 @@ class CulebraTests(CulebraTestCase):
 
         self.vc.dump(window=-1)
 
-        print "Test Case: Sign Up - New User"
-        self.vc.findViewWithTextOrRaise(u'V 1.3', root=self.vc.findViewByIdOrRaise('id/no_id/10')).touch()
+        print "Test Case: MenuList- Share"
+        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewMenuList").touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        print "Typing ..."
-        self.vc.findViewWithTextOrRaise(u'Create Account').touch()
+        self.vc.findViewWithTextOrRaise(u'Share').touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        self.vc.findViewWithTextOrRaise(u'Email').setText("test@123.com")
+        if (self.vc.findViewWithTextOrRaise(u'Share')):
+            print "Passed..."
+        else:
+            print "Failed..."
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        self.vc.findViewWithTextOrRaise(u'Full Name').setText("test")
+        print "Recipient's email"
+        self.vc.findViewWithTextOrRaise(u'Enter Recipients').touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/create_account_password_edit").setText("test")
+        # self.vc.findViewWithTextOrRaise(u'Enter Recipients').setText("test@123.com")
+        # self.vc.sleep(_s)
+        # self.vc.dump(window=-1)
+
+        self.vc.findViewWithTextOrRaise(u'(Optional Message)').touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/create_account_confirm_edit").setText("test")
+        self.vc.findViewWithTextOrRaise(u'(Optional Message)').setText("testing")
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        print "Clicked Create Account Button"
-        self.vc.findViewWithTextOrRaise(u'Create Account').touch()
+        self.vc.device.press('KEYCODE_BACK')
+        self.vc.sleep(_s)
+        self.vc.dump(window=-1)
+
+        self.vc.findViewWithTextOrRaise(u'Send').touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
         print "Back to Home"
+        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewBackButton").touch()
+        self.vc.sleep(_s)
+        self.vc.dump(window=-1)
 
 if __name__ == '__main__':
     CulebraTests.main()

@@ -56,23 +56,40 @@ class CulebraTests(CulebraTestCase):
 
         self.vc.dump(window=-1)
 
-        print "MenuList- Delete/Remove"
-        android___id_list = self.vc.findViewByIdOrRaise("android:id/list")
+        print "Test Case: Swiping Right"
+        self.vc.findViewWithTextOrRaise(u'Sales Data - Departmental Stores_karuna_copy').touch()
+        self.vc.sleep(8)
+        self.vc.dump(window=-1)
 
-        android___id_list.uiScrollable.flingBackward()
+        self.vc.device.press('KEYCODE_BACK')
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewMenuList").touch()
+        self.device.dragDip((340.0, 366.0), (48.0, 364.0), 1000, 20, 0)
+        self.vc.sleep(1)
+        self.vc.dump(window=-1)
+
+        if (self.vc.findViewWithTextOrRaise(u'Rep')):
+            print "Before swiping right: Note dimension name"
+        else:
+            print "Failed..."
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        self.vc.findViewWithTextOrRaise(u'Delete').touch()
+        self.device.dragDip((340.0, 366.0), (48.0, 364.0), 1000, 20, 0)
+        self.vc.sleep(1)
+        self.vc.dump(window=-1)
+
+        if (self.vc.findViewWithTextOrRaise(u'Rep')):
+            print "After swiping right: Dimension unchanged!"
+            print "Passed..."
+        else:
+            print "Failed..."
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        self.vc.findViewWithTextOrRaise(u'OK').touch()
-        print "Selected Ok"
+        print "Back to Home"
+        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewBackButton").touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 

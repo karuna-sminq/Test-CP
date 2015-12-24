@@ -56,17 +56,44 @@ class CulebraTests(CulebraTestCase):
 
         self.vc.dump(window=-1)
 
-        print "MenuList- Copy"
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewMenuList").touch()
+        print "Test Case: Chart Type - Table View"
+        self.vc.findViewWithTextOrRaise(u'Sales Data - Departmental Stores_karuna_copy').touch()
+        self.vc.sleep(8)
+        self.vc.dump(window=-1)
+
+        self.device.longTouch(516.0, 110.0, 2000, 0)
+        self.vc.sleep(5)
+        self.vc.dump(window=-1)
+
+        self.device.longTouch(184.0, 658.0, 2000, 0)
+        self.vc.sleep(5)
+        self.vc.dump(window=-1)
+
+        self.vc.device.press('KEYCODE_BACK')
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        self.vc.findViewWithTextOrRaise(u'Copy').touch()
+        print "Options Menu: "
+        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewChartCubeOptionsMenu").touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        self.vc.findViewWithTextOrRaise(u'OK').touch()
-        print "Selected OK"
+        self.device.longTouch(516.0, 310.0, 2000, 0)
+        self.vc.sleep(5)
+        self.vc.dump(window=-1)
+
+        print "Selected: Table View"
+        self.vc.findViewWithTextOrRaise(u'Table View', root=self.vc.findViewByIdOrRaise('id/no_id/12')).touch()
+        self.vc.sleep(_s)
+        self.vc.dump(window=-1)
+
+        print "Scroll table on Overlay"
+        self.device.dragDip((343.0, 460.0), (344.0, 362.0), 1000, 20, 0)
+        self.vc.sleep(3)
+        self.vc.dump(window=-1)
+
+        print "Back to Home"
+        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewBackButton").touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 

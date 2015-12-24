@@ -33,7 +33,7 @@ class CulebraTests(CulebraTestCase):
     def setUpClass(cls):
         cls.kwargs1 = {'ignoreversioncheck': False, 'verbose': False, 'ignoresecuredevice': False}
         cls.kwargs2 = {'forceviewserveruse': False, 'useuiautomatorhelper': False, 'ignoreuiautomatorkilled': True, 'autodump': False, 'startviewserver': True, 'compresseddump': True}
-        cls.options = {'start-activity': None, 'concertina': False, 'device-art': None, 'use-jar': False, 'multi-device': False, 'unit-test-class': True, 'save-screenshot': None, 'use-dictionary': False, 'glare': False, 'dictionary-keys-from': 'id', 'scale': 0.5, 'find-views-with-content-description': False, 'window': -1, 'orientation-locked': None, 'save-view-screenshots': None, 'find-views-by-id': True, 'log-actions': False, 'use-regexps': False, 'null-back-end': False, 'auto-regexps': None, 'do-not-verify-screen-dump': False, 'verbose-comments': False, 'gui': True, 'find-views-with-text': True, 'prepend-to-sys-path': False, 'drop-shadow': False, 'output': 'testnotif.py', 'unit-test-method': None, 'interactive': False}
+        cls.options = {'start-activity': None, 'concertina': False, 'device-art': None, 'use-jar': False, 'multi-device': False, 'unit-test-class': True, 'save-screenshot': None, 'use-dictionary': False, 'glare': False, 'dictionary-keys-from': 'id', 'scale': 0.5, 'find-views-with-content-description': False, 'window': -1, 'orientation-locked': None, 'save-view-screenshots': None, 'find-views-by-id': True, 'log-actions': False, 'use-regexps': False, 'null-back-end': False, 'auto-regexps': None, 'do-not-verify-screen-dump': False, 'verbose-comments': False, 'gui': True, 'find-views-with-text': True, 'prepend-to-sys-path': False, 'drop-shadow': False, 'output': 'chartsignin1.py', 'unit-test-method': None, 'interactive': False}
         cls.sleep = 5
 
     def setUp(self):
@@ -56,37 +56,39 @@ class CulebraTests(CulebraTestCase):
 
         self.vc.dump(window=-1)
 
-        print "Test Case: Adding a Comment"
-        self.vc.findViewWithTextOrRaise(u'Sales Data - Departmental Stores_karuna_copy').touch()
+        print "Test Case: Sign Up - New User"
+        self.vc.findViewWithTextOrRaise(u'V 1.3', root=self.vc.findViewByIdOrRaise('id/no_id/10')).touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        self.device.press('KEYCODE_BACK')
+        print "Typing ..."
+        self.vc.findViewWithTextOrRaise(u'Create Account').touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        print "Typing a Comment"
-        self.vc.findViewWithTextOrRaise(u'Add Comment', root=self.vc.findViewByIdOrRaise('id/no_id/16')).touch()
-        self.vc.sleep(_s)
-        self.vc.dump(window=-1)
-        self.vc.findViewWithTextOrRaise(u'Write a comment...').touch()
-        self.vc.sleep(_s)
-        self.vc.dump(window=-1)
-        self.vc.findViewWithTextOrRaise(u'Write a comment...').setText("test1")
+        self.vc.findViewWithTextOrRaise(u'Email').setText("test@123.com")
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        print "Posting a Comment"
-        self.vc.findViewWithTextOrRaise(u'Post').touch()
+        self.vc.findViewWithTextOrRaise(u'Full Name').setText("Test Name")
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        self.device.press('KEYCODE_BACK')
+        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/create_account_password_edit").setText("test")
+        self.vc.sleep(_s)
+        self.vc.dump(window=-1)
+
+        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/create_account_confirm_edit").setText("test")
+        self.vc.sleep(_s)
+        self.vc.dump(window=-1)
+
+        print "Clicked Create Account Button"
+        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/create_account_create_account_button").touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
         print "Back to Home"
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewBackButton").touch()
+        self.vc.findViewWithTextOrRaise(u'Create Account').touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 

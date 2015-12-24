@@ -66,6 +66,13 @@ class CulebraTests(CulebraTestCase):
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
+        if (self.vc.findViewWithTextOrRaise(u'Privacy Policy')):
+            print "Passed..."
+        else:
+            print "Failed..."
+        self.vc.sleep(_s)
+        self.vc.dump(window=-1)
+
         self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewBackButton").touch()
         self.vc.sleep(_s)
 

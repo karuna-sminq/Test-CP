@@ -1,0 +1,72 @@
+=================================
+Chartcube App v1.3 ...
+Running Test Suite v1.0 ...
+=================================
+------------------
+./01_LaunchApp
+------------------
+The max width/height supported by codec is 1280x720
+.
+----------------------------------------------------------------------
+Ran 1 test in 15.013s
+
+OK
+Test Case: Launch Application
+.
+----------------------------------------------------------------------
+Ran 1 test in 25.886s
+
+OK
+Test Case: Refresh List
+------------------
+./02_SignUp
+------------------
+The max width/height supported by codec is 1280x720
+E
+======================================================================
+ERROR: testSomething (__main__.CulebraTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "./02_SignUp/2_1_newsignup.py", line 60, in testSomething
+    self.vc.findViewWithTextOrRaise(u'V 1.3', root=self.vc.findViewByIdOrRaise('id/no_id/10')).touch()
+  File "/usr/local/lib/python2.7/dist-packages/androidviewclient-11.0.1-py2.7.egg/com/dtmilano/android/viewclient.py", line 3564, in findViewWithTextOrRaise
+    raise ViewNotFoundException("text", text, root)
+ViewNotFoundException: Couldn't find View with text='V 1.3' in tree with root=View[ class=android.widget.TextView index=0 selected=false checked=false clickable=false package=com.chartcube.cubepager text=Sales Data - Departmental Stores_karuna_copy long-clickable=false enabled=true bounds=((20, 252), (636, 315)) content-desc= focusable=false focused=false uniqueId=id/no_id/10 checkable=false resource-id=com.chartcube.cubepager:id/textViewCubeTitle password=false class=android.widget.TextView scrollable=false ]   parent=android.widget.LinearLayout
+
+----------------------------------------------------------------------
+Ran 1 test in 3.227s
+
+FAILED (errors=1)
+Test Case: Sign Up - New User
+E
+======================================================================
+ERROR: testSomething (__main__.CulebraTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "./02_SignUp/2_2_existsignup.py", line 60, in testSomething
+    self.vc.findViewWithTextOrRaise(u'V 1.3', root=self.vc.findViewByIdOrRaise('id/no_id/10')).touch()
+  File "/usr/local/lib/python2.7/dist-packages/androidviewclient-11.0.1-py2.7.egg/com/dtmilano/android/viewclient.py", line 3564, in findViewWithTextOrRaise
+    raise ViewNotFoundException("text", text, root)
+ViewNotFoundException: Couldn't find View with text='V 1.3' in tree with root=View[ class=android.widget.TextView index=0 selected=false checked=false clickable=false package=com.chartcube.cubepager text=Sales Data - Departmental Stores_karuna_copy long-clickable=false enabled=true bounds=((20, 252), (636, 315)) content-desc= focusable=false focused=false uniqueId=id/no_id/10 checkable=false resource-id=com.chartcube.cubepager:id/textViewCubeTitle password=false class=android.widget.TextView scrollable=false ]   parent=android.widget.LinearLayout
+
+----------------------------------------------------------------------
+Ran 1 test in 3.160s
+
+FAILED (errors=1)
+Test Case: Sign Up - Existing User
+------------------
+./03_SignIn
+------------------
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site.py", line 68, in <module>
+    import os
+  File "/usr/lib/python2.7/os.py", line 398, in <module>
+    import UserDict
+  File "/usr/lib/python2.7/UserDict.py", line 83, in <module>
+    import _abcoll
+  File "/usr/lib/python2.7/_abcoll.py", line 424, in <module>
+    class KeysView(MappingView, Set):
+  File "/usr/lib/python2.7/_abcoll.py", line 424, in KeysView
+    class KeysView(MappingView, Set):
+KeyboardInterrupt
+The max width/height supported by codec is 1280x720

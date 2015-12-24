@@ -56,17 +56,43 @@ class CulebraTests(CulebraTestCase):
 
         self.vc.dump(window=-1)
 
-        print "MenuList- Copy"
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewMenuList").touch()
+        print "Test Case: Scrolling Down"
+        self.vc.findViewWithTextOrRaise(u'Sales Data - Departmental Stores_karuna_copy').touch()
+        self.vc.sleep(8)
+        self.vc.dump(window=-1)
+
+        self.vc.device.press('KEYCODE_BACK')
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        self.vc.findViewWithTextOrRaise(u'Copy').touch()
+        self.device.dragDip((340.0, 366.0), (48.0, 364.0), 1000, 20, 0)
+        self.vc.sleep(1)
+        self.vc.dump(window=-1)
+
+        if (self.vc.findViewWithTextOrRaise(u'Pipeline')):
+            print "Before scrolling down: Note metric name"
+        else:
+            print "Failed..."
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        self.vc.findViewWithTextOrRaise(u'Cancel').touch()
-        print "Selected Cancel"
+        print "Scroll Down"
+        self.device.press('KEYCODE_DPAD_CENTER')
+        self.device.press('KEYCODE_DPAD_DOWN')
+        self.device.press('KEYCODE_DPAD_LEFT')
+        self.vc.sleep(_s)
+        self.vc.dump(window=-1)
+
+        if (self.vc.findViewWithTextOrRaise(u'Pipeline')):
+            print "After scrolling down: Metric unchanged!"
+            print "Passed..."
+        else:
+            print "Failed..."
+        self.vc.sleep(_s)
+        self.vc.dump(window=-1)
+
+        print "Back to Home"
+        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewBackButton").touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 

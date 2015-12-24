@@ -56,21 +56,38 @@ class CulebraTests(CulebraTestCase):
 
         self.vc.dump(window=-1)
 
-        print "MenuList- Rename"
-        self.device.dragDip((186.0, 609.0), (157.0, 82.0), 1000, 20, 0)
+        print "Test Case: Excluding Drilldown"
+        self.vc.findViewWithTextOrRaise(u'Sales Data - Departmental Stores_karuna_copy').touch()
+        self.vc.sleep(8)
+
+        self.device.longTouch(520.0, 110.0, 2000, 0)
+        self.vc.sleep(5)
+
+        self.device.dragDip((179.0, 377.0), (181.0, 113.0), 1000, 20, 0)
         self.vc.sleep(1)
         self.vc.dump(window=-1)
 
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewMenuList").touch()
+        self.device.longTouch(304.0, 648.0, 2000, 0)
+        self.vc.sleep(5)
+
+        self.vc.device.press('KEYCODE_BACK')
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        self.vc.findViewWithTextOrRaise(u'Rename').touch()
+        if (self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewCloseDrill")):
+            print "Drilldown filter found. Passed..."
+        else:
+            print "Failed..."
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        self.vc.findViewWithTextOrRaise(u'OK').touch()
-        print "Selected OK"
+        print "Close Drilldown filter"
+        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewCloseDrill").touch()
+        self.vc.sleep(_s)
+        self.vc.dump(window=-1)
+
+        print "Back to Home"
+        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewBackButton").touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 

@@ -56,35 +56,30 @@ class CulebraTests(CulebraTestCase):
 
         self.vc.dump(window=-1)
 
-        print "Test Case: View All Comments on Cube"
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewCommentCount").touch()
+        print "MenuList- Delete/Remove"
+        android___id_list = self.vc.findViewByIdOrRaise("android:id/list")
+
+        android___id_list.uiScrollable.flingBackward()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        self.vc.findViewWithTextOrRaise(u'No Headline').touch()
+        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewMenuList").touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        print "Previous bookmark"
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/iv_bookmark_prev").touch()
+        self.vc.findViewWithTextOrRaise(u'Delete').touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        print "Next bookmark"
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/iv_bookmark_next").touch()
+        self.vc.findViewWithTextOrRaise(u'Cancel').touch()
+        print "Selected Cancel"
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        self.vc.device.press('KEYCODE_BACK')
-        self.vc.sleep(_s)
-        self.vc.dump(window=-1)
-
-        self.vc.device.press('KEYCODE_BACK')
-        self.vc.sleep(_s)
-        self.vc.dump(window=-1)
-
-        print "Back to Home"
-        self.vc.device.press('KEYCODE_BACK')
+        if (self.vc.findViewWithTextOrRaise(u'Sales Data - Departmental Stores_karuna_copy copy')):
+            print "Delete cancelled..."
+        else:
+            print "Failed..."
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 

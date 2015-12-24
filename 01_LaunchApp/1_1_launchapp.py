@@ -33,7 +33,7 @@ class CulebraTests(CulebraTestCase):
     def setUpClass(cls):
         cls.kwargs1 = {'ignoreversioncheck': False, 'verbose': False, 'ignoresecuredevice': False}
         cls.kwargs2 = {'forceviewserveruse': False, 'useuiautomatorhelper': False, 'ignoreuiautomatorkilled': True, 'autodump': False, 'startviewserver': True, 'compresseddump': True}
-        cls.options = {'start-activity': None, 'concertina': False, 'device-art': None, 'use-jar': False, 'multi-device': False, 'unit-test-class': True, 'save-screenshot': None, 'use-dictionary': False, 'glare': False, 'dictionary-keys-from': 'id', 'scale': 0.5, 'find-views-with-content-description': True, 'window': -1, 'orientation-locked': None, 'save-view-screenshots': None, 'find-views-by-id': True, 'log-actions': False, 'use-regexps': False, 'null-back-end': False, 'auto-regexps': None, 'do-not-verify-screen-dump': False, 'verbose-comments': False, 'gui': True, 'find-views-with-text': True, 'prepend-to-sys-path': False, 'drop-shadow': False, 'output': None, 'unit-test-method': None, 'interactive': False}
+        cls.options = {'start-activity': None, 'concertina': False, 'device-art': None, 'use-jar': False, 'multi-device': False, 'unit-test-class': True, 'save-screenshot': None, 'use-dictionary': False, 'glare': False, 'dictionary-keys-from': 'id', 'scale': 0.5, 'find-views-with-content-description': False, 'window': -1, 'orientation-locked': None, 'save-view-screenshots': None, 'find-views-by-id': True, 'log-actions': False, 'use-regexps': False, 'null-back-end': False, 'auto-regexps': None, 'do-not-verify-screen-dump': False, 'verbose-comments': False, 'gui': True, 'find-views-with-text': True, 'prepend-to-sys-path': False, 'drop-shadow': False, 'output': 'testnotif.py', 'unit-test-method': None, 'interactive': False}
         cls.sleep = 5
 
     def setUp(self):
@@ -56,18 +56,22 @@ class CulebraTests(CulebraTestCase):
 
         self.vc.dump(window=-1)
 
-        print "Test Case: Settings"
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewSettings").touch()
+        print "Test Case: Launch Application"
+        self.vc.findViewWithTextOrRaise(u'V 1.3', root=self.vc.findViewByIdOrRaise('id/no_id/10')).touch()
+        self.vc.sleep(8)
+        self.vc.dump(window=-1)
+
+        android___id_list = self.vc.findViewByIdOrRaise("android:id/list")
+        if (android___id_list.isScrollable()):
+            android___id_list.uiScrollable.flingToEnd()
+            print "Continue..."
+        else:
+            print "No list found..."
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        print "Sign Out"
-        self.vc.findViewWithTextOrRaise(u'Sign Out').touch()
-        self.vc.sleep(_s)
-        self.vc.dump(window=-1)
-
-        self.vc.findViewWithTextOrRaise(u'Yes').touch()
-        print "Selected Yes"
+        self.vc.device.takeSnapshot().save("HomePage", 'PNG')
+        print "Screenshot captured!"
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 

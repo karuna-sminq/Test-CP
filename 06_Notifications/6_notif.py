@@ -59,9 +59,22 @@ class CulebraTests(CulebraTestCase):
         print "Test Case: Notifications"
         self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/notifications").touch()
         self.vc.sleep(2)
+        self.vc.dump(window=-1)
+
+        if (self.vc.findViewWithTextOrRaise(u'Notifications')):
+            print "Passed..."
+        else:
+            print "Failed..."
+        self.vc.sleep(2)
+        self.vc.dump(window=-1)
+
         self.device.dragDip((174.0, 608.0), (179.0, 161.0), 1000, 20, 0)
         self.vc.sleep(2)
+        self.vc.dump(window=-1)
+
         self.device.press('KEYCODE_BACK')
+        self.vc.sleep(2)
+        self.vc.dump(window=-1)
 
 if __name__ == '__main__':
     CulebraTests.main()
