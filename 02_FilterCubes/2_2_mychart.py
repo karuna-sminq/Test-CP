@@ -56,22 +56,61 @@ class CulebraTests(CulebraTestCase):
 
         self.vc.dump(window=-1)
 
-        print "Test Case: CubeFilter- My Chartcubes"
-        if (self.vc.findViewWithTextOrRaise(u'My Chartcubes', root=self.vc.findViewByIdOrRaise('id/no_id/3'))):
-
-            #Cube Owned by Me
-            com_chartcube_cubepager___id_textViewCubeOwner = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCubeOwner")
-            owner = com_chartcube_cubepager___id_textViewCubeOwner
-            print owner.text()
-            result = re.search('You', owner.text())
-            if result:
-                print "Check for My Chartcubes: Passed..."
+        #Returns list of visible child views by recursively traversing through parent view
+        def getFamilyRec(parent):
+            family = []
+            if parent.children != []:
+                    family.append(parent)
+                    for ch in parent.children:
+                            family += getFamilyRec(ch)
             else:
-                print "Failed..."
-                sys.exit()
+                    family.append(parent)
+            return family
 
-            self.vc.sleep(_s)
-            self.vc.dump(window=-1)
+        def removeDuplicates(list):
+            newlist = []
+            for i in list:
+                if i not in newlist:
+                    newlist.append(i)
+            return newlist
+
+        def getAllViews(parent, collisions):
+
+            view_family = getFamilyRec(parent)
+
+            child_list = removeDuplicates(view_family)
+
+            while (len(view_family) - len(child_list)) <= collisions:
+                if (self.vc.findViewWithTextOrRaise(u'My Chartcubes', root=self.vc.findViewByIdOrRaise('id/no_id/3'))):
+                    #All Cubes
+                    self.vc.sleep(_s)
+                    self.vc.dump(window=-1)
+
+                    owner = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCubeOwner")
+                    print owner.text()
+                    result = re.search('You', owner.text())
+                    if result:
+                        print "Check for My Chartcubes: Passed..."
+                    else:
+                        print "Failed..."
+
+                #parent.uiScrollable.flingForward()
+                self.vc.sleep(_s)
+                child_views = getFamilyRec(parent)
+
+                view_family.append(child_views)
+
+                child_list = removeDuplicates(view_family)
+
+            return child_list
+
+        print "Test Case: CubeFilter- My Chartcubes"
+
+        #print [method for method in dir(android___id_list) if callable(getattr(android___id_list, method))]
+
+        android___id_list = self.vc.findViewByIdOrRaise("android:id/list")
+
+        all_views = getAllViews(android___id_list , 1)
 
         if (self.vc.findViewWithTextOrRaise(u'My Chartcubes', root=self.vc.findViewByIdOrRaise('id/no_id/3'))):
             self.vc.findViewWithTextOrRaise(u'My Chartcubes', root=self.vc.findViewByIdOrRaise('id/no_id/3')).touch()
