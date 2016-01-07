@@ -19,7 +19,6 @@ import re
 import sys
 import os
 
-
 import unittest
 
 from com.dtmilano.android.viewclient import ViewClient, CulebraTestCase
@@ -61,15 +60,53 @@ class CulebraTests(CulebraTestCase):
 
         print "Test Case: CubeFilter- All Chartcubes"
         if (self.vc.findViewWithTextOrRaise(u'All Chartcubes', root=self.vc.findViewByIdOrRaise('id/no_id/3'))):
-            self.vc.findViewWithTextOrRaise(u'All Chartcubes', root=self.vc.findViewByIdOrRaise('id/no_id/3')).touch()
+
+            #All Cubes
+            com_chartcube_cubepager___id_textViewCubeOwner = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCubeOwner")
+            owner = com_chartcube_cubepager___id_textViewCubeOwner
+            print owner.text()
+            result = re.search('.*', owner.text())
+            if result:
+                print "Check for All Chartcubes: Passed..."
+            else:
+                print "Failed..."
+                sys.exit()
+
+            self.vc.sleep(_s)
+            self.vc.dump(window=-1)
+
+            android___id_list = self.vc.findViewByIdOrRaise("android:id/list")
+            #print [method for method in dir(android___id_list) if callable(getattr(android___id_list, method))]
+
+            while ((android___id_list.isScrollable())):
+                total = len(android___id_list.getChildren())
+                self.vc.sleep(1)
+                self.vc.dump(window=-1)
+                #print android___id_list.getCenter()
+                self.device.drag((360, 754), (360, 300), 1000, 20, 0)
+                total = len(android___id_list.getChildren())
+                self.vc.sleep(1)
+                self.vc.dump(window=-1)
+                total = len(android___id_list.getChildren())
+                android___id_list.uiScrollable.flingToEnd()
+
+                total += total
+            print total
+
+#self.device.dragDip((170.0, 616.0), (172.0, 123.0), 1000, 20, 0)
+
+#self.device.dragDip((173.0, 611.0), (159.0, 143.0), 1000, 20, 0)
+
+            if (self.vc.findViewWithTextOrRaise(u'All Chartcubes', root=self.vc.findViewByIdOrRaise('id/no_id/3'))):
+                self.vc.findViewWithTextOrRaise(u'All Chartcubes', root=self.vc.findViewByIdOrRaise('id/no_id/3')).touch()
             self.vc.sleep(_s)
             self.vc.dump(window=-1)
 
             if (self.vc.findViewWithTextOrRaise(u'My Chartcubes')):
                 print "CubeFilter- My Chartcubes"
-                self.vc.findViewWithTextOrRaise(u'My Chartcubes').touch()
-                self.vc.sleep(_s)
-                self.vc.dump(window=-1)
-        
+            self.vc.findViewWithTextOrRaise(u'My Chartcubes').touch()
+            self.vc.sleep(_s)
+            self.vc.dump(window=-1)
+
 if __name__ == '__main__':
     CulebraTests.main()

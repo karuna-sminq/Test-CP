@@ -56,7 +56,7 @@ class CulebraTests(CulebraTestCase):
 
         self.vc.dump(window=-1)
 
-        print "Test Case: Chart Type - Table View"
+        print "Test Case: Chart Type - Table View: Chart Mode"
         self.vc.findViewWithTextOrRaise(u'Sales Data - Departmental Stores_karuna_copy').touch()
         self.vc.sleep(8)
         self.vc.dump(window=-1)
@@ -87,9 +87,23 @@ class CulebraTests(CulebraTestCase):
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        print "Scroll table on Overlay"
-        self.device.dragDip((343.0, 460.0), (344.0, 362.0), 1000, 20, 0)
-        self.vc.sleep(3)
+        print "Chart Mode: Scroll table on Overlay"
+        overlay_text = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/view_table_overlay")
+        self.vc.sleep(_s)
+        self.vc.dump(window=-1)
+
+        if overlay_text.enabled():
+            print "Check for Scroll Overlay in Chart Mode : Passed..."
+            self.device.dragDip((343.0, 460.0), (344.0, 362.0), 1000, 20, 0)
+            self.vc.sleep(3)
+            self.vc.dump(window=-1)
+
+            self.device.dragDip((338.0, 282.0), (335.0, 182.0), 1000, 20, 0)
+            self.vc.sleep(1)
+            self.vc.dump(window=-1)
+        else:
+            print "Failed..."
+        self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
         print "Back to Home"

@@ -58,11 +58,18 @@ class CulebraTests(CulebraTestCase):
 
         print "Test Case: CubeFilter- My Chartcubes"
         if (self.vc.findViewWithTextOrRaise(u'My Chartcubes', root=self.vc.findViewByIdOrRaise('id/no_id/3'))):
-            if (self.vc.findViewWithTextOrRaise(u'Retail Metrics - Clothing Outlets')):
-                #Cube Owned by Me
+
+            #Cube Owned by Me
+            com_chartcube_cubepager___id_textViewCubeOwner = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCubeOwner")
+            owner = com_chartcube_cubepager___id_textViewCubeOwner
+            print owner.text()
+            result = re.search('You', owner.text())
+            if result:
                 print "Check for My Chartcubes: Passed..."
             else:
                 print "Failed..."
+                sys.exit()
+
             self.vc.sleep(_s)
             self.vc.dump(window=-1)
 
