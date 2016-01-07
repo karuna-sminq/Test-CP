@@ -57,21 +57,26 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         print "Test Case: Chart Type - Table View: Split View Mode"
-        self.vc.findViewWithTextOrRaise(u'Sales Data - Departmental Stores_karuna_copy').touch()
+
+        self.device.dragDip((343.0, 521.0), (348.0, 192.0), 1000, 20, 0)
+        self.vc.sleep(1)
+        self.vc.dump(window=-1)
+
+        self.vc.findViewWithTextOrRaise(u'Spend Analysis - Pizza Chain').touch()
         self.vc.sleep(8)
         self.vc.dump(window=-1)
 
-        self.vc.device.press('KEYCODE_BACK')
+        self.device.longTouch(492.0, 204.0, 2000, 0)
+        self.vc.sleep(5)
+        self.vc.dump(window=-1)
+
+        self.device.dragDip((318.0, 354.0), (313.0, 247.0), 1000, 20, 0)
+        self.vc.sleep(1)
+        self.vc.dump(window=-1)
+
+        print "Selected: Unit Dimension"
+        self.device.touchDip(255.0, 405.0, 0)
         self.vc.sleep(_s)
-        self.vc.dump(window=-1)
-
-        self.device.longTouch(470.0, 206.0, 2000, 0)
-        self.vc.sleep(5)
-        self.vc.dump(window=-1)
-
-        print "Selected: Client Dimension"
-        self.device.longTouch(446.0, 606.0, 2000, 0)
-        self.vc.sleep(5)
         self.vc.dump(window=-1)
 
         print "Options Menu: "
@@ -99,18 +104,43 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         if overlay_text.enabled():
-            print "Check for Scroll Overlay in SplitView Mode : Passed..."
+            print "Overlay: Visible- scroll! "
+
+            last1 = self.vc.findViewByIdOrRaise("id/no_id/36").text()
+        #    print last1
             self.device.dragDip((338.0, 282.0), (335.0, 182.0), 1000, 20, 0)
             self.vc.sleep(1)
             self.vc.dump(window=-1)
+            last2 = self.vc.findViewByIdOrRaise("id/no_id/36").text()
+        #    print last2
+
+            if last1 == last2:
+                print "List did not scroll, list ends"
+            else:
+                print "List scroll successful!"
+
         else:
-            print "Failed..."
+            print "No Overlay!"
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
+        print "In Chart Mode:"
         self.vc.device.press('KEYCODE_BACK')
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
+
+        last = self.vc.findViewByIdOrRaise("id/no_id/34").text()
+        #print last
+
+        if last == last2:
+            print "Overlay scroll not required. Table contents visible."
+            self.vc.sleep(1)
+            self.vc.dump(window=-1)
+        else:
+            print "Scrolling through..."
+            self.device.dragDip((338.0, 282.0), (335.0, 182.0), 1000, 20, 0)
+            self.vc.sleep(1)
+            self.vc.dump(window=-1)
 
         print "Back to Home"
         self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewBackButton").touch()

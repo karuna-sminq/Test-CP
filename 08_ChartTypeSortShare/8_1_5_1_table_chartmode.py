@@ -93,14 +93,20 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         if overlay_text.enabled():
-            print "Check for Scroll Overlay in Chart Mode : Passed..."
+            print "Overlay: Visible- scroll! "
+
+            last1 = self.vc.findViewByIdOrRaise("id/no_id/36").text()
+            print last1
             self.device.dragDip((343.0, 460.0), (344.0, 362.0), 1000, 20, 0)
             self.vc.sleep(3)
             self.vc.dump(window=-1)
+            last2 = self.vc.findViewByIdOrRaise("id/no_id/36").text()
+            print last2
 
-            self.device.dragDip((338.0, 282.0), (335.0, 182.0), 1000, 20, 0)
-            self.vc.sleep(1)
-            self.vc.dump(window=-1)
+            if last1 == last2:
+                print "List did not scroll, list ends"
+            else:
+                print "List scroll successful!"
         else:
             print "Failed..."
         self.vc.sleep(_s)
