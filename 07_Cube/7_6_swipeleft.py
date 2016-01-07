@@ -69,22 +69,26 @@ class CulebraTests(CulebraTestCase):
         self.vc.sleep(1)
         self.vc.dump(window=-1)
 
-        if (self.vc.findViewWithTextOrRaise(u'Rep')):
-            print "Before swiping left: Note dimension name"
-        else:
-            print "Failed..."
+        met_before = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewMetricName")
+        #print met_before.text()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
+        print "Swiping to the Left"
         self.device.dragDip((54.0, 380.0), (338.0, 371.0), 1000, 20, 0)
         self.vc.sleep(1)
         self.vc.dump(window=-1)
 
-        if (self.vc.findViewWithTextOrRaise(u'Rep')):
-            print "After swiping left: Dimension unchanged!"
-            print "Passed..."
+        met_after = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewMetricName")
+        #print met_after.text()
+        self.vc.sleep(_s)
+        self.vc.dump(window=-1)
+
+        if met_before == met_after:
+            print "Swiping to left failed!"
         else:
-            print "Failed..."
+            print "Metric changed from: ",met_before.text()," to ",met_after.text()
+            print "Swiping to left successful!"
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 

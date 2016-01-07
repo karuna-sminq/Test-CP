@@ -69,10 +69,8 @@ class CulebraTests(CulebraTestCase):
         self.vc.sleep(1)
         self.vc.dump(window=-1)
 
-        if (self.vc.findViewWithTextOrRaise(u'Pipeline')):
-            print "Before scrolling down: Note metric name"
-        else:
-            print "Failed..."
+        dim_before = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewDimensionName")
+        #print dim_before.text()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
@@ -83,11 +81,16 @@ class CulebraTests(CulebraTestCase):
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        if (self.vc.findViewWithTextOrRaise(u'Pipeline')):
-            print "After scrolling down: Metric unchanged!"
-            print "Passed..."
+        dim_after = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewDimensionName")
+        #print dim_after.text()
+        self.vc.sleep(_s)
+        self.vc.dump(window=-1)
+
+        if dim_before == dim_after:
+            print "Scroll down failed!"
         else:
-            print "Failed..."
+            print "Dimension changed from: ",dim_before.text()," to ",dim_after.text()
+            print "Scroll down successful!"
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
