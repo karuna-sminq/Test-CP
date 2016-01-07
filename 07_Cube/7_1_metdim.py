@@ -70,8 +70,10 @@ class CulebraTests(CulebraTestCase):
         self.vc.sleep(3)
         self.vc.dump(window=-1)
 
-        print "Metric - Percent Of"
         self.device.longTouch(80.0, 608.0, 2000, 0)
+        self.vc.sleep(_s)
+        self.vc.dump(window=-1)
+        print "Chose Metric: ",self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewMetricName").text()
         self.vc.sleep(3)
         self.vc.dump(window=-1)
 
@@ -80,8 +82,10 @@ class CulebraTests(CulebraTestCase):
         self.vc.sleep(3)
         self.vc.dump(window=-1)
 
-        print "Dimension - Category"
         self.device.longTouch(476.0, 612.0, 2000, 0)
+        self.vc.sleep(_s)
+        self.vc.dump(window=-1)
+        print "Chose Dimension: ",self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewDimensionName").text()
         self.vc.sleep(3)
         self.vc.dump(window=-1)
 

@@ -74,13 +74,13 @@ class CulebraTests(CulebraTestCase):
         self.vc.sleep(3)
         self.vc.dump(window=-1)
 
-        print "Metric - Actual"
-        self.device.longTouch(62.0, 506.0, 2000, 0)
+        print "Metric: ",self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewMetricName").text()
+        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewMetricName").touch()
         self.vc.sleep(3)
         self.vc.dump(window=-1)
 
         print "Aggregation List: "
-        self.device.longTouch(456.0, 376.0, 2000, 0)
+        self.vc.findViewWithContentDescriptionOrRaise(u'''Aggegation label above chart''').touch()
         self.vc.sleep(3)
         self.vc.dump(window=-1)
 
@@ -96,7 +96,7 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         print "Aggregation List: "
-        self.device.longTouch(456.0, 376.0, 2000, 0)
+        self.vc.findViewWithContentDescriptionOrRaise(u'''Aggegation label above chart''').touch()
         self.vc.sleep(3)
         self.vc.dump(window=-1)
 
