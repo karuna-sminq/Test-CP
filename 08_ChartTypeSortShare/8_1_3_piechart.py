@@ -59,6 +59,7 @@ class CulebraTests(CulebraTestCase):
         print "Test Case: Chart Type - Pie Chart"
         self.vc.findViewWithTextOrRaise(u'Sales Data - Departmental Stores_karuna_copy').touch()
         self.vc.sleep(8)
+        self.vc.dump(window=-1)
 
         self.vc.device.press('KEYCODE_BACK')
         self.vc.sleep(_s)
@@ -75,6 +76,9 @@ class CulebraTests(CulebraTestCase):
 
         print "Selected: Pie Chart"
         self.vc.findViewWithTextOrRaise(u'Pie chart', root=self.vc.findViewByIdOrRaise('id/no_id/8')).touch()
+
+        print "Pie Chart is displayed!"
+
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 

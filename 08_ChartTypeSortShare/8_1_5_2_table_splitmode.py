@@ -90,8 +90,12 @@ class CulebraTests(CulebraTestCase):
 
         print "Selected: Table View"
         self.vc.findViewWithTextOrRaise(u'Table View', root=self.vc.findViewByIdOrRaise('id/no_id/12')).touch()
+
+        print "Table View is displayed!"
+
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
+
 
         print "Split View Mode: Scroll table on Overlay"
         self.vc.findViewWithTextOrRaise(u'Add Comment').touch()

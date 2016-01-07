@@ -59,6 +59,7 @@ class CulebraTests(CulebraTestCase):
         print "Test Case: Chart Type - Bar Chart"
         self.vc.findViewWithTextOrRaise(u'Sales Data - Departmental Stores_karuna_copy').touch()
         self.vc.sleep(8)
+        self.vc.dump(window=-1)
 
         self.vc.device.press('KEYCODE_BACK')
         self.vc.sleep(_s)
@@ -75,6 +76,12 @@ class CulebraTests(CulebraTestCase):
 
         print "Selected: Bar Chart"
         self.vc.findViewWithTextOrRaise(u'Bar Chart', root=self.vc.findViewByIdOrRaise('id/no_id/4')).touch()
+
+        if self.vc.findViewByIdOrRaise("android:id/text1").text() == "Bar Chart":
+            print "Bar Chart is displayed!"
+        else:
+            print "Failed!"
+            
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 

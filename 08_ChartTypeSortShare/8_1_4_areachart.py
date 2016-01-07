@@ -76,6 +76,9 @@ class CulebraTests(CulebraTestCase):
 
         print "Selected: Area Chart"
         self.vc.findViewWithTextOrRaise(u'Area Chart', root=self.vc.findViewByIdOrRaise('id/no_id/10')).touch()
+
+        print "Area Chart is displayed!"
+
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
