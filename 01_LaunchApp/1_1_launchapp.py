@@ -62,15 +62,18 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         android___id_list = self.vc.findViewByIdOrRaise("android:id/list")
+
+        #Check if Application has launched
         if (android___id_list.isScrollable()):
+            print "App Launched! Scrolling through list of Chartcubes."
             android___id_list.uiScrollable.flingToEnd()
-            print "Continue..."
+
         else:
-            print "No list found..."
+            print "App failed to launch!"
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        self.vc.device.takeSnapshot().save("HomePage", 'PNG')
+        self.vc.device.takeSnapshot().save("/home/cp_android2/Documents/AndroidViewClient/Chartcube/Screenshots/HomePage", 'PNG')
         print "Screenshot captured!"
         self.vc.sleep(_s)
         self.vc.dump(window=-1)

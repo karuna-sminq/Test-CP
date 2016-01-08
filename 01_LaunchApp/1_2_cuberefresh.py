@@ -57,9 +57,11 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         print "Test Case: Refresh List"
+
         android___id_list = self.vc.findViewByIdOrRaise("android:id/list")
-        no_id9 = self.vc.findViewByIdOrRaise("id/no_id/9")
+
         android___id_list.uiScrollable.flingToBeginning()
+        print "Cube List Refreshed!"
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 

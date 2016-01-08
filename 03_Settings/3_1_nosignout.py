@@ -71,15 +71,15 @@ class CulebraTests(CulebraTestCase):
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        if (self.vc.findViewWithTextOrRaise(u'Sign Out')):
-            print "Passed..."
+        #Check if Sign out was cancelled
+        if (self.vc.findViewWithContentDescriptionOrRaise(u'''Settings, Navigate up''')):
+            print "Sign Out Cancelled!"
         else:
-            print "Failed..."
+            print "Signed out!"
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
         print "Back to Home"
-        no_id3 = self.vc.findViewWithContentDescriptionOrRaise(u'''Settings, Navigate up''')
 
         self.vc.findViewWithContentDescriptionOrRaise(u'''Settings, Navigate up''').touch()
         self.vc.sleep(_s)

@@ -57,19 +57,17 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         print "Test Case: Sign In - Correct Credentials"
-        self.vc.findViewWithTextOrRaise(u'V 1.3', root=self.vc.findViewByIdOrRaise('id/no_id/10')).touch()
-        self.vc.sleep(_s)
-        self.vc.dump(window=-1)
 
         self.vc.findViewWithTextOrRaise(u'Sign In').touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        print "Typing..."
+        print "Typing Email Address"
         self.vc.findViewWithTextOrRaise(u'Email').setText("karuna.lingham@codepandora.com")
         self.vc.sleep(3)
         self.vc.dump(window=-1)
 
+        print "Typing Password"
         self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/sign_in_password_edit").touch()
         self.vc.sleep(3)
         self.vc.dump(window=-1)
@@ -83,10 +81,11 @@ class CulebraTests(CulebraTestCase):
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
+        #Check for Main Home Page
         if (self.vc.findViewWithTextOrRaise('All Chartcubes')):
             print "Sign In successful!"
         else:
-            print "Sign In failed..."
+            print "Sign In failed!"
 
 if __name__ == '__main__':
     CulebraTests.main()

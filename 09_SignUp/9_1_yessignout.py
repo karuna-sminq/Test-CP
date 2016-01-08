@@ -75,10 +75,11 @@ class CulebraTests(CulebraTestCase):
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        if (self.vc.findViewWithTextOrRaise(u'Sign In')):
-            print "Passed..."
+        #Check if Welcome Screen is visible
+        if (self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/view_pager_welcome_Screen")):
+            print "Sign Out Successful!"
         else:
-            print "Failed..."
+            print "Failed to Sign Out!"
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 

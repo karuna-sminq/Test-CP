@@ -57,9 +57,6 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         print "Test Case: Sign In - Incorrect Credentials"
-        self.vc.findViewWithTextOrRaise(u'V 1.3', root=self.vc.findViewByIdOrRaise('id/no_id/10')).touch()
-        self.vc.sleep(_s)
-        self.vc.dump(window=-1)
 
         self.vc.findViewWithTextOrRaise(u'Sign In').touch()
         self.vc.sleep(_s)
@@ -74,6 +71,7 @@ class CulebraTests(CulebraTestCase):
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
+        print "Typing Email"
         self.vc.findViewWithTextOrRaise(u'Email').setText("test@123.com")
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
@@ -82,6 +80,12 @@ class CulebraTests(CulebraTestCase):
         self.vc.findViewWithTextOrRaise(u'Send Email').touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
+
+        #Check for Forgot Password functionality
+        if self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/forgot_password_send_email_button").enabled():
+            print "Reset Password Instructions sent!"
+        else:
+            print "Enter registered email!"
 
         print "Back to Home"
         self.vc.findViewWithContentDescriptionOrRaise(u'''Forgot Password, Navigate up''').touch()
