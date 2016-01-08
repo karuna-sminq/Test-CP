@@ -62,9 +62,9 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         if (self.vc.findViewWithTextOrRaise(u'No Headline')):
-            print "Passed..."
+            print "Bookmark List displayed!"
         else:
-            print "Failed..."
+            print "Failed!"
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
@@ -72,13 +72,35 @@ class CulebraTests(CulebraTestCase):
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        print "Next bookmark"
+        met_before = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewMetricName").text()
+
+        print "Go to Next bookmark"
         self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/iv_bookmark_next").touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        print "Previous bookmark"
+        met_after = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewMetricName").text()
+
+        if met_before != met_after:
+            print "Next bookmark displayed!"
+        else:
+            print "No change in view!"
+        self.vc.sleep(_s)
+        self.vc.dump(window=-1)
+
+        met_before = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewMetricName").text()
+
+        print "Go to Previous bookmark"
         self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/iv_bookmark_prev").touch()
+        self.vc.sleep(_s)
+        self.vc.dump(window=-1)
+
+        met_after = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewMetricName").text()
+
+        if met_before != met_after:
+            print "Previous bookmark displayed!"
+        else:
+            print "No change in view!"
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 

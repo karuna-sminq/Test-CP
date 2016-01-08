@@ -69,6 +69,9 @@ class CulebraTests(CulebraTestCase):
         self.vc.findViewWithTextOrRaise(u'Add Comment', root=self.vc.findViewByIdOrRaise('id/no_id/16')).touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
+
+        ccount_before = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCommentCount").text()
+
         self.vc.findViewWithTextOrRaise(u'Write a comment...').touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
@@ -81,10 +84,12 @@ class CulebraTests(CulebraTestCase):
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        if (self.vc.findViewWithTextOrRaise(u'karuna lingham test1')):
-            print "1 comment added: Passed..."
+        ccount_after = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCommentCount").text()
+
+        if ccount_before != ccount_after:
+            print "New comment added!"
         else:
-            print "No change: Failed..."
+            print "No change: Failed!"
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 

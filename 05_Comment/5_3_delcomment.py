@@ -61,6 +61,8 @@ class CulebraTests(CulebraTestCase):
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
+        ccount_before = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCommentCount").text()
+
         print "Deleting a Comment"
         self.device.dragDip((301.0, 522.0), (120.0, 523.0), 1000, 20, 0)
         self.vc.sleep(1)
@@ -75,10 +77,12 @@ class CulebraTests(CulebraTestCase):
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        if (self.vc.findViewWithTextOrRaise(u'2 Comments')):
-            print "1 comment lesser: Passed..."
+        ccount_after = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCommentCount").text()
+
+        if ccount_before != ccount_after:
+            print "1 comment deleted!"
         else:
-            print "No change: Failed..."
+            print "No change: Failed!"
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
