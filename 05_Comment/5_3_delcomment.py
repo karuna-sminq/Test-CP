@@ -79,7 +79,7 @@ class CulebraTests(CulebraTestCase):
 
         ccount_after = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCommentCount").text()
 
-        if ccount_before != ccount_after:
+        if ccount_after < ccount_before:
             print "1 comment deleted!"
         else:
             print "No change: Failed!"

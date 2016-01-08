@@ -86,7 +86,7 @@ class CulebraTests(CulebraTestCase):
 
         ccount_after = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCommentCount").text()
 
-        if ccount_before != ccount_after:
+        if ccount_after > ccount_before:
             print "New comment added!"
         else:
             print "No change: Failed!"
