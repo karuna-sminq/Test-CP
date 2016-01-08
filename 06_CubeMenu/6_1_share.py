@@ -66,18 +66,18 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         if (self.vc.findViewWithTextOrRaise(u'Share')):
-            print "Passed..."
+            print "Passed!"
         else:
-            print "Failed..."
+            print "Failed!"
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        print "Recipient's email"
-        self.vc.findViewWithTextOrRaise(u'Enter Recipients').touch()
-        self.vc.sleep(_s)
-        self.vc.dump(window=-1)
-
-        # self.vc.findViewWithTextOrRaise(u'Enter Recipients').setText("test@123.com")
+        # print "Recipient's email"
+        # self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/recipients").touch()
+        # self.vc.sleep(_s)
+        # self.vc.dump(window=-1)
+        #
+        # self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/recipients").setText("test@123.com")
         # self.vc.sleep(_s)
         # self.vc.dump(window=-1)
 

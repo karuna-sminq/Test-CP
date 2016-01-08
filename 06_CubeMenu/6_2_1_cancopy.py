@@ -56,7 +56,7 @@ class CulebraTests(CulebraTestCase):
 
         self.vc.dump(window=-1)
 
-        print "MenuList- Delete/Remove"
+        print "MenuList- Copy"
 
         title_before = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCubeTitle").text()
 
@@ -64,38 +64,21 @@ class CulebraTests(CulebraTestCase):
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        self.vc.findViewWithTextOrRaise(u'Delete').touch()
+        self.vc.findViewWithTextOrRaise(u'Copy').touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        self.vc.findViewWithTextOrRaise(u'OK').touch()
-        print "Selected Ok"
+        self.vc.findViewWithTextOrRaise(u'Cancel').touch()
+        print "Selected Cancel"
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
         title_after = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCubeTitle").text()
 
-        #1st Check for: deleted title's position replaced by new title's position
-        if title_before != title_after:
-            self.device.dragDip((181.0, 447.0), (176.0, 238.0), 1000, 20, 0)
-            self.vc.sleep(1)
-            self.vc.dump(window=-1)
-
-            orig_title = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCubeTitle").text()
-
-            #2nd Check for: Deletes original cube (in case it does not delete)
-            if title_before != orig_title:
-                print "Delete success!"
-                self.device.dragDip((172.0, 215.0), (176.0, 410.0), 1000, 20, 0)
-                self.vc.sleep(1)
-                self.vc.dump(window=-1)
-
-            else:
-                print "Delete failed. Please try again!"
+        if title_before == title_after:
+            print "Rename Cancelled!"
         else:
-            print "Delete failed. Please try again!"
-        self.vc.sleep(_s)
-        self.vc.dump(window=-1)
+            print "Failed!"
 
 if __name__ == '__main__':
     CulebraTests.main()

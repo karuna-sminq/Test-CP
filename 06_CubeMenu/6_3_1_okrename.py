@@ -57,9 +57,17 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         print "MenuList- Rename"
-        self.device.dragDip((186.0, 609.0), (157.0, 82.0), 1000, 20, 0)
-        self.vc.sleep(1)
+        self.vc.findViewWithTextOrRaise(u'All Chartcubes', root=self.vc.findViewByIdOrRaise('id/no_id/3')).touch()
+        self.vc.sleep(_s)
         self.vc.dump(window=-1)
+
+        if (self.vc.findViewWithTextOrRaise(u'My Chartcubes')):
+            print "Go to My Chartcubes"
+        self.vc.findViewWithTextOrRaise(u'My Chartcubes').touch()
+        self.vc.sleep(_s)
+        self.vc.dump(window=-1)
+
+        title_before = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCubeTitle").text()
 
         self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewMenuList").touch()
         self.vc.sleep(_s)
@@ -69,12 +77,37 @@ class CulebraTests(CulebraTestCase):
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
+        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/et_new_name").setText("Renamed version")
+        self.vc.sleep(_s)
+        self.vc.dump(window=-1)
+
         self.vc.findViewWithTextOrRaise(u'OK').touch()
         print "Selected OK"
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        self.vc.findViewWithTextOrRaise(u'Cancel').touch()
+        title_after = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCubeTitle").text()
+
+        #1st Check for: renamed title's position replaced by original title's position
+        if title_before != title_after:
+            self.device.dragDip((181.0, 447.0), (176.0, 238.0), 1000, 20, 0)
+            self.vc.sleep(1)
+            self.vc.dump(window=-1)
+
+            orig_title = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCubeTitle").text()
+
+            #2nd Check for: Renames original cube (in case it does not rename)
+            if title_before != orig_title:
+                print "Rename success!"
+                self.device.dragDip((172.0, 215.0), (176.0, 410.0), 1000, 20, 0)
+                self.vc.sleep(1)
+                self.vc.dump(window=-1)
+
+            else:
+                print "Rename failed. Please try again!"
+
+        else:
+            print "Rename failed. Please try again!"
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 

@@ -57,9 +57,13 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         print "MenuList- Rename"
-        self.device.dragDip((186.0, 609.0), (157.0, 82.0), 1000, 20, 0)
-        self.vc.sleep(1)
+
+        if (self.vc.findViewWithTextOrRaise(u'My Chartcubes')):
+            print "Go to My Chartcubes"
+        self.vc.sleep(_s)
         self.vc.dump(window=-1)
+
+        title_before = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCubeTitle").text()
 
         self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewMenuList").touch()
         self.vc.sleep(_s)
@@ -74,9 +78,12 @@ class CulebraTests(CulebraTestCase):
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        android___id_list.uiScrollable.flingtoBeginning()
-        self.vc.sleep(_s)
-        self.vc.dump(window=-1)
+        title_after = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCubeTitle").text()
+
+        if title_before == title_after:
+            print "Rename Cancelled!"
+        else:
+            print "Failed!"
 
 if __name__ == '__main__':
     CulebraTests.main()
