@@ -1,0 +1,203 @@
+chartcube_tests.sh: 19: chartcube_tests.sh:
+Copyright (C) 2015  CODE PANDORA
+Created on 2015-12-11
+   __________  ____  ______   ____  ___    _   ______  ____  ____  ___
+  / ____/ __ \/ __ \/ ____/  / __ \/   |  / | / / __ \/ __ \/ __ \/   |
+ / /   / / / / / / / __/    / /_/ / /| | /  |/ / / / / / / / /_/ / /| |
+/ /___/ /_/ / /_/ / /___   / ____/ ___ |/ /|  / /_/ / /_/ / _, _/ ___ |
+\____/\____/_____/_____/  /_/   /_/  |_/_/ |_/_____/\____/_/ |_/_/  |_|
+
+@author: Karuna Lingham
+: not found
+=================================
+Chartcube App v1.3 ...
+Running Test Suite v1.0 ...
+=================================
+------------------
+./01_LaunchApp
+------------------
+The max width/height supported by codec is 1280x720
+.
+----------------------------------------------------------------------
+Ran 1 test in 46.632s
+
+OK
+Test Case: Launch Application
+Continue...
+Screenshot captured!
+.
+----------------------------------------------------------------------
+Ran 1 test in 25.836s
+
+OK
+Test Case: Refresh List
+------------------
+./02_FilterCubes
+------------------
+The max width/height supported by codec is 1280x720
+.
+----------------------------------------------------------------------
+Ran 1 test in 63.665s
+
+OK
+Test Case: CubeFilter- All Chartcubes
+Sumedh More, 1 month ago
+Check for All Chartcubes: Passed...
+You, 1 month 1 week ago
+Check for All Chartcubes: Passed...
+Sumedh More, 1 month 2 weeks ago
+Check for All Chartcubes: Passed...
+CubeFilter- My Chartcubes
+.
+----------------------------------------------------------------------
+Ran 1 test in 60.069s
+
+OK
+Test Case: CubeFilter- My Chartcubes
+You, 1 month 1 week ago
+Check for My Chartcubes: Passed...
+You, 1 month 1 week ago
+Check for My Chartcubes: Passed...
+You, 1 month 1 week ago
+Check for My Chartcubes: Passed...
+CubeFilter- Shared Chartcubes
+.
+----------------------------------------------------------------------
+Ran 1 test in 63.686s
+
+OK
+Test Case: CubeFilter- Shared Chartcubes
+Sumedh More, 1 month ago
+Check for Shared Chartcubes: Passed...
+Sumedh More, 1 month 2 weeks ago
+Check for Shared Chartcubes: Passed...
+Sumedh More, 1 month 2 weeks ago
+Check for Shared Chartcubes: Passed...
+CubeFilter- Back to All Chartcubes
+------------------
+./03_Settings
+------------------
+The max width/height supported by codec is 1280x720
+.
+----------------------------------------------------------------------
+Ran 1 test in 46.234s
+
+OK
+Test Case: Settings
+Sign Out
+Selected No
+Passed...
+Back to Home
+.
+----------------------------------------------------------------------
+Ran 1 test in 35.611s
+
+OK
+Test Case: Settings
+Privacy Policy
+Passed...
+Back to Home
+.
+----------------------------------------------------------------------
+Ran 1 test in 42.059s
+
+OK
+Test Case: Settings
+Terms of Use
+Passed...
+Back to Home
+------------------
+./04_Notifications
+------------------
+The max width/height supported by codec is 1280x720
+.
+----------------------------------------------------------------------
+Ran 1 test in 59.613s
+
+OK
+Test Case: Notifications
+ Passed for Sumedh More shared "Sales Data - Departmental Stores"
+ Passed for karuna lingham commented on "Sock Sales__ karuna_copy"
+ Passed for karuna lingham commented on "Sales Data - Departmental Stores_karuna_copy"
+------------------
+./05_Comment
+------------------
+The max width/height supported by codec is 1280x720
+.
+----------------------------------------------------------------------
+Ran 1 test in 84.344s
+
+OK
+Test Case: Bookmark List of Cube
+Bookmark List displayed!
+Go to Next bookmark
+Next bookmark displayed!
+Go to Previous bookmark
+Previous bookmark displayed!
+Back to Home
+.
+----------------------------------------------------------------------
+Ran 1 test in 116.930s
+
+OK
+Test Case: Adding a Comment
+Typing a Comment
+Posting a Comment
+New comment added!
+Back to Home
+.
+----------------------------------------------------------------------
+Ran 1 test in 62.162s
+
+OK
+Test Case: Deleting a Comment
+Deleting a Comment
+Deleted
+1 comment deleted!
+Back to Home
+------------------
+./06_CubeMenu
+------------------
+The max width/height supported by codec is 1280x720
+.
+----------------------------------------------------------------------
+Ran 1 test in 105.268s
+
+OK
+Test Case: MenuList- Share
+Passed...
+Back to Home
+.
+----------------------------------------------------------------------
+Ran 1 test in 42.441s
+
+OK
+MenuList- Copy
+Selected OK
+Copy success!
+.
+----------------------------------------------------------------------
+Ran 1 test in 37.543s
+
+OK
+MenuList- Copy
+Selected Cancel
+Failed!
+.
+----------------------------------------------------------------------
+Ran 1 test in 146.196s
+
+OK
+MenuList- Rename
+Go to My Chartcubes
+Selected OK
+Rename success!
+.
+----------------------------------------------------------------------
+Ran 1 test in 37.528s
+
+OK
+MenuList- Rename
+Go to My Chartcubes
+Selected Cancel
+Rename Cancelled!

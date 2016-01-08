@@ -29,14 +29,19 @@ echo "================================="
 #Begin iterating through every folder
 for folder in ./*
 do
-#Begin recording tests for every folder
+  #Begin recording tests for every folder
   adb shell screenrecord /sdcard/$folder.mp4 &
   echo "------------------"
   echo "$folder"
   echo "------------------"
-#Begin iterating through every file in specified folder
+  #Begin iterating through every file in specified folder
   for fname in $folder/*.py
   do
+    #Indicate when testing an Interim file
+    if [ $(find $fname -regex .*interim.*\.py) ]
+    then
+      echo "*****$fname: Interim file*****"
+    fi
     python $fname
   done
 done

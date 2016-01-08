@@ -89,12 +89,11 @@ class CulebraTests(CulebraTestCase):
                 self.vc.dump(window=-1)
 
                 no_id_1 = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/tv_comment_heading")
-            
                 title = re.search('shared | commented', no_id_1.text())
                 if (title):
-                    print " Passed for "+ no_id_1.text()
+                    print "Check for Notifications Passed!"
                 else:
-                    print "Failed..."
+                    print "Failed!"
 
                 parent.uiScrollable.flingForward()
                 self.vc.sleep(_s)

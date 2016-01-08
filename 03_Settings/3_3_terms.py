@@ -67,9 +67,9 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         if (self.vc.findViewWithTextOrRaise(u'Terms of Use')):
-            print "Passed..."
+            print "Terms of Use Doc displayed!"
         else:
-            print "Failed..."
+            print "Failed to display doc!"
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
