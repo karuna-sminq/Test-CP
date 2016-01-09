@@ -75,14 +75,18 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         if (self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewCloseDrill")):
-            print "Drilldown filter found. Passed..."
-        else:
-            print "Failed..."
-        self.vc.sleep(_s)
-        self.vc.dump(window=-1)
+            print "Drilldown filter found..."
+            self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewCloseDrill").touch()
+            self.vc.sleep(_s)
+            self.vc.dump(window=-1)
 
-        print "Close Drilldown filter"
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewCloseDrill").touch()
+            #Check if Drilldown is closed
+            if self.vc.findViewWithTextOrRaise(u'Add Comment'):
+                print "Drilldown filter Closed!"
+            else:
+                print "Close Drilldown!"
+        else:
+            print "No filter found!"
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 

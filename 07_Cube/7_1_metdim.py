@@ -70,6 +70,14 @@ class CulebraTests(CulebraTestCase):
         self.vc.sleep(3)
         self.vc.dump(window=-1)
 
+        #Check for MenuOptionsButton while Metric/Dimension List is displayed
+        if self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewChartCubeOptionsMenu").focusable():
+            print "Failed! MenuOptions Button should be disabled when List is displayed!"
+        else:
+            print "Passed! MenuOptions Button is disabled when List is displayed!"
+        self.vc.sleep(_s)
+        self.vc.dump(window=-1)
+
         self.device.longTouch(80.0, 608.0, 2000, 0)
         self.vc.sleep(_s)
         self.vc.dump(window=-1)

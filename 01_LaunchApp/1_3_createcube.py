@@ -56,66 +56,18 @@ class CulebraTests(CulebraTestCase):
 
         self.vc.dump(window=-1)
 
-        print "Test Case: Choosing Aggregation and Format from List"
-        self.vc.findViewWithTextOrRaise(u'Sales Data - Departmental Stores_karuna_copy').touch()
-        self.vc.sleep(8)
-        self.vc.dump(window=-1)
+        print "Test Case: Create New Chartcube"
 
-        self.vc.device.press('KEYCODE_BACK')
+        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/buttonCreateNewChartCube").touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        self.vc.device.press('KEYCODE_BACK')
-        self.vc.sleep(_s)
+        #Check for New chartcube creation
+        if self.vc.findViewByIdOrRaise("android:id/message"):
+            print "Create new chartcubes on www.chartcube.com"
+            self.vc.findViewWithTextOrRaise(u'OK').touch()
+
         self.vc.dump(window=-1)
-
-        print "List: "
-        self.device.longTouch(520.0, 202.0, 2000, 0)
-        self.vc.sleep(3)
-        self.vc.dump(window=-1)
-
-        print "Metric: ",self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewMetricName").text()
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewMetricName").touch()
-        self.vc.sleep(3)
-        self.vc.dump(window=-1)
-
-        print "Aggregation List: "
-        self.vc.findViewWithContentDescriptionOrRaise(u'''Aggegation label above chart''').touch()
-        self.vc.sleep(3)
-        self.vc.dump(window=-1)
-
-        if (self.vc.findViewWithTextOrRaise(u'Chart Value Options')):
-            print "Aggregation selected..."
-        else:
-            print "Failed..."
-        self.vc.dump(window=-1)
-
-        print "Aggregation - Average"
-        self.device.longTouch(92.0, 380.0, 2000, 0)
-        self.vc.sleep(3)
-        self.vc.dump(window=-1)
-
-        print "Aggregation List: "
-        self.vc.findViewWithContentDescriptionOrRaise(u'''Aggegation label above chart''').touch()
-        self.vc.sleep(3)
-        self.vc.dump(window=-1)
-
-        if (self.vc.findViewWithTextOrRaise(u'Chart Value Options')):
-            print "Format selected..."
-        else:
-            print "Failed..."
-        self.vc.dump(window=-1)
-
-        print "Format - Currency"
-        self.device.longTouch(106.0, 750.0, 2000, 0)
-        self.vc.sleep(3)
-        self.vc.dump(window=-1)
-
-        print self.vc.findViewWithContentDescriptionOrRaise(u'''Aggegation label above chart''')
-
-        print "Back to Home"
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewBackButton").touch()
-        self.vc.sleep(_s)
 
 if __name__ == '__main__':
     CulebraTests.main()

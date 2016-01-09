@@ -71,25 +71,43 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         ccount_before = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCommentCount").text()
+        self.vc.sleep(_s)
+        self.vc.dump(window=-1)
 
         self.vc.findViewWithTextOrRaise(u'Write a comment...').touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
+
+        #Check for Blank comment
+        if self.vc.findViewWithTextOrRaise(u'Post').enabled():
+            print " "
+        else:
+            self.vc.findViewWithTextOrRaise(u'Post').touch()
+            print "Comment should not be blank! Post button is disabled!"
+        self.vc.sleep(_s)
+        self.vc.dump(window=-1)
+
         self.vc.findViewWithTextOrRaise(u'Write a comment...').setText("test1")
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        print "Posting a Comment"
-        self.vc.findViewWithTextOrRaise(u'Post').touch()
+        self.device.press('KEYCODE_BACK')
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
+
+        #Check for PostButton
+        if self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/et_add_comment").enabled():
+            print "Posting a Comment"
+            self.vc.findViewWithTextOrRaise(u'Post').touch()
+            self.vc.sleep(_s)
+            self.vc.dump(window=-1)
 
         ccount_after = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCommentCount").text()
 
         if ccount_after > ccount_before:
             print "New comment added!"
         else:
-            print "No change: Failed!"
+            print "No change in comment count!"
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 

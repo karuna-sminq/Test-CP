@@ -74,6 +74,18 @@ class CulebraTests(CulebraTestCase):
 
         met_before = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewMetricName").text()
 
+        #Check for Swiping to the Left in SplitView Mode
+        self.device.dragDip((54.0, 380.0), (338.0, 371.0), 1000, 20, 0)
+        self.vc.sleep(1)
+        self.vc.dump(window=-1)
+
+        met_afterswipe = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewMetricName").text()
+
+        if met_before == met_afterswipe:
+            print "Swipe disabled in SplitView Mode: Passed!"
+        else:
+            print "Disable swipe in SplitView Mode: Failed!"
+
         print "Go to Next bookmark"
         self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/iv_bookmark_next").touch()
         self.vc.sleep(_s)
