@@ -79,6 +79,8 @@ class CulebraTests(CulebraTestCase):
         self.vc.sleep(3)
         self.vc.dump(window=-1)
 
+        agg_before = self.vc.findViewWithContentDescriptionOrRaise(u'''Aggegation label above chart''').text()
+
         print "Aggregation List: "
         self.vc.findViewWithContentDescriptionOrRaise(u'''Aggegation label above chart''').touch()
         self.vc.sleep(3)
@@ -111,7 +113,13 @@ class CulebraTests(CulebraTestCase):
         self.vc.sleep(3)
         self.vc.dump(window=-1)
 
-        print self.vc.findViewWithContentDescriptionOrRaise(u'''Aggegation label above chart''')
+        agg_after = self.vc.findViewWithContentDescriptionOrRaise(u'''Aggegation label above chart''').text()
+
+        #Check for Aggregation value before and after selecting
+        if agg_before == agg_after:
+            print "No change in Aggregation value!"
+        else:
+            print "Aggregation value has changed! Passed!"
 
         print "Back to Home"
         self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewBackButton").touch()

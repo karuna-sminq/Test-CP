@@ -40,7 +40,7 @@ do
     #Indicate when testing an Interim file
     if [ $(find $fname -regex .*interim.*\.py) ]
     then
-      echo "*****$fname: Interim file*****"
+      echo "*****$fname: INTERIM FILE*****"
     fi
     python $fname
   done
