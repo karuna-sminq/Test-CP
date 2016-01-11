@@ -61,15 +61,6 @@ class CulebraTests(CulebraTestCase):
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        self.device.press('KEYCODE_BACK')
-        self.vc.sleep(_s)
-        self.vc.dump(window=-1)
-
-        print "Typing a Comment"
-        self.vc.findViewWithTextOrRaise(u'Add Comment', root=self.vc.findViewByIdOrRaise('id/no_id/16')).touch()
-        self.vc.sleep(_s)
-        self.vc.dump(window=-1)
-
         ccount_before = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCommentCount").text()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
@@ -96,7 +87,7 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         #Check for PostButton
-        if self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/et_add_comment").enabled():
+        if self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/bt_add_comment").enabled():
             print "Posting a Comment"
             self.vc.findViewWithTextOrRaise(u'Post').touch()
             self.vc.sleep(_s)
