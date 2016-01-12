@@ -63,7 +63,7 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         print "Typing Email Address"
-        self.vc.findViewWithTextOrRaise(u'Email').setText("testingChartcube@123.com")
+        self.vc.findViewWithTextOrRaise(u'Email').setText("testprod_Chartcube@123.com")
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 

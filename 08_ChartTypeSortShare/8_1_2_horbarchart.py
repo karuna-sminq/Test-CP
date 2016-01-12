@@ -57,7 +57,7 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         print "Test Case: Chart Type - Horizontal Bar Chart"
-        self.vc.findViewWithTextOrRaise(u'Sales Data - Departmental Stores_karuna_copy').touch()
+        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCubeTitle").touch()
         self.vc.sleep(8)
         self.vc.dump(window=-1)
 
@@ -78,7 +78,7 @@ class CulebraTests(CulebraTestCase):
         self.vc.findViewWithTextOrRaise(u'Horizontal Bar chart', root=self.vc.findViewByIdOrRaise('id/no_id/6')).touch()
 
         print "Horizontal Bar chart is displayed!"
-        
+
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 

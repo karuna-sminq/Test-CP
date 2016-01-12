@@ -76,7 +76,7 @@ class CulebraTests(CulebraTestCase):
         title_after = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCubeTitle").text()
 
         if title_before == title_after:
-            print "Rename Cancelled!"
+            print "Copy Cancelled!"
         else:
             print "Failed!"
 

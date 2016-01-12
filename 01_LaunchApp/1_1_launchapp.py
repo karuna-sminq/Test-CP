@@ -57,7 +57,7 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         print "Test Case: Launch Application"
-        self.vc.findViewWithTextOrRaise(u'V 1.3', root=self.vc.findViewByIdOrRaise('id/no_id/10')).touch()
+        self.vc.findViewWithTextOrRaise(u'V 1.4', root=self.vc.findViewByIdOrRaise('id/no_id/10')).touch()
         self.vc.sleep(8)
         self.vc.dump(window=-1)
 

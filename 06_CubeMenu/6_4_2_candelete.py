@@ -82,5 +82,15 @@ class CulebraTests(CulebraTestCase):
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
+        if (self.vc.findViewWithTextOrRaise(u'My Chartcubes', root=self.vc.findViewByIdOrRaise('id/no_id/3'))):
+            self.vc.findViewWithTextOrRaise(u'My Chartcubes', root=self.vc.findViewByIdOrRaise('id/no_id/3')).touch()
+            self.vc.sleep(_s)
+            self.vc.dump(window=-1)
+
+            if (self.vc.findViewWithTextOrRaise(u'All Chartcubes')):
+                print "CubeFilter- Back to All Chartcubes"
+                self.vc.findViewWithTextOrRaise(u'All Chartcubes').touch()
+                self.vc.sleep(_s)
+                self.vc.dump(window=-1)
 if __name__ == '__main__':
     CulebraTests.main()

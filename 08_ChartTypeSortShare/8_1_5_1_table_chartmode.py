@@ -57,7 +57,7 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         print "Test Case: Chart Type - Table View: Chart Mode"
-        self.vc.findViewWithTextOrRaise(u'Sales Data - Departmental Stores_karuna_copy').touch()
+        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCubeTitle").touch()
         self.vc.sleep(8)
         self.vc.dump(window=-1)
 
@@ -85,7 +85,7 @@ class CulebraTests(CulebraTestCase):
         print "Selected: Table View"
         self.vc.findViewWithTextOrRaise(u'Table View', root=self.vc.findViewByIdOrRaise('id/no_id/12')).touch()
 
-        print "Table View is displayed!"    
+        print "Table View is displayed!"
 
         self.vc.sleep(_s)
         self.vc.dump(window=-1)

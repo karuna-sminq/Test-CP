@@ -6,6 +6,14 @@ now=$d-$t
 #Begin console log
 exec 1>>logs/test_logs_$now.txt
 exec 2>>logs/test_logs_$now.txt
+# exec &>>tee  log.txt
+# echo "This is stdout"
+# echo "This is stderr" >&2
+
+# Prints only error in file and tests on console
+# exec 2>>logs/test_logs_$now.txt
+# cat logs/test_logs_$now.txt 2>&1
+
 '''
 Copyright (C) 2015  CODE PANDORA
 Created on 2015-12-11
@@ -17,12 +25,9 @@ Created on 2015-12-11
 
 @author: Karuna Lingham
 '''
-# exec 3>&1 1>>logs/test_logs_$now.txt 2>&1
-# exec 1| tee log.txt
-# exec 2| tee log.txt
 
 echo "================================="
-echo "Chartcube App v1.3 ..."
+echo "Chartcube App v1.4 ..."
 echo "Running Test Suite v1.0 ..."
 echo "================================="
 

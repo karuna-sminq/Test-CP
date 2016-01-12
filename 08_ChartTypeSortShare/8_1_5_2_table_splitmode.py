@@ -151,5 +151,11 @@ class CulebraTests(CulebraTestCase):
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
+        android___id_list = self.vc.findViewByIdOrRaise("android:id/list")
+
+        android___id_list.uiScrollable.flingToBeginning()
+        self.vc.sleep(_s)
+        self.vc.dump(window=-1)
+
 if __name__ == '__main__':
     CulebraTests.main()
