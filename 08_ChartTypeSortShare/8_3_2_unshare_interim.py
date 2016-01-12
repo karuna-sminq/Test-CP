@@ -1,5 +1,9 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
+
+#exit during test suite
+print "Test Case: UnShare: Cannot be executed in suite!!! "
+#exit()
 '''
 Copyright (C) 2013-2014  Diego Torres Milano
 Created on 2015-12-11 by Culebra v11.0.4
@@ -56,66 +60,25 @@ class CulebraTests(CulebraTestCase):
 
         self.vc.dump(window=-1)
 
-        print "Test Case: Excluding Drilldown"
+        #If Cube owner: access cannot be removed
+        owner = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCubeOwner")
+        print owner.text()
+        result = re.search('^[^You]', owner.text())
+
         self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCubeTitle").touch()
         self.vc.sleep(8)
         self.vc.dump(window=-1)
 
-        self.device.longTouch(520.0, 110.0, 2000, 0)
-        self.vc.sleep(5)
-
-        self.device.dragDip((179.0, 377.0), (181.0, 113.0), 1000, 20, 0)
-        self.vc.sleep(1)
-        self.vc.dump(window=-1)
-
-        self.device.longTouch(304.0, 648.0, 2000, 0)
-        self.vc.sleep(5)
-
-        self.vc.device.press('KEYCODE_BACK')
-        self.vc.sleep(_s)
-        self.vc.dump(window=-1)
-
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewMetricName").touch()
-        self.vc.sleep(_s)
-        self.vc.dump(window=-1)
-
-        print "Check for Drilldown: "
-        self.device.longTouch(458.0, 308.0, 2000, 0)
-        self.vc.sleep(_s)
-        self.vc.dump(window=-1)
-
-        #Slide to left to check if drilldown is passed
-        self.device.longTouch(244.0, 996.0, 2000, 0)
-        self.vc.sleep(5)
-        self.vc.dump(window=-1)
-
-        axis_text = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewAxis1Value").text()
-
-        drill_text = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewCloseDrill").text()
-
-        if axis_text == drill_text:
-            print "Drilldown successful!"
+        #Check for cube access removal
+        if result:
+            if self.vc.findViewWithTextOrRaise(u'Chatcube unshared'):
+                print "Cube owner has removed your access! Passed!"
         else:
-            print "Failed!"
-
-        if (self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewCloseDrill")):
-            print "Drilldown filter found..."
-            self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewCloseDrill").touch()
-            self.vc.sleep(_s)
-            self.vc.dump(window=-1)
-
-            #Check if Drilldown is closed
-            if self.vc.findViewWithTextOrRaise(u'Add Comment'):
-                print "Drilldown filter Closed!"
-            else:
-                print "Close Drilldown!"
-        else:
-            print "No filter found!"
-        self.vc.sleep(_s)
-        self.vc.dump(window=-1)
+            if self.vc.findViewWithTextOrRaise(u'Chatcube unshared'):
+                print "Owner's access cannot be removed! Failed!"
 
         print "Back to Home"
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewBackButton").touch()
+        self. vc.findViewWithTextOrRaise(u'OK').touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 

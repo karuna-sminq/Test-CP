@@ -1,0 +1,57 @@
+
+Copyright (C) 2015  CODE PANDORA
+Created on 2015-12-11
+   __________  ____  ______   ____  ___    _   ______  ____  ____  ___
+  / ____/ __ \/ __ \/ ____/  / __ \/   |  / | / / __ \/ __ \/ __ \/   |
+ / /   / / / / / / / __/    / /_/ / /| | /  |/ / / / / / / / /_/ / /| |
+/ /___/ /_/ / /_/ / /___   / ____/ ___ |/ /|  / /_/ / /_/ / _, _/ ___ |
+\____/\____/_____/_____/  /_/   /_/  |_/_/ |_/_____/\____/_/ |_/_/  |_|
+
+@author: Karuna Lingham
+
+=================================
+Chartcube App v1.4 ...
+Running Test Suite v1.0 ...
+=================================
+------------------
+./01_LaunchApp
+------------------
+The max width/height supported by codec is 1280x720
+E
+======================================================================
+ERROR: testSomething (__main__.CulebraTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "./01_LaunchApp/1_1_launchapp.py", line 57, in testSomething
+    self.vc.dump(window=-1)
+  File "/usr/local/lib/python2.7/dist-packages/androidviewclient-11.0.1-py2.7.egg/com/dtmilano/android/viewclient.py", line 3141, in dump
+    self.setViewsFromUiAutomatorDump(received)
+  File "/usr/local/lib/python2.7/dist-packages/androidviewclient-11.0.1-py2.7.egg/com/dtmilano/android/viewclient.py", line 2839, in setViewsFromUiAutomatorDump
+    self.__parseTreeFromUiAutomatorDump(received)
+  File "/usr/local/lib/python2.7/dist-packages/androidviewclient-11.0.1-py2.7.egg/com/dtmilano/android/viewclient.py", line 2997, in __parseTreeFromUiAutomatorDump
+    raise ValueError("received does not contain valid XML data")
+ValueError: received does not contain valid XML data
+
+----------------------------------------------------------------------
+Ran 1 test in 5.844s
+
+FAILED (errors=1)
+E
+======================================================================
+ERROR: testSomething (__main__.CulebraTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "./01_LaunchApp/1_2_cuberefresh.py", line 57, in testSomething
+    self.vc.dump(window=-1)
+  File "/usr/local/lib/python2.7/dist-packages/androidviewclient-11.0.1-py2.7.egg/com/dtmilano/android/viewclient.py", line 3141, in dump
+    self.setViewsFromUiAutomatorDump(received)
+  File "/usr/local/lib/python2.7/dist-packages/androidviewclient-11.0.1-py2.7.egg/com/dtmilano/android/viewclient.py", line 2839, in setViewsFromUiAutomatorDump
+    self.__parseTreeFromUiAutomatorDump(received)
+  File "/usr/local/lib/python2.7/dist-packages/androidviewclient-11.0.1-py2.7.egg/com/dtmilano/android/viewclient.py", line 2997, in __parseTreeFromUiAutomatorDump
+    raise ValueError("received does not contain valid XML data")
+ValueError: received does not contain valid XML data
+
+----------------------------------------------------------------------
+Ran 1 test in 10.677s
+
+FAILED (errors=1)

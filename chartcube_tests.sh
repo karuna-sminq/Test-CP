@@ -1,20 +1,16 @@
-#!/usr/bin/env/ sh
+#!/usr/bin/bash
 
 d="$(date +'%d-%m-%Y')"
 t="$(date +%r)"
 now=$d-$t
+
 #Begin console log
-exec 1>>logs/test_logs_$now.txt
-exec 2>>logs/test_logs_$now.txt
-# exec &>>tee  log.txt
-# echo "This is stdout"
-# echo "This is stderr" >&2
+exec > >(tee -i logs/chartcube_logs_$now.txt)
 
-# Prints only error in file and tests on console
-# exec 2>>logs/test_logs_$now.txt
-# cat logs/test_logs_$now.txt 2>&1
+exec 2>&1 #copy stderr to console output
 
-'''
+
+echo '''
 Copyright (C) 2015  CODE PANDORA
 Created on 2015-12-11
    __________  ____  ______   ____  ___    _   ______  ____  ____  ___
