@@ -32,6 +32,7 @@ text1="OK"
 text2="ERROR"
 total_count=0
 
+start=`date +%s`
 #Begin iterating through every folder
 for folder in ./*
 do
@@ -72,5 +73,9 @@ do
     python $fname
     total_count=$((total_count + 1))
   done
-  echo "Tests executed: $total_count"
 done
+
+#Total test count and timer
+end=`date +%s`
+runtime=$((end - start))
+echo "Time taken for $total_count tests: $runtime sec"
