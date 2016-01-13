@@ -1,0 +1,1409 @@
+
+Copyright (C) 2015-2016  CODE PANDORA
+Created on 2015-12-11
+Updated on 2016-01-13
+
+   __________  ____  ______   ____  ___    _   ______  ____  ____  ___
+  / ____/ __ \/ __ \/ ____/  / __ \/   |  / | / / __ \/ __ \/ __ \/   |
+ / /   / / / / / / / __/    / /_/ / /| | /  |/ / / / / / / / /_/ / /| |
+/ /___/ /_/ / /_/ / /___   / ____/ ___ |/ /|  / /_/ / /_/ / _, _/ ___ |
+\____/\____/_____/_____/  /_/   /_/  |_/_/ |_/_____/\____/_/ |_/_/  |_|
+
+@author: Karuna Lingham
+
+=================================
+Chartcube App v1.4 ...
+Running Test Suite v1.13 ...
+=================================
+------------------
+./01_LaunchApp
+------------------
+The max width/height supported by codec is 1280x720
+.
+----------------------------------------------------------------------
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+App Launched! Scrolling through list of Chartcubes.
+Screenshot captured!
+Tests finished: 1
+Tests Passed: 
+[32m
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+[39m
+.
+----------------------------------------------------------------------
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+Cube List Refreshed!
+Tests finished: 2
+Tests Passed: 
+[32m
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+[39m
+.
+----------------------------------------------------------------------
+Ran 1 test in 15.709s
+
+OK
+Test Case: Create New Chartcube
+Create new chartcubes on www.chartcube.com! Passed!
+Tests finished: 3
+------------------
+./02_FilterCubes
+------------------
+Tests Passed: 
+[32m
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 15.709s
+
+OK
+Test Case: Create New Chartcube
+[39m
+The max width/height supported by codec is 1280x720
+E
+======================================================================
+ERROR: testSomething (__main__.CulebraTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "./02_FilterCubes/2_1_allchart.py", line 115, in testSomething
+    all_views = getAllViews(android___id_list , 1)
+  File "./02_FilterCubes/2_1_allchart.py", line 91, in getAllViews
+    owner = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCubeOwner")
+  File "/usr/local/lib/python2.7/dist-packages/androidviewclient-11.0.1-py2.7.egg/com/dtmilano/android/viewclient.py", line 3345, in findViewByIdOrRaise
+    raise ViewNotFoundException("ID", viewId, root)
+ViewNotFoundException: Couldn't find View with ID='com.chartcube.cubepager:id/textViewCubeOwner' in tree with root=ROOT
+
+----------------------------------------------------------------------
+Ran 1 test in 25.340s
+
+FAILED (errors=1)
+Test Case: CubeFilter- All Chartcubes
+You, 1 day ago
+Check for All Chartcubes: Passed...
+Tests finished: 4
+Tests Passed: 
+[32m
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 15.709s
+
+OK
+Test Case: Create New Chartcube
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 15.709s
+
+OK
+Test Case: Create New Chartcube
+[39m
+Tests Failed: 
+[31m
+======================================================================
+ERROR: testSomething (__main__.CulebraTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "./02_FilterCubes/2_1_allchart.py", line 115, in testSomething
+[39m
+E
+======================================================================
+ERROR: testSomething (__main__.CulebraTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "./02_FilterCubes/2_2_mychart.py", line 111, in testSomething
+    android___id_list = self.vc.findViewByIdOrRaise("android:id/list")
+  File "/usr/local/lib/python2.7/dist-packages/androidviewclient-11.0.1-py2.7.egg/com/dtmilano/android/viewclient.py", line 3345, in findViewByIdOrRaise
+    raise ViewNotFoundException("ID", viewId, root)
+ViewNotFoundException: Couldn't find View with ID='android:id/list' in tree with root=ROOT
+
+----------------------------------------------------------------------
+Ran 1 test in 3.102s
+
+FAILED (errors=1)
+Test Case: CubeFilter- My Chartcubes
+Tests finished: 5
+Tests Passed: 
+[32m
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 15.709s
+
+OK
+Test Case: Create New Chartcube
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 15.709s
+
+OK
+Test Case: Create New Chartcube
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 15.709s
+
+OK
+Test Case: Create New Chartcube
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 15.709s
+
+OK
+Test Case: Create New Chartcube
+[39m
+Tests Failed: 
+[31m
+======================================================================
+ERROR: testSomething (__main__.CulebraTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "./02_FilterCubes/2_1_allchart.py", line 115, in testSomething
+--
+======================================================================
+ERROR: testSomething (__main__.CulebraTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "./02_FilterCubes/2_1_allchart.py", line 115, in testSomething
+--
+======================================================================
+ERROR: testSomething (__main__.CulebraTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "./02_FilterCubes/2_2_mychart.py", line 111, in testSomething
+[39m
+E
+======================================================================
+ERROR: testSomething (__main__.CulebraTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "./02_FilterCubes/2_3_sharedchart.py", line 111, in testSomething
+    android___id_list = self.vc.findViewByIdOrRaise("android:id/list")
+  File "/usr/local/lib/python2.7/dist-packages/androidviewclient-11.0.1-py2.7.egg/com/dtmilano/android/viewclient.py", line 3345, in findViewByIdOrRaise
+    raise ViewNotFoundException("ID", viewId, root)
+ViewNotFoundException: Couldn't find View with ID='android:id/list' in tree with root=ROOT
+
+----------------------------------------------------------------------
+Ran 1 test in 4.038s
+
+FAILED (errors=1)
+Test Case: CubeFilter- Shared Chartcubes
+Tests finished: 6
+------------------
+./03_Settings
+------------------
+Tests Passed: 
+[32m
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 15.709s
+
+OK
+Test Case: Create New Chartcube
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 15.709s
+
+OK
+Test Case: Create New Chartcube
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 15.709s
+
+OK
+Test Case: Create New Chartcube
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 15.709s
+
+OK
+Test Case: Create New Chartcube
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 15.709s
+
+OK
+Test Case: Create New Chartcube
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 15.709s
+
+OK
+Test Case: Create New Chartcube
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 15.709s
+
+OK
+Test Case: Create New Chartcube
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 15.709s
+
+OK
+Test Case: Create New Chartcube
+[39m
+Tests Failed: 
+[31m
+======================================================================
+ERROR: testSomething (__main__.CulebraTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "./02_FilterCubes/2_1_allchart.py", line 115, in testSomething
+--
+======================================================================
+ERROR: testSomething (__main__.CulebraTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "./02_FilterCubes/2_1_allchart.py", line 115, in testSomething
+--
+======================================================================
+ERROR: testSomething (__main__.CulebraTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "./02_FilterCubes/2_2_mychart.py", line 111, in testSomething
+--
+======================================================================
+ERROR: testSomething (__main__.CulebraTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "./02_FilterCubes/2_1_allchart.py", line 115, in testSomething
+--
+======================================================================
+ERROR: testSomething (__main__.CulebraTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "./02_FilterCubes/2_1_allchart.py", line 115, in testSomething
+--
+======================================================================
+ERROR: testSomething (__main__.CulebraTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "./02_FilterCubes/2_2_mychart.py", line 111, in testSomething
+--
+======================================================================
+ERROR: testSomething (__main__.CulebraTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "./02_FilterCubes/2_3_sharedchart.py", line 111, in testSomething
+[39m
+The max width/height supported by codec is 1280x720
+E
+======================================================================
+ERROR: testSomething (__main__.CulebraTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "./03_Settings/3_1_nosignout.py", line 60, in testSomething
+    self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewSettings").touch()
+  File "/usr/local/lib/python2.7/dist-packages/androidviewclient-11.0.1-py2.7.egg/com/dtmilano/android/viewclient.py", line 3345, in findViewByIdOrRaise
+    raise ViewNotFoundException("ID", viewId, root)
+ViewNotFoundException: Couldn't find View with ID='com.chartcube.cubepager:id/imageViewSettings' in tree with root=ROOT
+
+----------------------------------------------------------------------
+Ran 1 test in 3.082s
+
+FAILED (errors=1)
+Test Case: Settings
+Tests finished: 7
+Tests Passed: 
+[32m
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 15.709s
+
+OK
+Test Case: Create New Chartcube
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 15.709s
+
+OK
+Test Case: Create New Chartcube
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 15.709s
+
+OK
+Test Case: Create New Chartcube
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 15.709s
+
+OK
+Test Case: Create New Chartcube
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 15.709s
+
+OK
+Test Case: Create New Chartcube
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 15.709s
+
+OK
+Test Case: Create New Chartcube
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 15.709s
+
+OK
+Test Case: Create New Chartcube
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 15.709s
+
+OK
+Test Case: Create New Chartcube
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 15.709s
+
+OK
+Test Case: Create New Chartcube
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 15.709s
+
+OK
+Test Case: Create New Chartcube
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 15.709s
+
+OK
+Test Case: Create New Chartcube
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 15.709s
+
+OK
+Test Case: Create New Chartcube
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 15.709s
+
+OK
+Test Case: Create New Chartcube
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 15.709s
+
+OK
+Test Case: Create New Chartcube
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 15.709s
+
+OK
+Test Case: Create New Chartcube
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 46.588s
+
+OK
+Test Case: Launch Application
+--
+Ran 1 test in 35.750s
+
+OK
+Test Case: Refresh List
+--
+Ran 1 test in 15.709s
+
+OK
+Test Case: Create New Chartcube
+[39m
+Tests Failed: 
+[31m
+======================================================================
+ERROR: testSomething (__main__.CulebraTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "./02_FilterCubes/2_1_allchart.py", line 115, in testSomething
+--
+======================================================================
+ERROR: testSomething (__main__.CulebraTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "./02_FilterCubes/2_1_allchart.py", line 115, in testSomething
+--
+======================================================================
+ERROR: testSomething (__main__.CulebraTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "./02_FilterCubes/2_2_mychart.py", line 111, in testSomething
+--
+======================================================================
+ERROR: testSomething (__main__.CulebraTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "./02_FilterCubes/2_1_allchart.py", line 115, in testSomething
+--
+======================================================================
+ERROR: testSomething (__main__.CulebraTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "./02_FilterCubes/2_1_allchart.py", line 115, in testSomething
+--
+======================================================================
+ERROR: testSomething (__main__.CulebraTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "./02_FilterCubes/2_2_mychart.py", line 111, in testSomething
+--
+======================================================================
+ERROR: testSomething (__main__.CulebraTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "./02_FilterCubes/2_3_sharedchart.py", line 111, in testSomething
+--
+======================================================================
+ERROR: testSomething (__main__.CulebraTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "./02_FilterCubes/2_1_allchart.py", line 115, in testSomething
+--
+======================================================================
+ERROR: testSomething (__main__.CulebraTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "./02_FilterCubes/2_1_allchart.py", line 115, in testSomething
+--
+======================================================================
+ERROR: testSomething (__main__.CulebraTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "./02_FilterCubes/2_2_mychart.py", line 111, in testSomething
+--
+======================================================================
+ERROR: testSomething (__main__.CulebraTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "./02_FilterCubes/2_1_allchart.py", line 115, in testSomething
+--
+======================================================================
+ERROR: testSomething (__main__.CulebraTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "./02_FilterCubes/2_1_allchart.py", line 115, in testSomething
+--
+======================================================================
+ERROR: testSomething (__main__.CulebraTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "./02_FilterCubes/2_2_mychart.py", line 111, in testSomething
+--
+======================================================================
+ERROR: testSomething (__main__.CulebraTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "./02_FilterCubes/2_3_sharedchart.py", line 111, in testSomething
+--
+======================================================================
+ERROR: testSomething (__main__.CulebraTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "./03_Settings/3_1_nosignout.py", line 60, in testSomething
+[39m
