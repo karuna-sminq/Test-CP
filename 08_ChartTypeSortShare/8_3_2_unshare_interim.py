@@ -1,9 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
 
-#exit during test suite
-print "Test Case: UnShare: Cannot be executed in suite!!! "
-#exit()
+
 '''
 Copyright (C) 2013-2014  Diego Torres Milano
 Created on 2015-12-11 by Culebra v11.0.4
@@ -60,6 +58,7 @@ class CulebraTests(CulebraTestCase):
 
         self.vc.dump(window=-1)
 
+        print "Test Case: UnShare"
         #If Cube owner: access cannot be removed
         owner = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCubeOwner")
         print owner.text()

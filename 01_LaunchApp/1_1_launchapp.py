@@ -57,10 +57,10 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         print "Test Case: Launch Application"
-        self.vc.findViewWithTextOrRaise(u'V 1.4', root=self.vc.findViewByIdOrRaise('id/no_id/10')).touch()
+        a = self.vc.findViewWithTextOrRaise(u'V 1.4').touch()
         self.vc.sleep(8)
         self.vc.dump(window=-1)
-
+        print a
         android___id_list = self.vc.findViewByIdOrRaise("android:id/list")
 
         #Check if Application has launched

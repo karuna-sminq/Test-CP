@@ -6,9 +6,8 @@ now=$d-$t
 
 #Begin console log
 exec > >(tee -i logs/chartcube_logs_$now.txt)
-
-exec 2>&1 #copy stderr to console output
-
+#copy stderr to console output
+exec 2>&1
 
 echo '''
 Copyright (C) 2015  CODE PANDORA

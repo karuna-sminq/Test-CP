@@ -85,18 +85,18 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         #Slide to left to check if drilldown is passed
-        self.device.longTouch(244.0, 996.0, 2000, 0)
+        self.device.longTouch(272.0, 1034.0, 2000, 0)
         self.vc.sleep(5)
         self.vc.dump(window=-1)
 
         axis_text = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewAxis1Value").text()
 
-        drill_text = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewCloseDrill").text()
+        drill_text = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewDrilDownName").text()
 
         if axis_text == drill_text:
-            print "Drilldown successful!"
+            print "Drilldown check Passed!"
         else:
-            print "Failed!"
+            print "Drilldown check Failed!"
 
         if (self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewCloseDrill")):
             print "Drilldown filter found..."
