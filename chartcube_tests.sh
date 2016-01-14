@@ -24,8 +24,8 @@ Updated on 2016-01-13
 '''
 
 echo "================================="
-echo "Chartcube App v1.4 ..."
-echo "Running Test Suite v1.13 ..."
+echo "Chartcube App v1.5 ..."
+echo "Running Test Suite v1.12 ..."
 echo "================================="
 
 text1="OK"
@@ -47,21 +47,21 @@ do
   for fname in $folder/*.py
   do
 
-    #Passed tests
-    if grep --quiet $text1 logs/chart_logs_$now.txt; then
-      echo "Tests Passed: "
-      echo -e "\e[32m" #green
-      grep -2A1 $text1 "logs/chart_logs_$now.txt"
-      echo -e "\e[39m" #default color
-    fi
-
-    #Failed tests
-    if grep --quiet $text2 logs/chart_logs_$now.txt; then
-      echo "Tests Failed: "
-      echo -e "\e[31m" #red
-      grep -1A3 $text2 "logs/chart_logs_$now.txt"
-      echo -e "\e[39m" #default color
-    fi
+    # #Passed tests
+    # if grep --quiet $text1 logs/chart_logs_$now.txt; then
+    #   echo "Tests Passed: "
+    #   echo -e "\e[32m" #green
+    #   grep -2A1 $text1 "logs/chart_logs_$now.txt"
+    #   echo -e "\e[39m" #default color
+    # fi
+    #
+    # #Failed tests
+    # if grep --quiet $text2 logs/chart_logs_$now.txt; then
+    #   echo "Tests Failed: "
+    #   echo -e "\e[31m" #red
+    #   grep -1A3 $text2 "logs/chart_logs_$now.txt"
+    #   echo -e "\e[39m" #default color
+    # fi
 
     #Indicate when testing an Interim file
     if [ $(find $fname -regex .*interim.*\.py) ]
@@ -75,7 +75,9 @@ do
   done
 done
 
-#Total test count and timer
+#Test count and timer
 end=`date +%s`
 runtime=$((end - start))
+echo "================================="
 echo "Time taken for $total_count tests: $runtime sec"
+echo "================================="

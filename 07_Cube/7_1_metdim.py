@@ -90,8 +90,8 @@ class CulebraTests(CulebraTestCase):
         self.vc.sleep(3)
         self.vc.dump(window=-1)
 
-        self.device.longTouch(476.0, 612.0, 2000, 0)
-        self.vc.sleep(_s)
+        self.device.longTouch(496.0, 402.0, 2000, 0)
+        self.vc.sleep(5)
         self.vc.dump(window=-1)
         print "Chose Dimension: ",self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewDimensionName").text()
         self.vc.sleep(3)

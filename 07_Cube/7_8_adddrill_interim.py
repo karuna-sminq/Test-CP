@@ -70,85 +70,6 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         print "Add Drilldown filter"
-        # self.device.longTouch(622.0, 944.0, 2000, 0)
-        # self.device.longTouch(622.0, 944.0, 2000, 0)
-        # self.device.longTouch(622.0, 944.0, 2000, 0)
-        # self.device.touchDip(134.0, 504.0, 0)
-        # self.device.touchDip(134.0, 504.0, 0)
-        # self.device.touchDip(134.0, 504.0, 0)
-        # self.device.touchDip(134.0, 504.0, 0)
-        #self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/listViewDrillDown").touch()
-        #self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/layoutDrillDownScroller").touch()
-        self.vc.device.shell('sendevent 844631088562246')
-        # /dev/input/event3: 0003 0030 00000046
-        # /dev/input/event3: 0003 0039 00000000
-        # /dev/input/event3: 0001 014a 00000001
-        # /dev/input/event3: 0003 0035 000001b1
-        # /dev/input/event3: 0003 0036 00000359
-        # /dev/input/event3: 0000 0002 00000000
-        # /dev/input/event3: 0000 0000 00000000
-        # /dev/input/event3: 0003 0030 00000046
-        # /dev/input/event3: 0003 0039 00000000
-        # /dev/input/event3: 0003 0035 000001b1
-        # /dev/input/event3: 0003 0036 00000359
-        # /dev/input/event3: 0000 0002 00000000
-        # /dev/input/event3: 0000 0000 00000000
-        # /dev/input/event3: 0003 0030 00000046
-        # /dev/input/event3: 0003 0039 00000000
-        # /dev/input/event3: 0003 0035 000001b1
-        # /dev/input/event3: 0003 0036 00000359
-        # /dev/input/event3: 0000 0002 00000000
-        # /dev/input/event3: 0000 0000 00000000
-        # /dev/input/event3: 0003 0030 00000046
-        # /dev/input/event3: 0003 0039 00000000
-        # /dev/input/event3: 0003 0035 000001b1
-        # /dev/input/event3: 0003 0036 00000359
-        # /dev/input/event3: 0000 0002 00000000
-        # /dev/input/event3: 0000 0000 00000000
-        # /dev/input/event3: 0003 0030 00000046
-        # /dev/input/event3: 0003 0039 00000000
-        # /dev/input/event3: 0003 0035 000001b1
-        # /dev/input/event3: 0003 0036 00000359
-        # /dev/input/event3: 0000 0002 00000000
-        # /dev/input/event3: 0000 0000 00000000
-        # /dev/input/event3: 0001 014a 00000000
-        # /dev/input/event3: 0000 0002 00000000
-        # /dev/input/event3: 0000 0000 00000000
-        # /dev/input/event3: 0003 0030 00000050
-        # /dev/input/event3: 0003 0039 00000000
-        # /dev/input/event3: 0001 014a 00000001
-        # /dev/input/event3: 0003 0035 000001a2
-        # /dev/input/event3: 0003 0036 0000035e
-        # /dev/input/event3: 0000 0002 00000000
-        # /dev/input/event3: 0000 0000 00000000
-        # /dev/input/event3: 0003 0030 00000050
-        # /dev/input/event3: 0003 0039 00000000
-        # /dev/input/event3: 0003 0035 000001a2
-        # /dev/input/event3: 0003 0036 0000035e
-        # /dev/input/event3: 0000 0002 00000000
-        # /dev/input/event3: 0000 0000 00000000
-        # /dev/input/event3: 0003 0030 00000050
-        # /dev/input/event3: 0003 0039 00000000
-        # /dev/input/event3: 0003 0035 000001a2
-        # /dev/input/event3: 0003 0036 0000035e
-        # /dev/input/event3: 0000 0002 00000000
-        # /dev/input/event3: 0000 0000 00000000
-        # /dev/input/event3: 0003 0030 00000050
-        # /dev/input/event3: 0003 0039 00000000
-        # /dev/input/event3: 0003 0035 000001a2
-        # /dev/input/event3: 0003 0036 0000035e
-        # /dev/input/event3: 0000 0002 00000000
-        # /dev/input/event3: 0000 0000 00000000
-        # /dev/input/event3: 0003 0030 00000050
-        # /dev/input/event3: 0003 0039 00000000
-        # /dev/input/event3: 0003 0035 000001a2
-        # /dev/input/event3: 0003 0036 0000035e
-        # /dev/input/event3: 0000 0002 00000000
-        # /dev/input/event3: 0000 0000 00000000
-        # /dev/input/event3: 0001 014a 00000000
-        # /dev/input/event3: 0000 0002 00000000
-        # /dev/input/event3: 0000 0000 00000000
-
         self.vc.device.press('KEYCODE_MENU', 'DOWN_AND_UP')
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
@@ -156,6 +77,7 @@ class CulebraTests(CulebraTestCase):
         print "Back to Home"
         self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewBackButton").touch()
         self.vc.sleep(_s)
+        self.vc.dump(window=-1)
 
 if __name__ == '__main__':
     CulebraTests.main()
