@@ -29,40 +29,39 @@ echo "Running Test Suite v1.12 ..."
 echo "================================="
 
 text1="OK"
-text2="ERROR"
+text2="FAILED"
 total_count=0
-
+pass=" "
+fail=" "
 start=`date +%s`
-#Begin iterating through every folder
+
 for folder in ./*
 do
-
-  #Begin recording tests for every folder
-  adb shell screenrecord /sdcard/$folder.mp4 &
-  echo "------------------"
-  echo "$folder"
-  echo "------------------"
 
   #Begin iterating through every file in specified folder
   for fname in $folder/*.py
   do
 
-    # #Passed tests
-    # if grep --quiet $text1 logs/chart_logs_$now.txt; then
-    #   echo "Tests Passed: "
-    #   echo -e "\e[32m" #green
-    #   grep -2A1 $text1 "logs/chart_logs_$now.txt"
-    #   echo -e "\e[39m" #default color
-    # fi
-    #
-    # #Failed tests
-    # if grep --quiet $text2 logs/chart_logs_$now.txt; then
-    #   echo "Tests Failed: "
-    #   echo -e "\e[31m" #red
-    #   grep -1A3 $text2 "logs/chart_logs_$now.txt"
-    #   echo -e "\e[39m" #default color
-    # fi
+    #Passed tests
+    if grep --quiet $text1 logs/chart_logs_$now.txt; then
+      echo "Tests Passed: "
+      echo -e "\e[32m" #green
+      grep -2A1 $text1 "logs/chart_logs_$now.txt"
+      grep -2A1 $text1 "logs/chart_logs_$now.txt" >> logs/pass.txt
+      echo -e "\e[39m" #default color
+      pass=$(grep "Test Case" logs/pass.txt)
+    fi
 
+    #Failed tests
+    if grep --quiet $text2 logs/chart_logs_$now.txt; then
+      echo "Tests Failed: "
+      echo -e "\e[31m" #red
+      grep -1A3 $text2 "logs/chart_logs_$now.txt"
+      grep -1A3 $text2 "logs/chart_logs_$now.txt" >> logs/fail.txt
+      echo -e "\e[39m" #default color
+      fail=$(grep "Test Case" logs/fail.txt)
+    fi
+    #
     #Indicate when testing an Interim file
     if [ $(find $fname -regex .*interim.*\.py) ]
     then
@@ -80,4 +79,8 @@ end=`date +%s`
 runtime=$((end - start))
 echo "================================="
 echo "Time taken for $total_count tests: $runtime sec"
+echo -e "\nPassed: "
+echo -e "\n$pass"
+echo -e "\nFailed: "
+echo -e "\n$fail"
 echo "================================="
