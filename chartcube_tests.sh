@@ -5,14 +5,14 @@ t="$(date +%H:%M)"
 now=$d-$t
 
 #Begin console log
-exec > >(tee -i logs/chart_logs_$now.txt)
+exec > >(tee -i ANDROID/logs/chart_logs_$now.txt)
 #copy stderr to console output
 exec 2>&1
 
 echo '''
 Copyright (C) 2015-2016  CODE PANDORA
 Created on 2015-12-11
-Updated on 2016-01-13
+Updated on 2016-01-25
 
    __________  ____  ______   ____  ___    _   ______  ____  ____  ___
   / ____/ __ \/ __ \/ ____/  / __ \/   |  / | / / __ \/ __ \/ __ \/   |
@@ -25,7 +25,7 @@ Updated on 2016-01-13
 
 echo "================================="
 echo "Chartcube App v1.5 ..."
-echo "Running Test Suite v1.12 ..."
+echo "Running Test Suite v1.30 ..."
 echo "================================="
 
 text1="OK"
@@ -35,38 +35,38 @@ pass=" "
 fail=" "
 start=`date +%s`
 
-for folder in ./*
+for folder in ANDROID/*
 do
 
   #Begin iterating through every file in specified folder
   for fname in $folder/*.py
   do
 
-    #Passed tests
-    if grep --quiet $text1 logs/chart_logs_$now.txt; then
-      echo "Tests Passed: "
-      echo -e "\e[32m" #green
-      grep -2A1 $text1 "logs/chart_logs_$now.txt"
-      grep -2A1 $text1 "logs/chart_logs_$now.txt" >> logs/pass.txt
-      echo -e "\e[39m" #default color
-      pass=$(grep "Test Case" logs/pass.txt)
-    fi
-
-    #Failed tests
-    if grep --quiet $text2 logs/chart_logs_$now.txt; then
-      echo "Tests Failed: "
-      echo -e "\e[31m" #red
-      grep -1A3 $text2 "logs/chart_logs_$now.txt"
-      grep -1A3 $text2 "logs/chart_logs_$now.txt" >> logs/fail.txt
-      echo -e "\e[39m" #default color
-      fail=$(grep "Test Case" logs/fail.txt)
-    fi
-    #
     #Indicate when testing an Interim file
     if [ $(find $fname -regex .*interim.*\.py) ]
     then
       echo "*****$fname: INTERIM FILE*****"
     fi
+
+    # #Passed tests
+    # if grep --quiet $text1 logs/chart_logs_$now.txt; then
+    #   echo "Tests Passed: "
+    #   echo -e "\e[32m" #green
+    #   grep -2A1 $text1 "logs/chart_logs_$now.txt"
+    #   grep -2A1 $text1 "logs/chart_logs_$now.txt" >> logs/pass.txt
+    #   echo -e "\e[39m" #default color
+    #   pass=$(grep "Test Case" logs/pass.txt)
+    # fi
+    #
+    # #Failed tests
+    # if grep --quiet $text2 logs/chart_logs_$now.txt; then
+    #   echo "Tests Failed: "
+    #   echo -e "\e[31m" #red
+    #   grep -1A3 $text2 "logs/chart_logs_$now.txt"
+    #   grep -1A3 $text2 "logs/chart_logs_$now.txt" >> logs/fail.txt
+    #   echo -e "\e[39m" #default color
+    #   fail=$(grep "Test Case" logs/fail.txt)
+    # fi
 
     #Execute file
     python $fname
@@ -79,8 +79,8 @@ end=`date +%s`
 runtime=$((end - start))
 echo "================================="
 echo "Time taken for $total_count tests: $runtime sec"
-echo -e "\nPassed: "
-echo -e "\n$pass"
-echo -e "\nFailed: "
-echo -e "\n$fail"
+# echo -e "\nPassed: "
+# echo -e "\n$pass"
+# echo -e "\nFailed: "
+# echo -e "\n$fail"
 echo "================================="

@@ -56,7 +56,7 @@ class CulebraTests(CulebraTestCase):
 
         self.vc.dump(window=-1)
 
-        print "Test Case: Sorting - Default"
+        print "Test Case: Scrolling Down"
         self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCubeTitle").touch()
         self.vc.sleep(8)
         self.vc.dump(window=-1)
@@ -65,17 +65,34 @@ class CulebraTests(CulebraTestCase):
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        print "Options Menu: "
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewChartCubeOptionsMenu").touch()
+        self.device.dragDip((340.0, 366.0), (48.0, 364.0), 1000, 20, 0)
+        self.vc.sleep(1)
+        self.vc.dump(window=-1)
+
+        dim_before = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewDimensionName")
+        #print dim_before.text()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        self.device.longTouch(448.0, 408.0, 2000, 0)
-        self.vc.sleep(5)
+        print "Scroll Down"
+        self.device.press('KEYCODE_DPAD_UP')
+        self.device.press('KEYCODE_DPAD_RIGHT')
+        self.device.press('KEYCODE_DPAD_UP')
+        self.device.press('KEYCODE_DPAD_RIGHT')
+
+        self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        print "Selected: Default Sort"
-        self.vc.findViewWithTextOrRaise(u'Default', root=self.vc.findViewByIdOrRaise('id/no_id/8')).touch()
+        dim_after = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewDimensionName")
+        #print dim_after.text()
+        self.vc.sleep(_s)
+        self.vc.dump(window=-1)
+
+        if dim_before.text() == dim_after.text():
+            print "Scroll down failed!"
+        else:
+            print "Dimension changed from: ",dim_before.text()," to ",dim_after.text()
+            print "Scroll down successful!"
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 

@@ -56,7 +56,7 @@ class CulebraTests(CulebraTestCase):
 
         self.vc.dump(window=-1)
 
-        print "Test Case: Scrolling Up"
+        print "Test Case: Choosing Aggregation and Format from List"
         self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCubeTitle").touch()
         self.vc.sleep(8)
         self.vc.dump(window=-1)
@@ -65,39 +65,61 @@ class CulebraTests(CulebraTestCase):
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        self.device.dragDip((340.0, 366.0), (48.0, 364.0), 1000, 20, 0)
-        self.vc.sleep(1)
+        print "List: "
+        self.device.longTouch(520.0, 202.0, 2000, 0)
+        self.vc.sleep(3)
         self.vc.dump(window=-1)
 
-        dim_before = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewDimensionName")
-        #print dim_before.text()
-        self.vc.sleep(_s)
+        print "Metric: ",self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewMetricName").text()
+        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewMetricName").touch()
+        self.vc.sleep(3)
         self.vc.dump(window=-1)
 
-        print "Scroll Up"
-        self.device.press('KEYCODE_DPAD_CENTER')
-        self.device.press('KEYCODE_DPAD_DOWN')
-        self.device.press('KEYCODE_DPAD_RIGHT')
-        self.vc.sleep(_s)
+        agg_before = self.vc.findViewWithContentDescriptionOrRaise(u'''Aggegation label above chart''').text()
+
+        print "Aggregation List: "
+        self.vc.findViewWithContentDescriptionOrRaise(u'''Aggegation label above chart''').touch()
+        self.vc.sleep(3)
         self.vc.dump(window=-1)
 
-        dim_after = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewDimensionName")
-        #print dim_after.text()
-        self.vc.sleep(_s)
-        self.vc.dump(window=-1)
-
-        if dim_before == dim_after:
-            print "Scroll up failed!"
+        if (self.vc.findViewWithTextOrRaise(u'Chart Value Options')):
+            print "Aggregation selected..."
         else:
-            print "Dimension changed from: ",dim_before.text()," to ",dim_after.text()
-            print "Scroll up successful!"
-        self.vc.sleep(_s)
+            print "Failed..."
         self.vc.dump(window=-1)
+
+        print "Aggregation - Average"
+        self.device.longTouch(92.0, 380.0, 2000, 0)
+        self.vc.sleep(3)
+        self.vc.dump(window=-1)
+
+        print "Aggregation List: "
+        self.vc.findViewWithContentDescriptionOrRaise(u'''Aggegation label above chart''').touch()
+        self.vc.sleep(3)
+        self.vc.dump(window=-1)
+
+        if (self.vc.findViewWithTextOrRaise(u'Chart Value Options')):
+            print "Format selected..."
+        else:
+            print "Failed..."
+        self.vc.dump(window=-1)
+
+        print "Format - Currency"
+        self.device.longTouch(106.0, 750.0, 2000, 0)
+        self.vc.sleep(3)
+        self.vc.dump(window=-1)
+
+        agg_after = self.vc.findViewWithContentDescriptionOrRaise(u'''Aggegation label above chart''').text()
+
+        #Check for Aggregation value before and after selecting
+        if agg_before == agg_after:
+            print "No change in Aggregation value!"
+        else:
+            print "Aggregation value has changed! Passed!"
 
         print "Back to Home"
         self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewBackButton").touch()
         self.vc.sleep(_s)
-        self.vc.dump(window=-1)
 
 if __name__ == '__main__':
     CulebraTests.main()

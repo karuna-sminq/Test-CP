@@ -6,6 +6,7 @@ from selenium.webdriver.support.ui import Select
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest, time, re
+import selenium.webdriver.support.ui as ui
 
 class ChartUnshare(unittest.TestCase):
     def setUp(self):
@@ -23,13 +24,20 @@ class ChartUnshare(unittest.TestCase):
         driver.find_element_by_id("loginPwd").clear()
         driver.find_element_by_id("loginPwd").send_keys("sam1211212")
         driver.find_element_by_css_selector("button.bottom-right-button.blue-button").click()
+        wait = ui.WebDriverWait(driver, 10) # timeout after 10 seconds
         driver.find_element_by_css_selector("div.summary > div.title").click()
+        wait = ui.WebDriverWait(driver, 10) # timeout after 10 seconds
         driver.find_element_by_css_selector("div.share_wrap").click()
+        wait = ui.WebDriverWait(driver, 10) # timeout after 10 seconds
         driver.find_element_by_id("pillboxAddItem").clear()
         driver.find_element_by_id("pillboxAddItem").send_keys("karuna.lingham@codepandora.com")
+        wait = ui.WebDriverWait(driver, 10) # timeout after 10 seconds
         driver.find_element_by_css_selector("#shareOptionsModal > div.modal-container > div.modal-footer > button.bottom-right-button.blue-button").click()
+        wait = ui.WebDriverWait(driver, 10) # timeout after 10 seconds
         driver.find_element_by_css_selector("div.share_wrap").click()
+        wait = ui.WebDriverWait(driver, 10) # timeout after 10 seconds
         driver.find_element_by_css_selector("a.delete").click()
+        wait = ui.WebDriverWait(driver, 10) # timeout after 10 seconds
         driver.find_element_by_css_selector("#shareOptionsModal > div.modal-container > div.modal-footer > button.bottom-right-button.blue-button").click()
 
     def is_element_present(self, how, what):

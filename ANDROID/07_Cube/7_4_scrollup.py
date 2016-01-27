@@ -56,25 +56,48 @@ class CulebraTests(CulebraTestCase):
 
         self.vc.dump(window=-1)
 
-        print "Test Case: Launch Application"
-        self.vc.findViewWithTextOrRaise(u'V 1.5').touch()
+        print "Test Case: Scrolling Up"
+        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCubeTitle").touch()
         self.vc.sleep(8)
         self.vc.dump(window=-1)
 
-        android___id_list = self.vc.findViewByIdOrRaise("android:id/list")
-
-        #Check if Application has launched
-        if (android___id_list.isScrollable()):
-            print "App Launched! Scrolling through list of Chartcubes."
-            android___id_list.uiScrollable.flingToEnd()
-
-        else:
-            print "App failed to launch!"
+        self.vc.device.press('KEYCODE_BACK')
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        self.vc.device.takeSnapshot().save("/home/cp_android2/Documents/AndroidViewClient/Chartcube/Screenshots/HomePage", 'PNG')
-        print "Screenshot captured!"
+        self.device.dragDip((340.0, 366.0), (48.0, 364.0), 1000, 20, 0)
+        self.vc.sleep(1)
+        self.vc.dump(window=-1)
+
+        dim_before = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewDimensionName")
+        #print dim_before.text()
+        self.vc.sleep(_s)
+        self.vc.dump(window=-1)
+
+        print "Scroll Up"
+        self.device.press('KEYCODE_DPAD_UP')
+        self.device.press('KEYCODE_DPAD_LEFT')
+        self.device.press('KEYCODE_DPAD_UP')
+        self.device.press('KEYCODE_DPAD_LEFT')
+
+        self.vc.sleep(_s)
+        self.vc.dump(window=-1)
+
+        dim_after = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewDimensionName")
+        #print dim_after.text()
+        self.vc.sleep(_s)
+        self.vc.dump(window=-1)
+
+        if dim_before.text() == dim_after.text():
+            print "Scroll up failed!"
+        else:
+            print "Dimension changed from: ",dim_before.text()," to ",dim_after.text()
+            print "Scroll up successful!"
+        self.vc.sleep(_s)
+        self.vc.dump(window=-1)
+
+        print "Back to Home"
+        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewBackButton").touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 

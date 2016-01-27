@@ -56,30 +56,33 @@ class CulebraTests(CulebraTestCase):
 
         self.vc.dump(window=-1)
 
-        print "Test Case: Sliding to Left/ Right"
+        print "Test Case: Sorting - Alphabetical"
         self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCubeTitle").touch()
         self.vc.sleep(8)
         self.vc.dump(window=-1)
 
         self.vc.device.press('KEYCODE_BACK')
         self.vc.sleep(_s)
-
-        self.vc.device.press('KEYCODE_BACK')
-        self.vc.sleep(_s)
-
-        print "Slide Left"
-        self.device.longTouch(196.0, 842.0, 2000, 0)
-        self.vc.sleep(3)
         self.vc.dump(window=-1)
 
-        print "Slide Right"
-        self.device.longTouch(604.0, 896.0, 2000, 0)
-        self.vc.sleep(3)
+        print "Options Menu: "
+        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewChartCubeOptionsMenu").touch()
+        self.vc.sleep(_s)
+        self.vc.dump(window=-1)
+
+        self.device.longTouch(448.0, 408.0, 2000, 0)
+        self.vc.sleep(5)
+        self.vc.dump(window=-1)
+
+        print "Selected: Alphabetical Sort"
+        self.vc.findViewWithTextOrRaise(u'Alphabetical', root=self.vc.findViewByIdOrRaise('id/no_id/8')).touch()
+        self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
         print "Back to Home"
         self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewBackButton").touch()
         self.vc.sleep(_s)
+        self.vc.dump(window=-1)
 
 if __name__ == '__main__':
     CulebraTests.main()

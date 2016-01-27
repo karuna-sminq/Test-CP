@@ -56,70 +56,23 @@ class CulebraTests(CulebraTestCase):
 
         self.vc.dump(window=-1)
 
-        print "Test Case: Choosing Aggregation and Format from List"
+        print "Test Case: Sliding to Left/ Right"
         self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCubeTitle").touch()
         self.vc.sleep(8)
         self.vc.dump(window=-1)
 
         self.vc.device.press('KEYCODE_BACK')
         self.vc.sleep(_s)
-        self.vc.dump(window=-1)
 
-        self.vc.device.press('KEYCODE_BACK')
-        self.vc.sleep(_s)
-        self.vc.dump(window=-1)
-
-        print "List: "
-        self.device.longTouch(520.0, 202.0, 2000, 0)
+        print "Slide Left"
+        self.device.longTouch(196.0, 842.0, 2000, 0)
         self.vc.sleep(3)
         self.vc.dump(window=-1)
 
-        print "Metric: ",self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewMetricName").text()
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewMetricName").touch()
+        print "Slide Right"
+        self.device.longTouch(604.0, 896.0, 2000, 0)
         self.vc.sleep(3)
         self.vc.dump(window=-1)
-
-        agg_before = self.vc.findViewWithContentDescriptionOrRaise(u'''Aggegation label above chart''').text()
-
-        print "Aggregation List: "
-        self.vc.findViewWithContentDescriptionOrRaise(u'''Aggegation label above chart''').touch()
-        self.vc.sleep(3)
-        self.vc.dump(window=-1)
-
-        if (self.vc.findViewWithTextOrRaise(u'Chart Value Options')):
-            print "Aggregation selected..."
-        else:
-            print "Failed..."
-        self.vc.dump(window=-1)
-
-        print "Aggregation - Average"
-        self.device.longTouch(92.0, 380.0, 2000, 0)
-        self.vc.sleep(3)
-        self.vc.dump(window=-1)
-
-        print "Aggregation List: "
-        self.vc.findViewWithContentDescriptionOrRaise(u'''Aggegation label above chart''').touch()
-        self.vc.sleep(3)
-        self.vc.dump(window=-1)
-
-        if (self.vc.findViewWithTextOrRaise(u'Chart Value Options')):
-            print "Format selected..."
-        else:
-            print "Failed..."
-        self.vc.dump(window=-1)
-
-        print "Format - Currency"
-        self.device.longTouch(106.0, 750.0, 2000, 0)
-        self.vc.sleep(3)
-        self.vc.dump(window=-1)
-
-        agg_after = self.vc.findViewWithContentDescriptionOrRaise(u'''Aggegation label above chart''').text()
-
-        #Check for Aggregation value before and after selecting
-        if agg_before == agg_after:
-            print "No change in Aggregation value!"
-        else:
-            print "Aggregation value has changed! Passed!"
 
         print "Back to Home"
         self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewBackButton").touch()

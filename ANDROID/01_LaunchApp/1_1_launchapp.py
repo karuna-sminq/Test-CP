@@ -56,46 +56,25 @@ class CulebraTests(CulebraTestCase):
 
         self.vc.dump(window=-1)
 
-        print "Test Case: Scrolling Down"
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCubeTitle").touch()
+        print "Test Case: Launch Application"
+        self.vc.findViewWithTextOrRaise(u'Chartcube').touch()
         self.vc.sleep(8)
         self.vc.dump(window=-1)
 
-        self.vc.device.press('KEYCODE_BACK')
-        self.vc.sleep(_s)
-        self.vc.dump(window=-1)
+        android___id_list = self.vc.findViewByIdOrRaise("android:id/list")
 
-        self.device.dragDip((340.0, 366.0), (48.0, 364.0), 1000, 20, 0)
-        self.vc.sleep(1)
-        self.vc.dump(window=-1)
+        #Check if Application has launched
+        if (android___id_list.isScrollable()):
+            print "App Launched! Scrolling through list of Chartcubes."
+            android___id_list.uiScrollable.flingToEnd()
 
-        dim_before = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewDimensionName")
-        #print dim_before.text()
-        self.vc.sleep(_s)
-        self.vc.dump(window=-1)
-
-        print "Scroll Down"
-        self.device.press('KEYCODE_DPAD_CENTER')
-        self.device.press('KEYCODE_DPAD_DOWN')
-        self.device.press('KEYCODE_DPAD_LEFT')
-        self.vc.sleep(_s)
-        self.vc.dump(window=-1)
-
-        dim_after = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewDimensionName")
-        #print dim_after.text()
-        self.vc.sleep(_s)
-        self.vc.dump(window=-1)
-
-        if dim_before == dim_after:
-            print "Scroll down failed!"
         else:
-            print "Dimension changed from: ",dim_before.text()," to ",dim_after.text()
-            print "Scroll down successful!"
+            print "App failed to launch!"
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        print "Back to Home"
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewBackButton").touch()
+        self.vc.device.takeSnapshot().save("/home/cp_android2/Documents/AndroidViewClient/Chartcube/ANDROID/Screenshots/HomePage.png", 'PNG')
+        print "Screenshot captured!"
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
