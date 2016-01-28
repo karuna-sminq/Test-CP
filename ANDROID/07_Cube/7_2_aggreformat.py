@@ -122,6 +122,10 @@ class CulebraTests(CulebraTestCase):
 
         if re.search('[K,M,.,%,$,(,)]',orig_string):
             new_string = re.sub('[\s,K,M,.,%,$,(,)]','',orig_string)
+
+            #Exclude minus sign
+            new_string = re.sub('[-]','',new_string)
+
             if len(new_string) < 4:
                 print "Aggregation value check Passed!"
             else:
@@ -130,7 +134,7 @@ class CulebraTests(CulebraTestCase):
             if len(orig_string) < 4:
                 print "Aggregation value check Passed!"
             else:
-                print "Aggregation value check Failed!"
+                print "aggregation value check Failed!"
 
         print "Back to Home"
         self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewBackButton").touch()
