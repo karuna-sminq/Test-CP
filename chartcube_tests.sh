@@ -25,7 +25,7 @@ Updated on 2016-01-25
 
 echo "================================="
 echo "Chartcube App v1.5 ..."
-echo "Running Test Suite v1.30 ..."
+echo "Running Test Suite v1.42 ..."
 echo "================================="
 
 text1="OK"

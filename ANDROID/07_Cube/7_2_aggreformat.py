@@ -117,6 +117,21 @@ class CulebraTests(CulebraTestCase):
         else:
             print "Aggregation value has changed! Passed!"
 
+        #Check for Digits < 4 (w/ & w/o decimal)
+        orig_string = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewAxis2Value").text()
+
+        if re.search('[K,M,.,%,$,(,)]',orig_string):
+            new_string = re.sub('[\s,K,M,.,%,$,(,)]','',orig_string)
+            if len(new_string) < 4:
+                print "Aggregation value check Passed!"
+            else:
+                print "Aggregation value check Failed!"
+        else:
+            if len(orig_string) < 4:
+                print "Aggregation value check Passed!"
+            else:
+                print "Aggregation value check Failed!"
+
         print "Back to Home"
         self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewBackButton").touch()
         self.vc.sleep(_s)

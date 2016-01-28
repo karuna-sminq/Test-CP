@@ -76,7 +76,6 @@ class CulebraTests(CulebraTestCase):
         self.vc.device.takeSnapshot().save("/home/cp_android2/Documents/AndroidViewClient/Chartcube/ANDROID/Screenshots/HomePage.png", 'PNG')
         print "Screenshot captured!"
         self.vc.sleep(_s)
-        self.vc.dump(window=-1)
 
 if __name__ == '__main__':
     CulebraTests.main()
