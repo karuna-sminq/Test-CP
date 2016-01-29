@@ -24,6 +24,8 @@ import os
 
 import unittest
 
+from subprocess import call
+
 from com.dtmilano.android.viewclient import ViewClient, CulebraTestCase
 
 TAG = 'CULEBRA'
@@ -59,14 +61,38 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         print "Test Case: UnShare"
+
+        # #Call to selenium web app - share test
+        # call(["python","/home/cp_android2/Documents/AndroidViewClient/Chartcube/WEB/chart_share.py"])
+        # self.vc.sleep(10)
+        # self.vc.dump(window=-1)
+        #
+        # android___id_list = self.vc.findViewByIdOrRaise("android:id/list")
+        #
+        # android___id_list.uiScrollable.flingToBeginning()
+        # print "Cube List Refreshed!"
+        # self.vc.sleep(_s)
+        # self.vc.dump(window=-1)
+
         #If Cube owner: access cannot be removed
         owner = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCubeOwner")
         print owner.text()
         result = re.search('^[^You]', owner.text())
 
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCubeTitle").touch()
-        self.vc.sleep(8)
+        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/notifications").touch()
+        self.vc.sleep(10)
         self.vc.dump(window=-1)
+
+        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/list_item").touch()
+        self.vc.sleep(_s)
+        self.vc.dump(window=-1)
+
+        self.vc.device.press('KEYCODE_BACK')
+        self.vc.sleep(_s)
+        self.vc.dump(window=-1)
+
+        #Call to selenium web app - unshare test
+        call(["python","/home/cp_android2/Documents/AndroidViewClient/Chartcube/WEB/chart_unshare.py"])
 
         #Check for cube access removal
         if result:
@@ -77,7 +103,7 @@ class CulebraTests(CulebraTestCase):
                 print "Owner's access cannot be removed! Failed!"
 
         print "Back to Home"
-        self. vc.findViewWithTextOrRaise(u'OK').touch()
+        self.vc.findViewWithTextOrRaise("OK").touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
