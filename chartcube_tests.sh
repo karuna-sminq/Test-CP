@@ -12,7 +12,7 @@ exec 2>&1
 echo '''
 Copyright (C) 2015-2016  CODE PANDORA
 Created on 2015-12-11
-Updated on 2016-01-25
+Updated on 2016-02-01
 
    __________  ____  ______   ____  ___    _   ______  ____  ____  ___
   / ____/ __ \/ __ \/ ____/  / __ \/   |  / | / / __ \/ __ \/ __ \/   |
@@ -25,7 +25,7 @@ Updated on 2016-01-25
 
 echo "================================="
 echo "Chartcube App v1.5 ..."
-echo "Running Test Suite v1.42 ..."
+echo "Running Test Suite v1.5 ..."
 echo "================================="
 
 text1="OK"
@@ -35,6 +35,15 @@ pass=" "
 fail=" "
 start=`date +%s`
 
+interim()
+{
+      #Indicate when testing an Interim file
+      if [ $(find $fname -regex .*interim.*\.py) ]
+      then
+        echo "*****$fname: INTERIM FILE*****"
+      fi
+}
+
 for folder in ANDROID/*
 do
 
@@ -42,12 +51,8 @@ do
   for fname in $folder/*.py
   do
 
-    #Indicate when testing an Interim file
-    if [ $(find $fname -regex .*interim.*\.py) ]
-    then
-      echo "*****$fname: INTERIM FILE*****"
-    fi
-
+    interim #call to interim function
+    
     # #Passed tests
     # if grep --quiet $text1 logs/chart_logs_$now.txt; then
     #   echo "Tests Passed: "
