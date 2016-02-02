@@ -34,7 +34,7 @@ class ChartShare(unittest.TestCase):
 
         driver.find_element_by_css_selector(
             "button.bottom-right-button.blue-button").click()
-        time.sleep(15)
+        time.sleep(35)
 
         driver.find_element_by_xpath(
             "//div[2]/div[3]/div/div/div[2]/div[2]/div").click()
