@@ -63,7 +63,7 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         #Check for New chartcube creation
-        if self.vc.findViewByIdOrRaise("android:id/message"):
+        if self.vc.findViewWithTextOrRaise(u'Please go to www.chartcube.com on your desktop to create new chartcubes.'):
             print "Create new chartcubes on www.chartcube.com! Passed!"
             self.vc.findViewWithTextOrRaise(u'OK').touch()
 

@@ -75,6 +75,7 @@ class CulebraTests(CulebraTestCase):
 
         self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewBackButton").touch()
         self.vc.sleep(_s)
+        self.vc.dump(window=-1)
 
         print "Back to Home"
         self.vc.device.press('KEYCODE_BACK')

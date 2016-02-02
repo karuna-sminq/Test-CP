@@ -72,7 +72,7 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         #Check if Sign out was cancelled
-        if (self.vc.findViewWithContentDescriptionOrRaise(u'''Settings, Navigate up''')):
+        if (self.vc.findViewWithTextOrRaise(u'Settings')):
             print "Sign Out Cancelled!"
         else:
             print "Signed out!"
@@ -81,7 +81,7 @@ class CulebraTests(CulebraTestCase):
 
         print "Back to Home"
 
-        self.vc.findViewWithContentDescriptionOrRaise(u'''Settings, Navigate up''').touch()
+        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/homeUp").touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 

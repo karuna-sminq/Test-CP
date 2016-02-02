@@ -60,6 +60,11 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         print "Test Case: Settings"
+
+        self.vc.device.press('KEYCODE_BACK')
+        self.vc.sleep(_s)
+        self.vc.dump(window=-1)
+        
         self.vc.findViewByIdOrRaise(
             "com.chartcube.cubepager:id/imageViewSettings").touch()
         self.vc.sleep(_s)

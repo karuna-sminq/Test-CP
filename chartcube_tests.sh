@@ -12,7 +12,7 @@ exec 2>&1
 echo '''
 Copyright (C) 2015-2016  CODE PANDORA
 Created on 2015-12-11
-Updated on 2016-02-01
+Updated on 2016-02-02
 
    __________  ____  ______   ____  ___    _   ______  ____  ____  ___
   / ____/ __ \/ __ \/ ____/  / __ \/   |  / | / / __ \/ __ \/ __ \/   |
@@ -24,8 +24,8 @@ Updated on 2016-02-01
 '''
 
 echo "================================="
-echo "Chartcube App v1.5 ..."
-echo "Running Test Suite v1.5 ..."
+echo "Chartcube App v1.5.50 ..."
+echo "Running Test Suite v1.6 ..."
 echo "================================="
 
 text1="OK"
@@ -52,7 +52,7 @@ do
   do
 
     interim #call to interim function
-    
+
     # #Passed tests
     # if grep --quiet $text1 logs/chart_logs_$now.txt; then
     #   echo "Tests Passed: "
