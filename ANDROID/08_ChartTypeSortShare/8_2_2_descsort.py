@@ -79,6 +79,25 @@ class CulebraTests(CulebraTestCase):
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
+        print "Check for Descending Sort"
+        self.device.touch(252.0, 790.0, 0)
+        self.vc.sleep(_s)
+        self.vc.dump(window=-1)
+
+        axis1 = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewAxis2Value").text()
+
+        self.device.touch(432.0, 684.0, 0)
+        self.vc.sleep(_s)
+        self.vc.dump(window=-1)
+
+        axis2 = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewAxis2Value").text()
+
+        #Check for Descending Sort - Axis values
+        if (axis1 >= axis2):
+            print "Passed! Chart using Descending Sort displayed!"
+        else:
+            print "Failed! Chart did not use Descending Sort!"
+
         print "Back to Home"
         self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewBackButton").touch()
         self.vc.sleep(_s)

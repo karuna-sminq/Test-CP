@@ -56,7 +56,7 @@ class CulebraTests(CulebraTestCase):
 
         self.vc.dump(window=-1)
 
-        print "Test Case: Sorting - Ascending"
+        print "Test Case: Sorting - Alphabetical"
         self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCubeTitle").touch()
         self.vc.sleep(8)
         self.vc.dump(window=-1)
@@ -74,10 +74,35 @@ class CulebraTests(CulebraTestCase):
         self.vc.sleep(5)
         self.vc.dump(window=-1)
 
-        print "Selected: Ascending Sort"
-        self.vc.findViewWithTextOrRaise(u'Ascending', root=self.vc.findViewByIdOrRaise('id/no_id/4')).touch()
+        print "Selected: Alphabetical Sort"
+        self.vc.findViewWithTextOrRaise(u'Alphabetical', root=self.vc.findViewByIdOrRaise('id/no_id/8')).touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
+
+        print "Check for Alphabetical Sort"
+        self.device.touch(252.0, 790.0, 0)
+        self.vc.sleep(_s)
+        self.vc.dump(window=-1)
+
+        val1 = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewAxis1Value").text()
+
+        self.device.touch(432.0, 684.0, 0)
+        self.vc.sleep(_s)
+        self.vc.dump(window=-1)
+
+        val2 = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewAxis1Value").text()
+
+        self.device.touch(614.0, 702.0, 0)
+        self.vc.sleep(_s)
+        self.vc.dump(window=-1)
+
+        val3 = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewAxis1Value").text()
+
+        #Check for Alphabetical Sort - Axis name values
+        if val1 < val2 and val2 < val3:
+            print "Passed! Chart was sorted Alphabetically!"
+        else:
+            print "Failed to display chart Alphabetically!"
 
         print "Back to Home"
         self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewBackButton").touch()
