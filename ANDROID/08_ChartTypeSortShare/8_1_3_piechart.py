@@ -76,11 +76,60 @@ class CulebraTests(CulebraTestCase):
 
         print "Selected: Pie Chart"
         self.vc.findViewWithTextOrRaise(u'Pie chart', root=self.vc.findViewByIdOrRaise('id/no_id/8')).touch()
-
         print "Pie Chart is displayed!"
-
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
+
+        print "Check for Pie Chart option disabled"
+        self.vc.findViewWithTextOrRaise(u'Add Comment').touch()
+        self.vc.sleep(5)
+        self.vc.dump(window=-1)
+
+        self.device.longTouch(410.0, 94.0, 2000, 0)
+        self.vc.sleep(5)
+        self.vc.dump(window=-1)
+
+        self.device.dragDip((181.0, 375.0), (178.0, 102.0), 1000, 20, 0)
+        self.vc.sleep(1)
+        self.vc.dump(window=-1)
+
+        self.device.longTouch(222.0, 300.0, 2000, 0)
+        self.vc.sleep(5)
+        self.vc.dump(window=-1)
+
+        self.vc.device.press('KEYCODE_BACK')
+        self.vc.sleep(_s)
+        self.vc.dump(window=-1)
+
+        #Check for negative axis value & pie chart option
+
+        self.device.touch(252.0, 790.0, 0)
+        self.vc.sleep(_s)
+        self.vc.dump(window=-1)
+
+        val = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewAxis2Value").text()
+
+        new_val = re.search('-',val)
+        if new_val:
+            print "Negative axis value found!"
+            self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewChartCubeOptionsMenu").touch()
+            self.vc.sleep(_s)
+            self.vc.dump(window=-1)
+
+            self.device.longTouch(516.0, 310.0, 2000, 0)
+            self.vc.sleep(5)
+            self.vc.dump(window=-1)
+
+            print "Selected: Pie Chart"
+            if not self.vc.findViewWithTextOrRaise(u'Pie chart').clickable():
+                print "Passed! Pie Chart is disabled!"
+                self.vc.device.press('KEYCODE_BACK')
+            else:
+                print "Failed! Pie Chart is not disabled!"
+            self.vc.sleep(_s)
+            self.vc.dump(window=-1)
+        else:
+            "No negative axis value!"
 
         print "Back to Home"
         self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewBackButton").touch()
