@@ -102,7 +102,6 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         #Check for negative axis value & pie chart option
-
         self.device.touch(252.0, 790.0, 0)
         self.vc.sleep(_s)
         self.vc.dump(window=-1)

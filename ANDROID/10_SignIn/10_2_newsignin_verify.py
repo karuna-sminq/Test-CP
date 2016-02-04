@@ -56,54 +56,41 @@ class CulebraTests(CulebraTestCase):
 
         self.vc.dump(window=-1)
 
-        print "Test Case: Sign Up - New User"
+        print "Test Case: Sign In - New User: Verify Email"
 
-        self.vc.findViewWithTextOrRaise(u'Create Account').touch()
+        self.vc.findViewWithTextOrRaise(u'Sign In').touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
         print "Typing Email Address"
         self.vc.findViewWithTextOrRaise(u'Email').setText("test_Chartcube@testchartcube.com")
-        self.vc.sleep(_s)
-        self.vc.dump(window=-1)
-
-        print "Typing Full Name"
-        self.vc.findViewWithTextOrRaise(u'Full Name').setText("Test Name")
-        self.vc.sleep(_s)
+        self.vc.sleep(3)
         self.vc.dump(window=-1)
 
         print "Typing Password"
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/create_account_password_edit").setText("test1234")
-        pwd = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/create_account_password_edit").text()
-        self.vc.sleep(_s)
+        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/sign_in_password_edit").touch()
+        self.vc.sleep(3)
         self.vc.dump(window=-1)
 
-        print "Typing Confirm Password"
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/create_account_confirm_edit").setText("test1234")
-        confirm_pwd = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/create_account_confirm_edit").text()
-        self.vc.sleep(_s)
+        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/sign_in_password_edit").setText("test1234")
+        self.vc.sleep(3)
         self.vc.dump(window=-1)
 
-        #Check if Password and Confirm Password match
-        if pwd == confirm_pwd:
-            self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/create_account_create_account_button").touch()
-            print "Clicked Create Account Button"
-            self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/create_account_create_account_button").touch()
-            self.vc.sleep(_s)
-            self.vc.dump(window=-1)
-        else:
-            print "Passwords did not match! Please re-enter"
+        print "Clicked Sign In Button"
+        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/sign_in_sign_in_button").touch()
+        self.vc.sleep(_s)
+        self.vc.dump(window=-1)
 
         #Check if redirected to Verify Email screen
         if self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/btn_verify"):
-            print "Account Created! Verify Email first!"
+            print "Passed! Need to Verify Email first!"
             self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewBackButton").touch()
             self.vc.sleep(_s)
             self.vc.dump(window=-1)
 
             self.vc.findViewWithTextOrRaise(u'Sign In').touch()
         else:
-            print "Account Creation Failed!"
+            print "Failed! Signed in successfully!"
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
