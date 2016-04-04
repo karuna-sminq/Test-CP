@@ -12,7 +12,7 @@ exec 2>&1
 echo '''
 Copyright (C) 2015-2016  CODE PANDORA
 Created on 2015-12-11
-Updated on 2016-02-03
+Updated on 2016-02-19
 
    __________  ____  ______   ____  ___    _   ______  ____  ____  ___
   / ____/ __ \/ __ \/ ____/  / __ \/   |  / | / / __ \/ __ \/ __ \/   |
@@ -24,8 +24,8 @@ Updated on 2016-02-03
 '''
 
 echo "================================="
-echo "Chartcube App v1.5.50 ..."
-echo "Running Test Suite v1.61 ..."
+echo "Chartcube App v1.5.51 ..."
+echo "Running Test Suite v1.70 ..."
 echo "================================="
 
 text1="OK"
@@ -46,6 +46,12 @@ interim()
 
 for folder in ANDROID/*
 do
+
+  #  #Begin recording tests for every folder
+  #  adb shell screenrecord /sdcard/$folder.mp4 &
+  #  echo "------------------"
+  #  echo "$folder"
+  #  echo "------------------"
 
   #Begin iterating through every file in specified folder
   for fname in $folder/*.py
