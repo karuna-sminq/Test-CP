@@ -12,7 +12,7 @@ exec 2>&1
 echo '''
 Copyright (C) 2015-2016  CODE PANDORA
 Created on 2015-12-11
-Updated on 2016-02-19
+Updated on 2016-04-04
 
    __________  ____  ______   ____  ___    _   ______  ____  ____  ___
   / ____/ __ \/ __ \/ ____/  / __ \/   |  / | / / __ \/ __ \/ __ \/   |
@@ -25,7 +25,7 @@ Updated on 2016-02-19
 
 echo "================================="
 echo "Chartcube App v1.5.51 ..."
-echo "Running Test Suite v1.70 ..."
+echo "Running Test Suite v1.71 ..."
 echo "================================="
 
 text1="OK"
