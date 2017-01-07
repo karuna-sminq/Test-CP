@@ -83,13 +83,13 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         #Check for No Connectivity message
-        if (self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/notification_for_no_network_textview")):
+        if (self.vc.findViewByIdOrRaise("com.cp.cubepager:id/notification_for_no_network_textview")):
             print "No Internet Connection!"
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
         #Cube click should be disabled
-        if not (self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCubeTitle").clickable()):
+        if not (self.vc.findViewByIdOrRaise("com.cp.cubepager:id/textViewCubeTitle").clickable()):
             print "Passed! Cube cannot be loaded! Connect to the internet first!"
         else:
             print "Failed! Cube load successful!"

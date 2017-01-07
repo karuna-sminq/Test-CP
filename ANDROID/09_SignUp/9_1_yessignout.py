@@ -66,7 +66,7 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
         
         self.vc.findViewByIdOrRaise(
-            "com.chartcube.cubepager:id/imageViewSettings").touch()
+            "com.cp.cubepager:id/imageViewSettings").touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
@@ -81,7 +81,7 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         #Check if Welcome Screen is visible
-        if (self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/view_pager_welcome_Screen")):
+        if (self.vc.findViewByIdOrRaise("com.cp.cubepager:id/view_pager_welcome_Screen")):
             print "Sign Out Successful!"
         else:
             print "Failed to Sign Out!"

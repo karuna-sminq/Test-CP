@@ -57,7 +57,7 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         print "Test Case: Excluding Drilldown"
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCubeTitle").touch()
+        self.vc.findViewByIdOrRaise("com.cp.cubepager:id/textViewCubeTitle").touch()
         self.vc.sleep(8)
         self.vc.dump(window=-1)
 
@@ -75,7 +75,7 @@ class CulebraTests(CulebraTestCase):
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewMetricName").touch()
+        self.vc.findViewByIdOrRaise("com.cp.cubepager:id/textViewMetricName").touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
@@ -89,18 +89,18 @@ class CulebraTests(CulebraTestCase):
         self.vc.sleep(5)
         self.vc.dump(window=-1)
 
-        axis_text = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewAxis1Value").text()
+        axis_text = self.vc.findViewByIdOrRaise("com.cp.cubepager:id/textViewAxis1Value").text()
 
-        drill_text = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewDrilDownName").text()
+        drill_text = self.vc.findViewByIdOrRaise("com.cp.cubepager:id/textViewDrilDownName").text()
 
         if axis_text == drill_text:
             print "Drilldown check Passed!"
         else:
             print "Drilldown check Failed!"
 
-        if (self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewCloseDrill")):
+        if (self.vc.findViewByIdOrRaise("com.cp.cubepager:id/imageViewCloseDrill")):
             print "Drilldown filter found..."
-            self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewCloseDrill").touch()
+            self.vc.findViewByIdOrRaise("com.cp.cubepager:id/imageViewCloseDrill").touch()
             self.vc.sleep(_s)
             self.vc.dump(window=-1)
 
@@ -115,7 +115,7 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         print "Back to Home"
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewBackButton").touch()
+        self.vc.findViewByIdOrRaise("com.cp.cubepager:id/imageViewBackButton").touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 

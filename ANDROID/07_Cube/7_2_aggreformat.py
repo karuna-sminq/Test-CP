@@ -57,7 +57,7 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         print "Test Case: Choosing Aggregation and Format from List"
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCubeTitle").touch()
+        self.vc.findViewByIdOrRaise("com.cp.cubepager:id/textViewCubeTitle").touch()
         self.vc.sleep(8)
         self.vc.dump(window=-1)
 
@@ -70,8 +70,8 @@ class CulebraTests(CulebraTestCase):
         self.vc.sleep(3)
         self.vc.dump(window=-1)
 
-        print "Metric: ",self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewMetricName").text()
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewMetricName").touch()
+        print "Metric: ",self.vc.findViewByIdOrRaise("com.cp.cubepager:id/textViewMetricName").text()
+        self.vc.findViewByIdOrRaise("com.cp.cubepager:id/textViewMetricName").touch()
         self.vc.sleep(3)
         self.vc.dump(window=-1)
 
@@ -118,7 +118,7 @@ class CulebraTests(CulebraTestCase):
             print "Aggregation value has changed! Passed!"
 
         #Check for Digits < 4 (w/ & w/o decimal)
-        orig_string = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewAxis2Value").text()
+        orig_string = self.vc.findViewByIdOrRaise("com.cp.cubepager:id/textViewAxis2Value").text()
 
         if re.search('[K,M,.,%,$,(,)]',orig_string):
             new_string = re.sub('[\s,K,M,.,%,$,(,)]','',orig_string)
@@ -137,7 +137,7 @@ class CulebraTests(CulebraTestCase):
                 print "aggregation value check Failed!"
 
         print "Back to Home"
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewBackButton").touch()
+        self.vc.findViewByIdOrRaise("com.cp.cubepager:id/imageViewBackButton").touch()
         self.vc.sleep(_s)
 
 if __name__ == '__main__':

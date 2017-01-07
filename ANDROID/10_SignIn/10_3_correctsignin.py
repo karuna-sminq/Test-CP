@@ -68,21 +68,21 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         print "Typing Password"
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/sign_in_password_edit").touch()
+        self.vc.findViewByIdOrRaise("com.cp.cubepager:id/sign_in_password_edit").touch()
         self.vc.sleep(3)
         self.vc.dump(window=-1)
 
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/sign_in_password_edit").setText("karuna@cp2015")
+        self.vc.findViewByIdOrRaise("com.cp.cubepager:id/sign_in_password_edit").setText("karuna@cp2015")
         self.vc.sleep(3)
         self.vc.dump(window=-1)
 
         print "Clicked Sign In Button"
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/sign_in_sign_in_button").touch()
+        self.vc.findViewByIdOrRaise("com.cp.cubepager:id/sign_in_sign_in_button").touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
         #Check for Main Home Page
-        if (self.vc.findViewWithTextOrRaise('All Chartcubes')):
+        if (self.vc.findViewWithTextOrRaise('All cps')):
             print "Sign In successful!"
         else:
             print "Sign In failed!"

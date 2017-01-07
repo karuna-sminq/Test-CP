@@ -56,15 +56,15 @@ class CulebraTests(CulebraTestCase):
 
         self.vc.dump(window=-1)
 
-        print "Test Case: Create New Chartcube"
+        print "Test Case: Create New cp"
 
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/buttonCreateNewChartCube").touch()
+        self.vc.findViewByIdOrRaise("com.cp.cubepager:id/buttonCreateNewcp").touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        #Check for New chartcube creation
-        if self.vc.findViewWithTextOrRaise(u'Please go to www.chartcube.com on your desktop to create new chartcubes.'):
-            print "Create new chartcubes on www.chartcube.com! Passed!"
+        #Check for New cp creation
+        if self.vc.findViewWithTextOrRaise(u'Please go to www.cp.com on your desktop to create new cps.'):
+            print "Create new cps on www.cp.com! Passed!"
             self.vc.findViewWithTextOrRaise(u'OK').touch()
 
         self.vc.dump(window=-1)

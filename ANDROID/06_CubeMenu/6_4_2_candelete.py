@@ -58,9 +58,9 @@ class CulebraTests(CulebraTestCase):
 
         print "MenuList- Delete/Remove"
 
-        title_before = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCubeTitle").text()
+        title_before = self.vc.findViewByIdOrRaise("com.cp.cubepager:id/textViewCubeTitle").text()
 
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewMenuList").touch()
+        self.vc.findViewByIdOrRaise("com.cp.cubepager:id/imageViewMenuList").touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
@@ -73,7 +73,7 @@ class CulebraTests(CulebraTestCase):
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        title_after = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCubeTitle").text()
+        title_after = self.vc.findViewByIdOrRaise("com.cp.cubepager:id/textViewCubeTitle").text()
 
         if title_before == title_after:
             print "Delete cancelled!"
@@ -82,14 +82,14 @@ class CulebraTests(CulebraTestCase):
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        if (self.vc.findViewWithTextOrRaise(u'My Chartcubes', root=self.vc.findViewByIdOrRaise('id/no_id/3'))):
-            self.vc.findViewWithTextOrRaise(u'My Chartcubes', root=self.vc.findViewByIdOrRaise('id/no_id/3')).touch()
+        if (self.vc.findViewWithTextOrRaise(u'My cps', root=self.vc.findViewByIdOrRaise('id/no_id/3'))):
+            self.vc.findViewWithTextOrRaise(u'My cps', root=self.vc.findViewByIdOrRaise('id/no_id/3')).touch()
             self.vc.sleep(_s)
             self.vc.dump(window=-1)
 
-            if (self.vc.findViewWithTextOrRaise(u'All Chartcubes')):
-                print "CubeFilter- Back to All Chartcubes"
-                self.vc.findViewWithTextOrRaise(u'All Chartcubes').touch()
+            if (self.vc.findViewWithTextOrRaise(u'All cps')):
+                print "CubeFilter- Back to All cps"
+                self.vc.findViewWithTextOrRaise(u'All cps').touch()
                 self.vc.sleep(_s)
                 self.vc.dump(window=-1)
 if __name__ == '__main__':

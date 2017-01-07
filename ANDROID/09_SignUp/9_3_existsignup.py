@@ -57,7 +57,7 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         print "Test Case: Sign Up - Existing User"
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewSettings").touch()
+        self.vc.findViewByIdOrRaise("com.cp.cubepager:id/imageViewSettings").touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
@@ -84,19 +84,19 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         print "Typing Password"
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/create_account_password_edit").setText("karuna@cp2015")
+        self.vc.findViewByIdOrRaise("com.cp.cubepager:id/create_account_password_edit").setText("karuna@cp2015")
         self.vc.sleep(3)
         self.vc.dump(window=-1)
 
         print "Typing Confirm Password"
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/create_account_confirm_edit").setText("karuna@cp2015")
+        self.vc.findViewByIdOrRaise("com.cp.cubepager:id/create_account_confirm_edit").setText("karuna@cp2015")
         self.vc.sleep(3)
         self.vc.dump(window=-1)
 
         print "Clicked Create Account Button"
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/create_account_create_account_button").touch()
+        self.vc.findViewByIdOrRaise("com.cp.cubepager:id/create_account_create_account_button").touch()
 
-        if self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/create_account_create_account_button"):
+        if self.vc.findViewByIdOrRaise("com.cp.cubepager:id/create_account_create_account_button"):
             print "Email Id is already registered!"
         else:
             print "Signed up successfully!"

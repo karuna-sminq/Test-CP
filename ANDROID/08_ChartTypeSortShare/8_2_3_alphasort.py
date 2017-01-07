@@ -57,7 +57,7 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         print "Test Case: Sorting - Alphabetical"
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCubeTitle").touch()
+        self.vc.findViewByIdOrRaise("com.cp.cubepager:id/textViewCubeTitle").touch()
         self.vc.sleep(8)
         self.vc.dump(window=-1)
 
@@ -66,7 +66,7 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         print "Options Menu: "
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewChartCubeOptionsMenu").touch()
+        self.vc.findViewByIdOrRaise("com.cp.cubepager:id/imageViewcpOptionsMenu").touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
@@ -84,19 +84,19 @@ class CulebraTests(CulebraTestCase):
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        val1 = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewAxis1Value").text()
+        val1 = self.vc.findViewByIdOrRaise("com.cp.cubepager:id/textViewAxis1Value").text()
 
         self.device.touch(432.0, 684.0, 0)
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        val2 = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewAxis1Value").text()
+        val2 = self.vc.findViewByIdOrRaise("com.cp.cubepager:id/textViewAxis1Value").text()
 
         self.device.touch(614.0, 702.0, 0)
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        val3 = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewAxis1Value").text()
+        val3 = self.vc.findViewByIdOrRaise("com.cp.cubepager:id/textViewAxis1Value").text()
 
         #Check for Alphabetical Sort - Axis name values
         if val1 < val2 and val2 < val3:
@@ -105,7 +105,7 @@ class CulebraTests(CulebraTestCase):
             print "Failed to display chart Alphabetically!"
 
         print "Back to Home"
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewBackButton").touch()
+        self.vc.findViewByIdOrRaise("com.cp.cubepager:id/imageViewBackButton").touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 

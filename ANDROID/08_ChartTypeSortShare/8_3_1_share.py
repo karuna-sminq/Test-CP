@@ -57,7 +57,7 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         print "Test Case: Share "
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCubeTitle").touch()
+        self.vc.findViewByIdOrRaise("com.cp.cubepager:id/textViewCubeTitle").touch()
         self.vc.sleep(8)
         self.vc.dump(window=-1)
 
@@ -66,7 +66,7 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         print "Options Menu: "
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewChartCubeOptionsMenu").touch()
+        self.vc.findViewByIdOrRaise("com.cp.cubepager:id/imageViewcpOptionsMenu").touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
@@ -96,12 +96,12 @@ class CulebraTests(CulebraTestCase):
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewBackButton").touch()
+        self.vc.findViewByIdOrRaise("com.cp.cubepager:id/imageViewBackButton").touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
         print "Back to Home"
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewBackButton").touch()
+        self.vc.findViewByIdOrRaise("com.cp.cubepager:id/imageViewBackButton").touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 

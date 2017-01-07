@@ -81,16 +81,16 @@ class CulebraTests(CulebraTestCase):
             child_list = removeDuplicates(view_family)
 
             while (len(view_family) - len(child_list)) <= collisions:
-                if (self.vc.findViewWithTextOrRaise(u'Shared Chartcubes', root=self.vc.findViewByIdOrRaise('id/no_id/3'))):
+                if (self.vc.findViewWithTextOrRaise(u'Shared cps', root=self.vc.findViewByIdOrRaise('id/no_id/3'))):
                     #All Cubes
                     self.vc.sleep(_s)
                     self.vc.dump(window=-1)
 
-                    owner = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCubeOwner")
+                    owner = self.vc.findViewByIdOrRaise("com.cp.cubepager:id/textViewCubeOwner")
                     print owner.text()
                     result = re.search('^[^You]', owner.text())
                     if result:
-                        print "Check for Shared Chartcubes: Passed..."
+                        print "Check for Shared cps: Passed..."
                     else:
                         print "Failed..."
 
@@ -104,7 +104,7 @@ class CulebraTests(CulebraTestCase):
 
             return child_list
 
-        print "Test Case: CubeFilter- Shared Chartcubes"
+        print "Test Case: CubeFilter- Shared cps"
 
         #print [method for method in dir(android___id_list) if callable(getattr(android___id_list, method))]
 
@@ -112,14 +112,14 @@ class CulebraTests(CulebraTestCase):
 
         all_views = getAllViews(android___id_list , 1)
 
-        if (self.vc.findViewWithTextOrRaise(u'Shared Chartcubes', root=self.vc.findViewByIdOrRaise('id/no_id/3'))):
-            self.vc.findViewWithTextOrRaise(u'Shared Chartcubes', root=self.vc.findViewByIdOrRaise('id/no_id/3')).touch()
+        if (self.vc.findViewWithTextOrRaise(u'Shared cps', root=self.vc.findViewByIdOrRaise('id/no_id/3'))):
+            self.vc.findViewWithTextOrRaise(u'Shared cps', root=self.vc.findViewByIdOrRaise('id/no_id/3')).touch()
             self.vc.sleep(_s)
             self.vc.dump(window=-1)
 
-            if (self.vc.findViewWithTextOrRaise(u'All Chartcubes')):
-                print "CubeFilter- Back to All Chartcubes"
-                self.vc.findViewWithTextOrRaise(u'All Chartcubes').touch()
+            if (self.vc.findViewWithTextOrRaise(u'All cps')):
+                print "CubeFilter- Back to All cps"
+                self.vc.findViewWithTextOrRaise(u'All cps').touch()
                 self.vc.sleep(_s)
                 self.vc.dump(window=-1)
 

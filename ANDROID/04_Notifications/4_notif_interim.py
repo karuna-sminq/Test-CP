@@ -88,7 +88,7 @@ class CulebraTests(CulebraTestCase):
                 self.vc.sleep(_s)
                 self.vc.dump(window=-1)
 
-                no_id_1 = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/tv_comment_heading")
+                no_id_1 = self.vc.findViewByIdOrRaise("com.cp.cubepager:id/tv_comment_heading")
                 title = re.search('shared | commented', no_id_1.text())
                 if (title):
                     print "Check for Notifications Passed!"
@@ -106,7 +106,7 @@ class CulebraTests(CulebraTestCase):
             return child_list
 
         print "Test Case: Notifications"
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/notifications").touch()
+        self.vc.findViewByIdOrRaise("com.cp.cubepager:id/notifications").touch()
         self.vc.sleep(2)
         self.vc.dump(window=-1)
 

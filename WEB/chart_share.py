@@ -21,8 +21,8 @@ class ChartShare(unittest.TestCase):
 
     def test_chart_share(self):
         driver = self.driver
-        print "Selenium Test Case: Chartcube Web: Share"
-        driver.get("http://development.chartcube.com/")
+        print "Selenium Test Case: cp Web: Share"
+        driver.get("http://development.cp.com/")
         time.sleep(15)
 
         driver.find_element_by_css_selector(

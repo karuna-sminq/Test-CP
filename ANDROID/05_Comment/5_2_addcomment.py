@@ -57,11 +57,11 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         print "Test Case: Adding a Comment"
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCubeTitle").touch()
+        self.vc.findViewByIdOrRaise("com.cp.cubepager:id/textViewCubeTitle").touch()
         self.vc.sleep(8)
         self.vc.dump(window=-1)
 
-        ccount_before = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCommentCount").text()
+        ccount_before = self.vc.findViewByIdOrRaise("com.cp.cubepager:id/textViewCommentCount").text()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
@@ -87,13 +87,13 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         #Check for PostButton
-        if self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/bt_add_comment").enabled():
+        if self.vc.findViewByIdOrRaise("com.cp.cubepager:id/bt_add_comment").enabled():
             print "Posting a Comment"
             self.vc.findViewWithTextOrRaise(u'Post').touch()
             self.vc.sleep(_s)
             self.vc.dump(window=-1)
 
-        ccount_after = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCommentCount").text()
+        ccount_after = self.vc.findViewByIdOrRaise("com.cp.cubepager:id/textViewCommentCount").text()
 
         if ccount_after > ccount_before:
             print "New comment added!"
@@ -107,7 +107,7 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         print "Back to Home"
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewBackButton").touch()
+        self.vc.findViewByIdOrRaise("com.cp.cubepager:id/imageViewBackButton").touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 

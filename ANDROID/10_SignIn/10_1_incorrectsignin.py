@@ -82,7 +82,7 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         #Check for Forgot Password functionality
-        if self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/forgot_password_send_email_button").enabled():
+        if self.vc.findViewByIdOrRaise("com.cp.cubepager:id/forgot_password_send_email_button").enabled():
             print "Reset Password Instructions sent!"
         else:
             print "Enter registered email!"

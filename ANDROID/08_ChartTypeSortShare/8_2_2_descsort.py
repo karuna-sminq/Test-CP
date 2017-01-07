@@ -57,7 +57,7 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         print "Test Case: Sorting - Descending"
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCubeTitle").touch()
+        self.vc.findViewByIdOrRaise("com.cp.cubepager:id/textViewCubeTitle").touch()
         self.vc.sleep(8)
         self.vc.dump(window=-1)
 
@@ -66,7 +66,7 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         print "Options Menu: "
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewChartCubeOptionsMenu").touch()
+        self.vc.findViewByIdOrRaise("com.cp.cubepager:id/imageViewcpOptionsMenu").touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
@@ -84,13 +84,13 @@ class CulebraTests(CulebraTestCase):
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        axis1 = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewAxis2Value").text()
+        axis1 = self.vc.findViewByIdOrRaise("com.cp.cubepager:id/textViewAxis2Value").text()
 
         self.device.touch(432.0, 684.0, 0)
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        axis2 = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewAxis2Value").text()
+        axis2 = self.vc.findViewByIdOrRaise("com.cp.cubepager:id/textViewAxis2Value").text()
 
         #Check for Descending Sort - Axis values
         if (axis1 >= axis2):
@@ -99,7 +99,7 @@ class CulebraTests(CulebraTestCase):
             print "Failed! Chart did not use Descending Sort!"
 
         print "Back to Home"
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewBackButton").touch()
+        self.vc.findViewByIdOrRaise("com.cp.cubepager:id/imageViewBackButton").touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 

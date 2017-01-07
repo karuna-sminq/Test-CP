@@ -57,7 +57,7 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         print "Test Case: Launch Application"
-        self.vc.findViewWithTextOrRaise(u'Chartcube').touch()
+        self.vc.findViewWithTextOrRaise(u'cp').touch()
         self.vc.sleep(8)
         self.vc.dump(window=-1)
 
@@ -65,7 +65,7 @@ class CulebraTests(CulebraTestCase):
 
         #Check if Application has launched
         if (android___id_list.isScrollable()):
-            print "App Launched! Scrolling through list of Chartcubes."
+            print "App Launched! Scrolling through list of cps."
             android___id_list.uiScrollable.flingToEnd()
 
         else:
@@ -73,7 +73,7 @@ class CulebraTests(CulebraTestCase):
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        self.vc.device.takeSnapshot().save("/home/cp_android2/Documents/CP Projects/Chartcube/ANDROID/Screenshots/HomePage.png", 'PNG')
+        self.vc.device.takeSnapshot().save("/home/cp_android2/Documents/CP Projects/cp/ANDROID/Screenshots/HomePage.png", 'PNG')
         print "Screenshot captured!"
         self.vc.sleep(_s)
 

@@ -57,7 +57,7 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         print "Test Case: Chart Type - Pie Chart"
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCubeTitle").touch()
+        self.vc.findViewByIdOrRaise("com.cp.cubepager:id/textViewCubeTitle").touch()
         self.vc.sleep(8)
         self.vc.dump(window=-1)
 
@@ -66,7 +66,7 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         print "Options Menu: "
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewChartCubeOptionsMenu").touch()
+        self.vc.findViewByIdOrRaise("com.cp.cubepager:id/imageViewcpOptionsMenu").touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
@@ -106,12 +106,12 @@ class CulebraTests(CulebraTestCase):
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        val = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewAxis2Value").text()
+        val = self.vc.findViewByIdOrRaise("com.cp.cubepager:id/textViewAxis2Value").text()
 
         new_val = re.search('-',val)
         if new_val:
             print "Negative axis value found!"
-            self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewChartCubeOptionsMenu").touch()
+            self.vc.findViewByIdOrRaise("com.cp.cubepager:id/imageViewcpOptionsMenu").touch()
             self.vc.sleep(_s)
             self.vc.dump(window=-1)
 
@@ -131,7 +131,7 @@ class CulebraTests(CulebraTestCase):
             "No negative axis value!"
 
         print "Back to Home"
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewBackButton").touch()
+        self.vc.findViewByIdOrRaise("com.cp.cubepager:id/imageViewBackButton").touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 

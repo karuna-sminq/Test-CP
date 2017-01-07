@@ -57,7 +57,7 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         print "Test Case: Bookmark List of Cube"
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewCommentCount").touch()
+        self.vc.findViewByIdOrRaise("com.cp.cubepager:id/imageViewCommentCount").touch()
         self.vc.sleep(8)
         self.vc.dump(window=-1)
 
@@ -72,14 +72,14 @@ class CulebraTests(CulebraTestCase):
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        met_before = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewMetricName").text()
+        met_before = self.vc.findViewByIdOrRaise("com.cp.cubepager:id/textViewMetricName").text()
 
         #Check for Swiping to the Left in SplitView Mode
         self.device.dragDip((54.0, 380.0), (338.0, 371.0), 1000, 20, 0)
         self.vc.sleep(1)
         self.vc.dump(window=-1)
 
-        met_afterswipe = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewMetricName").text()
+        met_afterswipe = self.vc.findViewByIdOrRaise("com.cp.cubepager:id/textViewMetricName").text()
 
         if met_before == met_afterswipe:
             print "Swipe disabled in SplitView Mode: Passed!"
@@ -87,11 +87,11 @@ class CulebraTests(CulebraTestCase):
             print "Disable swipe in SplitView Mode: Failed!"
 
         print "Go to Next bookmark"
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/iv_bookmark_next").touch()
+        self.vc.findViewByIdOrRaise("com.cp.cubepager:id/iv_bookmark_next").touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        met_after = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewMetricName").text()
+        met_after = self.vc.findViewByIdOrRaise("com.cp.cubepager:id/textViewMetricName").text()
 
         if met_before != met_after:
             print "Next bookmark displayed!"
@@ -100,14 +100,14 @@ class CulebraTests(CulebraTestCase):
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        met_before = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewMetricName").text()
+        met_before = self.vc.findViewByIdOrRaise("com.cp.cubepager:id/textViewMetricName").text()
 
         print "Go to Previous bookmark"
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/iv_bookmark_prev").touch()
+        self.vc.findViewByIdOrRaise("com.cp.cubepager:id/iv_bookmark_prev").touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        met_after = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewMetricName").text()
+        met_after = self.vc.findViewByIdOrRaise("com.cp.cubepager:id/textViewMetricName").text()
 
         if met_before != met_after:
             print "Previous bookmark displayed!"
@@ -121,7 +121,7 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         print "Back to Home"
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewBackButton").touch()
+        self.vc.findViewByIdOrRaise("com.cp.cubepager:id/imageViewBackButton").touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 

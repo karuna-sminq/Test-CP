@@ -58,9 +58,9 @@ class CulebraTests(CulebraTestCase):
 
         print "MenuList- Copy"
 
-        title_before = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCubeTitle").text()
+        title_before = self.vc.findViewByIdOrRaise("com.cp.cubepager:id/textViewCubeTitle").text()
 
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewMenuList").touch()
+        self.vc.findViewByIdOrRaise("com.cp.cubepager:id/imageViewMenuList").touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
@@ -73,14 +73,14 @@ class CulebraTests(CulebraTestCase):
         self.vc.sleep(10)
         self.vc.dump(window=-1)
 
-        title_after = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCubeTitle").text()
+        title_after = self.vc.findViewByIdOrRaise("com.cp.cubepager:id/textViewCubeTitle").text()
 
         #1st Check for: copied title's position replaced by original title's position
         if title_before != title_after:
             self.device.dragDip((181.0, 447.0), (176.0, 238.0), 1000, 20, 0)
             self.vc.sleep(1)
             self.vc.dump(window=-1)
-            orig_title = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCubeTitle").text()
+            orig_title = self.vc.findViewByIdOrRaise("com.cp.cubepager:id/textViewCubeTitle").text()
 
             #2nd Check for: Copy should retain original cube as well
             if title_before == orig_title:

@@ -58,9 +58,9 @@ class CulebraTests(CulebraTestCase):
 
         print "MenuList- Copy"
 
-        title_before = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCubeTitle").text()
+        title_before = self.vc.findViewByIdOrRaise("com.cp.cubepager:id/textViewCubeTitle").text()
 
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewMenuList").touch()
+        self.vc.findViewByIdOrRaise("com.cp.cubepager:id/imageViewMenuList").touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
@@ -73,7 +73,7 @@ class CulebraTests(CulebraTestCase):
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        title_after = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCubeTitle").text()
+        title_after = self.vc.findViewByIdOrRaise("com.cp.cubepager:id/textViewCubeTitle").text()
 
         if title_before == title_after:
             print "Copy Cancelled!"

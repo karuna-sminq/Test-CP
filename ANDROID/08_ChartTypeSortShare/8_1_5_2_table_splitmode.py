@@ -80,7 +80,7 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         print "Options Menu: "
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewChartCubeOptionsMenu").touch()
+        self.vc.findViewByIdOrRaise("com.cp.cubepager:id/imageViewcpOptionsMenu").touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
@@ -102,7 +102,7 @@ class CulebraTests(CulebraTestCase):
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        overlay_text = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/view_table_overlay")
+        overlay_text = self.vc.findViewByIdOrRaise("com.cp.cubepager:id/view_table_overlay")
 #        print overlay_text.enabled()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
@@ -147,7 +147,7 @@ class CulebraTests(CulebraTestCase):
             self.vc.dump(window=-1)
 
         print "Back to Home"
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewBackButton").touch()
+        self.vc.findViewByIdOrRaise("com.cp.cubepager:id/imageViewBackButton").touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 

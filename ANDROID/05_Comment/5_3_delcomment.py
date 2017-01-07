@@ -57,11 +57,11 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         print "Test Case: Deleting a Comment"
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCubeTitle").touch()
+        self.vc.findViewByIdOrRaise("com.cp.cubepager:id/textViewCubeTitle").touch()
         self.vc.sleep(8)
         self.vc.dump(window=-1)
 
-        ccount_before = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCommentCount").text()
+        ccount_before = self.vc.findViewByIdOrRaise("com.cp.cubepager:id/textViewCommentCount").text()
 
         print "Deleting a Comment"
         self.device.dragDip((301.0, 522.0), (120.0, 523.0), 1000, 20, 0)
@@ -77,7 +77,7 @@ class CulebraTests(CulebraTestCase):
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        ccount_after = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCommentCount").text()
+        ccount_after = self.vc.findViewByIdOrRaise("com.cp.cubepager:id/textViewCommentCount").text()
 
         if ccount_after < ccount_before:
             print "1 comment deleted!"
@@ -91,7 +91,7 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         print "Back to Home"
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewBackButton").touch()
+        self.vc.findViewByIdOrRaise("com.cp.cubepager:id/imageViewBackButton").touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 

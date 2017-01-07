@@ -57,7 +57,7 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         print "Test Case: Choosing Metric and Dimension from List"
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCubeTitle").touch()
+        self.vc.findViewByIdOrRaise("com.cp.cubepager:id/textViewCubeTitle").touch()
         self.vc.sleep(8)
         self.vc.dump(window=-1)
 
@@ -71,7 +71,7 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         #Check for MenuOptionsButton while Metric/Dimension List is displayed
-        if self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewChartCubeOptionsMenu").focusable():
+        if self.vc.findViewByIdOrRaise("com.cp.cubepager:id/imageViewcpOptionsMenu").focusable():
             print "Failed! MenuOptions Button should be disabled when List is displayed!"
         else:
             print "Passed! MenuOptions Button is disabled when List is displayed!"
@@ -81,7 +81,7 @@ class CulebraTests(CulebraTestCase):
         self.device.longTouch(80.0, 608.0, 2000, 0)
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
-        print "Chose Metric: ",self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewMetricName").text()
+        print "Chose Metric: ",self.vc.findViewByIdOrRaise("com.cp.cubepager:id/textViewMetricName").text()
         self.vc.sleep(3)
         self.vc.dump(window=-1)
 
@@ -93,12 +93,12 @@ class CulebraTests(CulebraTestCase):
         self.device.longTouch(496.0, 402.0, 2000, 0)
         self.vc.sleep(5)
         self.vc.dump(window=-1)
-        print "Chose Dimension: ",self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewDimensionName").text()
+        print "Chose Dimension: ",self.vc.findViewByIdOrRaise("com.cp.cubepager:id/textViewDimensionName").text()
         self.vc.sleep(3)
         self.vc.dump(window=-1)
 
         print "Back to Home"
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewBackButton").touch()
+        self.vc.findViewByIdOrRaise("com.cp.cubepager:id/imageViewBackButton").touch()
         self.vc.sleep(_s)
 
 if __name__ == '__main__':

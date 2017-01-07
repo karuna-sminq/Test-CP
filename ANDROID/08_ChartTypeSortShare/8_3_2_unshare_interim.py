@@ -63,7 +63,7 @@ class CulebraTests(CulebraTestCase):
         print "Test Case: UnShare"
 
         #Call to selenium web app - share test
-        call(["python","/home/cp_android2/Documents/AndroidViewClient/Chartcube/WEB/chart_share.py"])
+        call(["python","/home/cp_android2/Documents/AndroidViewClient/cp/WEB/chart_share.py"])
         self.vc.sleep(10)
         self.vc.dump(window=-1)
 
@@ -75,15 +75,15 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         #If Cube owner: access cannot be removed
-        owner = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCubeOwner")
+        owner = self.vc.findViewByIdOrRaise("com.cp.cubepager:id/textViewCubeOwner")
         print owner.text()
         result = re.search('^[^You]', owner.text())
 
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/notifications").touch()
+        self.vc.findViewByIdOrRaise("com.cp.cubepager:id/notifications").touch()
         self.vc.sleep(10)
         self.vc.dump(window=-1)
 
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/list_item").touch()
+        self.vc.findViewByIdOrRaise("com.cp.cubepager:id/list_item").touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
@@ -92,7 +92,7 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         #Call to selenium web app - unshare test
-        call(["python","/home/cp_android2/Documents/AndroidViewClient/Chartcube/WEB/chart_unshare.py"])
+        call(["python","/home/cp_android2/Documents/AndroidViewClient/cp/WEB/chart_unshare.py"])
 
         #Check for cube access removal
         if result:

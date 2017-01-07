@@ -57,19 +57,19 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         print "MenuList- Rename"
-        self.vc.findViewWithTextOrRaise(u'All Chartcubes', root=self.vc.findViewByIdOrRaise('id/no_id/3')).touch()
+        self.vc.findViewWithTextOrRaise(u'All cps', root=self.vc.findViewByIdOrRaise('id/no_id/3')).touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        if (self.vc.findViewWithTextOrRaise(u'My Chartcubes')):
-            print "Go to My Chartcubes"
-        self.vc.findViewWithTextOrRaise(u'My Chartcubes').touch()
+        if (self.vc.findViewWithTextOrRaise(u'My cps')):
+            print "Go to My cps"
+        self.vc.findViewWithTextOrRaise(u'My cps').touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        title_before = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCubeTitle").text()
+        title_before = self.vc.findViewByIdOrRaise("com.cp.cubepager:id/textViewCubeTitle").text()
 
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewMenuList").touch()
+        self.vc.findViewByIdOrRaise("com.cp.cubepager:id/imageViewMenuList").touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
@@ -77,7 +77,7 @@ class CulebraTests(CulebraTestCase):
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/et_new_name").setText("Renamed version")
+        self.vc.findViewByIdOrRaise("com.cp.cubepager:id/et_new_name").setText("Renamed version")
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
@@ -86,7 +86,7 @@ class CulebraTests(CulebraTestCase):
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
-        title_after = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCubeTitle").text()
+        title_after = self.vc.findViewByIdOrRaise("com.cp.cubepager:id/textViewCubeTitle").text()
 
         #1st Check for: renamed title's position replaced by original title's position
         if title_before != title_after:
@@ -94,7 +94,7 @@ class CulebraTests(CulebraTestCase):
             self.vc.sleep(1)
             self.vc.dump(window=-1)
 
-            orig_title = self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/textViewCubeTitle").text()
+            orig_title = self.vc.findViewByIdOrRaise("com.cp.cubepager:id/textViewCubeTitle").text()
 
             #2nd Check for: Renames original cube (in case it does not rename)
             if title_before != orig_title:

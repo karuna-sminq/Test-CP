@@ -1,0 +1,18 @@
+(Staging.cp.com) For Issue: #Face preference does not get updated if user is on share cube view
+
+Cube: Sock Sales_karuna_copy
+
+- Store by Sales Growth w/ 3 drilldowns (bookmark)
+
+(Staging.cp.com) For Issue: #Aggregation function name does not change
+
+Cube: Sock Sales_karuna_copy
+
+- Sales by Sock Style (Bar chart)
+- Sales Growth by Sock Style (Bar chart)
+
+(cp.com) For Issue: #No Axis values on Negative value faces
+
+Cube: Sock Sales - fp karuna copy
+
+- Growth by Region (Bar, Area)

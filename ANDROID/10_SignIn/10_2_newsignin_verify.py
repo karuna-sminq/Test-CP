@@ -63,28 +63,28 @@ class CulebraTests(CulebraTestCase):
         self.vc.dump(window=-1)
 
         print "Typing Email Address"
-        self.vc.findViewWithTextOrRaise(u'Email').setText("test_Chartcube@testchartcube.com")
+        self.vc.findViewWithTextOrRaise(u'Email').setText("test_cp@testcp.com")
         self.vc.sleep(3)
         self.vc.dump(window=-1)
 
         print "Typing Password"
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/sign_in_password_edit").touch()
+        self.vc.findViewByIdOrRaise("com.cp.cubepager:id/sign_in_password_edit").touch()
         self.vc.sleep(3)
         self.vc.dump(window=-1)
 
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/sign_in_password_edit").setText("test1234")
+        self.vc.findViewByIdOrRaise("com.cp.cubepager:id/sign_in_password_edit").setText("test1234")
         self.vc.sleep(3)
         self.vc.dump(window=-1)
 
         print "Clicked Sign In Button"
-        self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/sign_in_sign_in_button").touch()
+        self.vc.findViewByIdOrRaise("com.cp.cubepager:id/sign_in_sign_in_button").touch()
         self.vc.sleep(_s)
         self.vc.dump(window=-1)
 
         #Check if redirected to Verify Email screen
-        if self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/btn_verify"):
+        if self.vc.findViewByIdOrRaise("com.cp.cubepager:id/btn_verify"):
             print "Passed! Need to Verify Email first!"
-            self.vc.findViewByIdOrRaise("com.chartcube.cubepager:id/imageViewBackButton").touch()
+            self.vc.findViewByIdOrRaise("com.cp.cubepager:id/imageViewBackButton").touch()
             self.vc.sleep(_s)
             self.vc.dump(window=-1)
 
